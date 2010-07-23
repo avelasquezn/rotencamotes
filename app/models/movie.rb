@@ -1,2 +1,30 @@
 class Movie < ActiveRecord::Base
+  validates_presence_of :title
+  validates_presence_of :country
+  validates_presence_of :language
+  validates_presence_of :mpaa_rate
+  has_many :movie_genres
+  has_many :genres, :through => :movie_genres
+  has_many :movie_directors
+  has_many :directors, :through => :movie_directors
+  has_many :movie_writers
+  has_many :writers, :through => :movie_writers
 end
+
+
+
+# == Schema Information
+#
+# Table name: movies
+#
+#  id          :integer(4)      not null, primary key
+#  title       :string(255)
+#  summary     :text
+#  synopsis    :text
+#  released_at :datetime
+#  lenght      :string(255)
+#  website     :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
