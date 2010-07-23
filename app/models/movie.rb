@@ -13,6 +13,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: movies
@@ -26,5 +27,8 @@ end
 #  website     :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  country     :string(255)
+#  language    :string(255)
+#  mpaa_rate   :string(255)
 #
 
