@@ -1,7 +1,7 @@
 class Genre < ActiveRecord::Base
   has_many :movie_genres
   has_many :movies, :through => :movie_genres
-  has_many :profiles, :foreign_key => "favorite_genre_id"
+  has_many :fans , :class_name => "Profile", :foreign_key => "favorite_genre_id"
 end
 
 
