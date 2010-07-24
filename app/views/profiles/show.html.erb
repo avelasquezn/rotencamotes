@@ -1,0 +1,18 @@
+<p>
+  <b>Current location:</b>
+  <%=h @profile.current_location %>
+</p>
+
+<p>
+  <b>Favorite movie character:</b>
+  <%=h @profile.favorite_movie_character %>
+</p>
+
+<p>
+  <b>Favorite movie line:</b>
+  <%=h @profile.favorite_movie_line %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

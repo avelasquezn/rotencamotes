@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100723214535) do
+ActiveRecord::Schema.define(:version => 20100724002928) do
 
   create_table "genres", :force => true do |t|
     t.string   "name"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(:version => 20100723214535) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "current_location"
+    t.string   "favorite_movie_character"
+    t.string   "favorite_movie_line"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

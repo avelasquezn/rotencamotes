@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  current_location: MyString
+  favorite_movie_character: MyString
+  favorite_movie_line: MyString
+
+two:
+  current_location: MyString
+  favorite_movie_character: MyString
+  favorite_movie_line: MyString
