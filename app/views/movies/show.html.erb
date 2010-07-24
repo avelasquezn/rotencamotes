@@ -27,7 +27,21 @@
   <b>Website:</b>
   <%=h @movie.website %>
 </p>
+<p>
+  <b>Country:</b>
+  <%=h @movie.country %>
+</p>
+<p>
+  <b>Language:</b>
+  <%=h @movie.language %>
+</p>
+<p>
+  <b>MPAA Rate:</b>
+  <%=h @movie.mpaa_rate %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
+

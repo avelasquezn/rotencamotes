@@ -9,7 +9,7 @@ class Movie < ActiveRecord::Base
   has_many :directors, :through => :movie_directors
   has_many :movie_writers
   has_many :writers, :through => :movie_writers
-  has_many :profiles, :foreign_key => "favorite_movie_id"
+  has_many :fans, :class_name => "Profile", :foreign_key => "favorite_movie_id"
 end
 
 

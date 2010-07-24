@@ -28,9 +28,22 @@
     <%= f.text_field :website %>
   </p>
   <p>
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </p>
+  <p>
+    <%= f.label :mpaa_rate %><br />
+    <%= f.text_field :mpaa_rate %>
+  </p>
+  <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
 <%= link_to 'Show', @movie %> |
 <%= link_to 'Back', movies_path %>
+
