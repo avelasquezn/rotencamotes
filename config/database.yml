@@ -19,6 +19,15 @@ development:
   encoding: utf8
   reconnect: false
   database: rotencamotes_development
+  username: root
+  password: 
+  host: localhost
+
+xenda_dev:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: rotencamotes_development
   pool: 5
   username: root
   password:
@@ -27,7 +36,7 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+xenda:
   adapter: mysql
   encoding: utf8
   reconnect: false
@@ -37,7 +46,7 @@ test:
   password:
   socket: /var/lib/mysql/mysql.sock
   
-xenda:
+test:
   adapter: mysql
   encoding: utf8
   reconnect: false
@@ -45,7 +54,7 @@ xenda:
   username: root
   password: 
   host: localhost
-
+  
 production:
   adapter: mysql
   encoding: utf8

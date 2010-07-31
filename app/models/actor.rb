@@ -1,13 +1,6 @@
-require 'test_helper'
-
-class PersonTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  should validate_presence_of :last_name
-  # should have_many :as_an_actor_fans
-  # should have_many :as_a_director_fans
-  # should have_many :as_a_writer_fans
+class Actor < Person
+  
 end
-
 # == Schema Information
 #
 # Table name: people

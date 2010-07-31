@@ -3,11 +3,11 @@ require 'test_helper'
 class ProfileTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   should belong_to :user
-  should belong_to :favorite_movie
-  should belong_to :favorite_actor
-  should belong_to :favorite_genre
-  should belong_to :favorite_director
-  should belong_to :favorite_writer
+  should have_many :favorite_movies
+  should have_many :favorite_actors
+  should have_many :favorite_genres
+  should have_many :favorite_directors
+  should have_many :favorite_writers
 end
 
 

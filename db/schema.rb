@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100724170136) do
+ActiveRecord::Schema.define(:version => 20100725222629) do
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "favoritable_id"
+    t.string   "favoritable_type"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "genres", :force => true do |t|
     t.string   "name"
