@@ -4,6 +4,7 @@ class UserTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   should validate_presence_of :email
   should validate_presence_of :last_name
+  should validate_uniqueness_of :email
   should have_many :profiles
 end
 
