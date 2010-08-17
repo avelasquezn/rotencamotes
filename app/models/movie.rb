@@ -11,6 +11,7 @@ class Movie < ActiveRecord::Base
   has_many :writers, :through => :movie_writers
   has_many :fans, :class_name => "Profile", :foreign_key => "favorite_movie_id"
   has_many :assets
+  belongs_to :studio
 
 end
 

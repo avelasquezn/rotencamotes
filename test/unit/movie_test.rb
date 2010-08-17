@@ -10,6 +10,7 @@ class MovieTest < ActiveSupport::TestCase
   should have_many(:directors).through(:movie_directors)
   should have_many(:writers).through(:movie_writers)
   should have_many :fans
+  should belong_to :studio
 end
 
 
