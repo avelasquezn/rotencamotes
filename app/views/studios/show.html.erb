@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @studio.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @studio.address %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%=h @studio.bio %>
+</p>
+
+
+<%= link_to 'Edit', edit_studio_path(@studio) %> |
+<%= link_to 'Back', studios_path %>

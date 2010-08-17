@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @theatre.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @theatre.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_theatre_path(@theatre) %> |
+<%= link_to 'Back', theatres_path %>

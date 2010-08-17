@@ -1,0 +1,2 @@
+module MovieChainsHelper
+end

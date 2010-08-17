@@ -1,0 +1,24 @@
+<h1>Listing external_links</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Url</th>
+  </tr>
+
+<% @external_links.each do |external_link| %>
+  <tr>
+    <td><%=h external_link.title %></td>
+    <td><%=h external_link.description %></td>
+    <td><%=h external_link.url %></td>
+    <td><%= link_to 'Show', external_link %></td>
+    <td><%= link_to 'Edit', edit_external_link_path(external_link) %></td>
+    <td><%= link_to 'Destroy', external_link, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New external_link', new_external_link_path %>

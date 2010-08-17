@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  movie_id: 1
+  attachable_id: 1
+  attachable_type: MyString
+
+two:
+  movie_id: 1
+  attachable_id: 1
+  attachable_type: MyString

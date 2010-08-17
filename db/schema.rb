@@ -9,10 +9,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100724170136) do
+ActiveRecord::Schema.define(:version => 20100812162602) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "movie_id"
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "external_links", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "genres", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "movie_chains", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,6 +101,21 @@ ActiveRecord::Schema.define(:version => 20100724170136) do
     t.integer  "favorite_genre_id"
     t.integer  "favorite_director_id"
     t.integer  "favorite_writer_id"
+  end
+
+  create_table "studios", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.text     "bio"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "theatres", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
