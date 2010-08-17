@@ -1,0 +1,48 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Category</th>
+    <th>User</th>
+    <th>Permalink</th>
+    <th>Blog</th>
+    <th>Drafted at</th>
+    <th>Published at</th>
+    <th>Reviewed at</th>
+    <th>Cached tag list</th>
+    <th>Comments count</th>
+    <th>Visits count</th>
+    <th>Rating</th>
+    <th>Delta</th>
+    <th>Status</th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%=h post.title %></td>
+    <td><%=h post.content %></td>
+    <td><%=h post.category_id %></td>
+    <td><%=h post.user_id %></td>
+    <td><%=h post.permalink %></td>
+    <td><%=h post.blog_id %></td>
+    <td><%=h post.drafted_at %></td>
+    <td><%=h post.published_at %></td>
+    <td><%=h post.reviewed_at %></td>
+    <td><%=h post.cached_tag_list %></td>
+    <td><%=h post.comments_count %></td>
+    <td><%=h post.visits_count %></td>
+    <td><%=h post.rating %></td>
+    <td><%=h post.delta %></td>
+    <td><%=h post.status %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New post', new_post_path %>

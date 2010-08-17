@@ -1,0 +1,57 @@
+<h1>New blog</h1>
+
+<% form_for(@blog) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :permalink %><br />
+    <%= f.text_field :permalink %>
+  </p>
+  <p>
+    <%= f.label :banner_file_name %><br />
+    <%= f.text_field :banner_file_name %>
+  </p>
+  <p>
+    <%= f.label :banner_content_type %><br />
+    <%= f.text_field :banner_content_type %>
+  </p>
+  <p>
+    <%= f.label :banner_file_size %><br />
+    <%= f.text_field :banner_file_size %>
+  </p>
+  <p>
+    <%= f.label :banner_updated_at %><br />
+    <%= f.text_field :banner_updated_at %>
+  </p>
+  <p>
+    <%= f.label :banner %><br />
+    <%= f.text_field :banner %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </p>
+
+  <p>
+    <%= f.label :posts_counts %><br />
+    <%= f.text_field :posts_counts %>
+  </p>
+  <p>
+    <%= f.label :visits_count %><br />
+    <%= f.text_field :visits_count %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', blogs_path %>
+

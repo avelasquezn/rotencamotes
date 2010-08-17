@@ -18,6 +18,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: movies
@@ -34,5 +35,6 @@ end
 #  country     :string(255)
 #  language    :string(255)
 #  mpaa_rate   :string(255)
+#  studio_id   :integer(4)
 #
 

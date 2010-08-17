@@ -9,12 +9,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100817151807) do
+ActiveRecord::Schema.define(:version => 20100817184734) do
 
   create_table "assets", :force => true do |t|
     t.integer  "movie_id"
     t.integer  "attachable_id"
     t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_images", :force => true do |t|
+    t.integer  "blog_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blogs", :force => true do |t|
+    t.string   "name"
+    t.string   "permalink"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "banner"
+    t.integer  "category_id"
+    t.boolean  "active"
+    t.integer  "posts_counts"
+    t.integer  "visits_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "category_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +122,26 @@ ActiveRecord::Schema.define(:version => 20100817151807) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "category_id"
+    t.integer  "user_id"
+    t.string   "permalink"
+    t.integer  "blog_id"
+    t.datetime "drafted_at"
+    t.datetime "published_at"
+    t.datetime "reviewed_at"
+    t.string   "cached_tag_list"
+    t.integer  "comments_count"
+    t.integer  "visits_count"
+    t.decimal  "rating",          :precision => 4, :scale => 2, :default => 0.0
+    t.boolean  "delta",                                         :default => true
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "profiles", :force => true do |t|

@@ -1,0 +1,41 @@
+<h1>Listing blogs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Permalink</th>
+    <th>Banner file name</th>
+    <th>Banner content type</th>
+    <th>Banner file size</th>
+    <th>Banner updated at</th>
+    <th>Banner</th>
+    <th>Category</th>
+    <th>Active</th>
+    <th>Posts counts</th>
+    <th>Visits count</th>
+  </tr>
+
+<% @blogs.each do |blog| %>
+  <tr>
+    <td><%=h blog.name %></td>
+    <td><%=h blog.permalink %></td>
+    <td><%=h blog.banner_file_name %></td>
+    <td><%=h blog.banner_content_type %></td>
+    <td><%=h blog.banner_file_size %></td>
+    <td><%=h blog.banner_updated_at %></td>
+    <td><%=h blog.banner %></td>
+    <td><%=h blog.category_id %></td>
+    <td><%=h blog.active %></td>
+    <td><%=h blog.posts_counts %></td>
+    <td><%=h blog.visits_count %></td>
+    <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New blog', new_blog_path %>
+
