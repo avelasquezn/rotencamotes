@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :post_categories
+
   map.resources :ads
 
   map.resources :comments
