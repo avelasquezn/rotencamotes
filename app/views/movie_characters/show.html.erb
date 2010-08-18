@@ -1,0 +1,18 @@
+<p>
+  <b>Movie:</b>
+  <%=h @movie_character.movie_id %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%=h @movie_character.person_id %>
+</p>
+
+<p>
+  <b>Character name:</b>
+  <%=h @movie_character.character_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_movie_character_path(@movie_character) %> |
+<%= link_to 'Back', movie_characters_path %>

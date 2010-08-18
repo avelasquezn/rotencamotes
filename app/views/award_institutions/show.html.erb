@@ -1,0 +1,43 @@
+<p>
+  <b>Name:</b>
+  <%=h @award_institution.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @award_institution.description %>
+</p>
+
+<p>
+  <b>Bio:</b>
+  <%=h @award_institution.bio %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%=h @award_institution.url %>
+</p>
+
+<p>
+  <b>Logo file name:</b>
+  <%=h @award_institution.logo_file_name %>
+</p>
+
+<p>
+  <b>Logo content type:</b>
+  <%=h @award_institution.logo_content_type %>
+</p>
+
+<p>
+  <b>Logo file size:</b>
+  <%=h @award_institution.logo_file_size %>
+</p>
+
+<p>
+  <b>Logo updated at:</b>
+  <%=h @award_institution.logo_updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_award_institution_path(@award_institution) %> |
+<%= link_to 'Back', award_institutions_path %>

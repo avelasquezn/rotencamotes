@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @video.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @video.description %>
+</p>
+
+<p>
+  <b>Video type:</b>
+  <%=h @video.video_type %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @video.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

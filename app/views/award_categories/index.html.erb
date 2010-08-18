@@ -1,0 +1,20 @@
+<h1>Listing award_categories</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% @award_categories.each do |award_category| %>
+  <tr>
+    <td><%=h award_category.name %></td>
+    <td><%= link_to 'Show', award_category %></td>
+    <td><%= link_to 'Edit', edit_award_category_path(award_category) %></td>
+    <td><%= link_to 'Destroy', award_category, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New award_category', new_award_category_path %>

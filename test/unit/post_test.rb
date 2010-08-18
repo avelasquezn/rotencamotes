@@ -2,7 +2,11 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   should belong_to :blog
+  should belong_to :user
   should have_many(:categories).through(:post_categories)
+  should validate_presence_of :title
+  should validate_presence_of :content
+  should validate_uniqueness_of :title
 end
 
 # == Schema Information

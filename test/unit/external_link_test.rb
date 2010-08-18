@@ -1,10 +1,8 @@
 require 'test_helper'
 
 class ExternalLinkTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should validate_presence_of :title
+  should validate_presence_of :url
 end
 
 # == Schema Information

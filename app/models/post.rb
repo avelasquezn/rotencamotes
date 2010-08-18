@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :post_categories
   has_many :categories, :through => :post_categories
+  validates_presence_of :title
+  validates_presence_of :content
+  validates_uniqueness_of :title
 end
 
 # == Schema Information

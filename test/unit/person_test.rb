@@ -6,6 +6,9 @@ class PersonTest < ActiveSupport::TestCase
   should have_many :as_an_actor_fans
   should have_many :as_a_director_fans
   should have_many :as_a_writer_fans
+  should have_many(:directed_movies).through(:movie_directors)
+  should have_many(:written_movies).through(:movie_writers)
+  should have_many :awards
 end
 
 # == Schema Information

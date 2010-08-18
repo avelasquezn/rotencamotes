@@ -1,0 +1,33 @@
+<p>
+  <b>Institution:</b>
+  <%=h @award.institution_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @award.category_id %>
+</p>
+
+<p>
+  <b>Year received:</b>
+  <%=h @award.year_received %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @award.status %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%=h @award.person_id %>
+</p>
+
+<p>
+  <b>Movie:</b>
+  <%=h @award.movie_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_award_path(@award) %> |
+<%= link_to 'Back', awards_path %>

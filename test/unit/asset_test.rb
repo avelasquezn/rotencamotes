@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AssetTest < ActiveSupport::TestCase
   should belong_to :movie
+  should validate_presence_of :attachable_type
 end
 
 # == Schema Information

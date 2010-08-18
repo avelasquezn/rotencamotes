@@ -1,0 +1,2 @@
+module AwardInstitutionsHelper
+end

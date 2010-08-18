@@ -1,0 +1,36 @@
+<h1>Editing award</h1>
+
+<% form_for(@award) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :institution_id %><br />
+    <%= f.text_field :institution_id %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.label :year_received %><br />
+    <%= f.text_field :year_received %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :person_id %><br />
+    <%= f.text_field :person_id %>
+  </p>
+  <p>
+    <%= f.label :movie_id %><br />
+    <%= f.text_field :movie_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @award %> |
+<%= link_to 'Back', awards_path %>

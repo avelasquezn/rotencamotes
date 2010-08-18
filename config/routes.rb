@@ -1,4 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :movie_characters
+
+  map.resources :awards
+
+  map.resources :award_categories
+
+  map.resources :award_institutions
+
+  map.resources :videos
+
+  map.resources :photos
+
   map.resources :post_categories
 
   map.resources :ads

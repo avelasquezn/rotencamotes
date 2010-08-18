@@ -2,6 +2,7 @@ require 'test_helper'
 
 class BlogImageTest < ActiveSupport::TestCase
   should belong_to :blog
+  should validate_presence_of :image_file_name
 end
 
 # == Schema Information

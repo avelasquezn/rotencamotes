@@ -2,6 +2,9 @@ require 'test_helper'
 
 class AdTest < ActiveSupport::TestCase
   should validate_presence_of :name
+  should validate_presence_of :content
+  should validate_presence_of :place
+  should validate_uniqueness_of :name
 end
 
 # == Schema Information

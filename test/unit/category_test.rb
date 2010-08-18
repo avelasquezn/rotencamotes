@@ -3,6 +3,8 @@ require 'test_helper'
 class CategoryTest < ActiveSupport::TestCase
   should have_many :blogs
   should have_many(:posts).through(:post_categories)
+  should validate_presence_of :name
+  should validate_presence_of :category_type
 end
 
 # == Schema Information

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100818042536) do
+ActiveRecord::Schema.define(:version => 20100818201548) do
 
   create_table "ads", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,36 @@ ActiveRecord::Schema.define(:version => 20100818042536) do
     t.integer  "movie_id"
     t.integer  "attachable_id"
     t.string   "attachable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "award_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "award_institutions", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "bio"
+    t.string   "url"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "awards", :force => true do |t|
+    t.integer  "institution_id"
+    t.integer  "category_id"
+    t.integer  "year_received"
+    t.string   "status"
+    t.integer  "person_id"
+    t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,6 +128,18 @@ ActiveRecord::Schema.define(:version => 20100818042536) do
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  create_table "movie_characters", :force => true do |t|
+    t.integer  "movie_id"
+    t.integer  "person_id"
+    t.string   "character_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "movie_directors", :force => true do |t|
@@ -147,6 +189,18 @@ ActiveRecord::Schema.define(:version => 20100818042536) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "url"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "photo_type"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "post_categories", :force => true do |t|
@@ -212,6 +266,15 @@ ActiveRecord::Schema.define(:version => 20100818042536) do
     t.string   "email"
     t.string   "password"
     t.date     "born_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "video_type"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

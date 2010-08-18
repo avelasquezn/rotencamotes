@@ -2,6 +2,8 @@ class Category < ActiveRecord::Base
   has_many :blogs
   has_many :post_categories
   has_many :posts, :through => :post_categories
+  validates_presence_of :name
+  validates_presence_of :category_type
 end
 
 # == Schema Information

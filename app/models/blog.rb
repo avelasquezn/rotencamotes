@@ -2,7 +2,7 @@ class Blog < ActiveRecord::Base
   has_many :blog_images
   has_many :posts
   belongs_to :category
-
+  validates_presence_of :name
 end
 
 # == Schema Information

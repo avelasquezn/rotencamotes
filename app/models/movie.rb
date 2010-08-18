@@ -1,17 +1,21 @@
 class Movie < ActiveRecord::Base
-  validates_presence_of :title
-  validates_presence_of :country
-  validates_presence_of :language
-  validates_presence_of :mpaa_rate
+  belongs_to :studio
   has_many :movie_genres
   has_many :genres, :through => :movie_genres
   has_many :movie_directors
   has_many :directors, :through => :movie_directors
   has_many :movie_writers
   has_many :writers, :through => :movie_writers
+  has_many :movie_characters
+  has_many :characters, :through => :movie_characters
   has_many :fans, :class_name => "Profile", :foreign_key => "favorite_movie_id"
+  has_many :awards
   has_many :assets
-  belongs_to :studio
+  validates_presence_of :title
+  validates_presence_of :country
+  validates_presence_of :language
+  validates_presence_of :mpaa_rate
+
 
 end
 
