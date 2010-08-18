@@ -1,10 +1,8 @@
 require 'test_helper'
 
 class PostCategoryTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should belong_to :post
+  should belong_to :category
 end
 
 # == Schema Information

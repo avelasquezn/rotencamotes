@@ -1,4 +1,5 @@
 class BlogImage < ActiveRecord::Base
+  belongs_to :blog
 end
 
 # == Schema Information

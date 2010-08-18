@@ -1,10 +1,9 @@
 require 'test_helper'
 
 class BlogTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should have_many :posts
+  should belong_to :category
+  should have_many :blog_images
 end
 
 # == Schema Information

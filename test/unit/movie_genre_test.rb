@@ -1,11 +1,8 @@
 require 'test_helper'
 
 class MovieGenreTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-
-  test "the truth" do
-    assert true
-  end
+  should belong_to :movie
+  should belong_to :genre
 end
 
 

@@ -1,10 +1,8 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should belong_to :blog
+  should have_many(:categories).through(:post_categories)
 end
 
 # == Schema Information

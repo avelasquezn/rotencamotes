@@ -1,10 +1,7 @@
 require 'test_helper'
 
 class AssetTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
-  end
+  should belong_to :movie
 end
 
 # == Schema Information

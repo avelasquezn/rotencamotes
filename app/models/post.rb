@@ -1,4 +1,9 @@
 class Post < ActiveRecord::Base
+  belongs_to :blog
+  belongs_to :category
+  belongs_to :user
+  has_many :post_categories
+  has_many :categories, :through => :post_categories
 end
 
 # == Schema Information

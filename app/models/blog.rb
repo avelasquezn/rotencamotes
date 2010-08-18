@@ -1,4 +1,8 @@
 class Blog < ActiveRecord::Base
+  has_many :blog_images
+  has_many :posts
+  belongs_to :category
+
 end
 
 # == Schema Information

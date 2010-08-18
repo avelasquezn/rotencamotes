@@ -2,7 +2,9 @@ require 'test_helper'
 
 class GenreTest < ActiveSupport::TestCase
   # Replace this with your real tests.
+  should validate_presence_of :name
   should have_many :fans
+  should have_many(:movies).through(:movie_genres)
 end
 
 # == Schema Information
