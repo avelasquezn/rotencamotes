@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  campaign: MyString
+  content: MyText
+  started_at: 2010-08-17 23:03:55
+  finished_at: 2010-08-17 23:03:55
+  place: MyString
+
+two:
+  name: MyString
+  campaign: MyString
+  content: MyText
+  started_at: 2010-08-17 23:03:55
+  finished_at: 2010-08-17 23:03:55
+  place: MyString
+
+# == Schema Information
+#
+# Table name: ads
+#
+#  id          :integer(4)      not null, primary key
+#  name        :string(255)
+#  campaign    :string(255)
+#  content     :text
+#  started_at  :datetime
+#  finished_at :datetime
+#  place       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

@@ -1,0 +1,42 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  post_id: 1
+  email: MyString
+  name: MyString
+  website: MyString
+  user_id: 1
+  parent_id: 1
+  content: MyText
+  status: MyString
+  featured: false
+
+two:
+  post_id: 1
+  email: MyString
+  name: MyString
+  website: MyString
+  user_id: 1
+  parent_id: 1
+  content: MyText
+  status: MyString
+  featured: false
+
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer(4)      not null, primary key
+#  post_id    :integer(4)
+#  email      :string(255)
+#  name       :string(255)
+#  website    :string(255)
+#  user_id    :integer(4)
+#  parent_id  :integer(4)
+#  content    :text
+#  status     :string(255)
+#  featured   :boolean(1)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
