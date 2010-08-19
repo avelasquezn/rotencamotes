@@ -1,4 +1,7 @@
 rails -v 2.3.8
 shoulda
 factory_girl -v 1.2.4
+formtastic
+will_paginate
+haml
 
