@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   has_many :profiles
   has_many :posts
+  has_many :categories
+  has_one :blog
 end
 
 # == Schema Information

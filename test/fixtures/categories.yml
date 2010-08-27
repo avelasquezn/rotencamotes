@@ -8,6 +8,7 @@ two:
   name: MyString
   category_type: MyString
 
+
 # == Schema Information
 #
 # Table name: categories
@@ -17,5 +18,7 @@ two:
 #  category_type :string(255)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  user_id       :integer(4)
+#  permalink     :string(255)
 #
 

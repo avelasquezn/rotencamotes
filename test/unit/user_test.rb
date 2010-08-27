@@ -7,6 +7,8 @@ class UserTest < ActiveSupport::TestCase
   should validate_uniqueness_of :email
   should have_many :profiles
   should have_many :posts
+  should have_one :blog
+  should have_many :categories
 end
 
 # == Schema Information

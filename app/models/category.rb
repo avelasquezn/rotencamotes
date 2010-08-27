@@ -2,9 +2,13 @@ class Category < ActiveRecord::Base
   has_many :blogs
   has_many :post_categories
   has_many :posts, :through => :post_categories
+  belongs_to :user
   validates_presence_of :name
   validates_presence_of :category_type
+  validates_presence_of :permalink
+
 end
+
 
 # == Schema Information
 #
@@ -15,5 +19,7 @@ end
 #  category_type :string(255)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  user_id       :integer(4)
+#  permalink     :string(255)
 #
 

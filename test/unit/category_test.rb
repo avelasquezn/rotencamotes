@@ -5,7 +5,10 @@ class CategoryTest < ActiveSupport::TestCase
   should have_many(:posts).through(:post_categories)
   should validate_presence_of :name
   should validate_presence_of :category_type
+  should belong_to :user
+  should validate_presence_of :permalink
 end
+
 
 # == Schema Information
 #
@@ -16,5 +19,7 @@ end
 #  category_type :string(255)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  user_id       :integer(4)
+#  permalink     :string(255)
 #
 

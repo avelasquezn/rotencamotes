@@ -5,7 +5,9 @@ class BlogTest < ActiveSupport::TestCase
   should have_many :posts
   should belong_to :category
   should have_many :blog_images
+  should belong_to :user
 end
+
 
 # == Schema Information
 #
@@ -25,5 +27,6 @@ end
 #  visits_count        :integer(4)
 #  created_at          :datetime
 #  updated_at          :datetime
+#  user_id             :integer(4)
 #
 

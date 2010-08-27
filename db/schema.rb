@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819170514) do
+ActiveRecord::Schema.define(:version => 20100827003629) do
 
   create_table "ads", :force => true do |t|
     t.string   "name"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20100819170514) do
     t.integer  "visits_count"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "brain_busters", :force => true do |t|
@@ -97,6 +98,8 @@ ActiveRecord::Schema.define(:version => 20100819170514) do
     t.string   "category_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "permalink"
   end
 
   create_table "comments", :force => true do |t|
@@ -218,7 +221,6 @@ ActiveRecord::Schema.define(:version => 20100819170514) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "category_id"
     t.integer  "user_id"
     t.string   "permalink"
     t.integer  "blog_id"
@@ -230,7 +232,7 @@ ActiveRecord::Schema.define(:version => 20100819170514) do
     t.integer  "visits_count"
     t.decimal  "rating",          :precision => 4, :scale => 2, :default => 0.0
     t.boolean  "delta",                                         :default => true
-    t.string   "status"
+    t.string   "status",                                        :default => "drafted"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

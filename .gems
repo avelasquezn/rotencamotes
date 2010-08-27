@@ -5,4 +5,5 @@ factory_girl
 formtastic
 will_paginate
 haml
+thinking-sphinx
 
