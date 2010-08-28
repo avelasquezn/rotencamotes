@@ -141,6 +141,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -159,7 +160,7 @@ end
 #  visits_count    :integer(4)
 #  rating          :decimal(4, 2)   default(0.0)
 #  delta           :boolean(1)      default(TRUE)
-#  status          :string(255)     default('drafted')
+#  status          :string(255)     default("drafted")
 #  created_at      :datetime
 #  updated_at      :datetime
 #

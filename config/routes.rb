@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :showtimes
+
+  map.resources :schedules
+
   map.resources :movie_characters
 
   map.resources :awards

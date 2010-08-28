@@ -1,0 +1,28 @@
+<h1>Editing showtime</h1>
+
+<% form_for(@showtime) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :schedule_id %><br />
+    <%= f.text_field :schedule_id %>
+  </p>
+  <p>
+    <%= f.label :shown_at %><br />
+    <%= f.datetime_select :shown_at %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @showtime %> |
+<%= link_to 'Back', showtimes_path %>

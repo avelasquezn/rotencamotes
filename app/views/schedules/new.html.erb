@@ -1,0 +1,35 @@
+<h1>New schedule</h1>
+
+<% form_for(@schedule) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :theatre_id %><br />
+    <%= f.text_field :theatre_id %>
+  </p>
+  <p>
+    <%= f.label :movie_id %><br />
+    <%= f.text_field :movie_id %>
+  </p>
+  <p>
+    <%= f.label :in_theatre_from %><br />
+    <%= f.datetime_select :in_theatre_from %>
+  </p>
+  <p>
+    <%= f.label :in_theatre_to %><br />
+    <%= f.datetime_select :in_theatre_to %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', schedules_path %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  schedule_id: 1
+  shown_at: 2010-08-28 12:24:39
+  description: MyString
+  status: MyString
+
+two:
+  schedule_id: 1
+  shown_at: 2010-08-28 12:24:39
+  description: MyString
+  status: MyString
+
+# == Schema Information
+#
+# Table name: showtimes
+#
+#  id          :integer(4)      not null, primary key
+#  schedule_id :integer(4)
+#  shown_at    :datetime
+#  description :string(255)
+#  status      :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

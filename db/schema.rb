@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100827003629) do
+ActiveRecord::Schema.define(:version => 20100828172439) do
 
   create_table "ads", :force => true do |t|
     t.string   "name"
@@ -249,6 +249,26 @@ ActiveRecord::Schema.define(:version => 20100827003629) do
     t.integer  "favorite_genre_id"
     t.integer  "favorite_director_id"
     t.integer  "favorite_writer_id"
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.integer  "theatre_id"
+    t.integer  "movie_id"
+    t.datetime "in_theatre_from"
+    t.datetime "in_theatre_to"
+    t.string   "description"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "showtimes", :force => true do |t|
+    t.integer  "schedule_id"
+    t.datetime "shown_at"
+    t.string   "description"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "studios", :force => true do |t|

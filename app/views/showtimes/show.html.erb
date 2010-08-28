@@ -1,0 +1,23 @@
+<p>
+  <b>Schedule:</b>
+  <%=h @showtime.schedule_id %>
+</p>
+
+<p>
+  <b>Shown at:</b>
+  <%=h @showtime.shown_at %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @showtime.description %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @showtime.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_showtime_path(@showtime) %> |
+<%= link_to 'Back', showtimes_path %>

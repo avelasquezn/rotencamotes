@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class TheatreTest < ActiveSupport::TestCase
-  should belong_to :movie_chain
+  should belong_to            :movie_chain
+  should have_many            :schedules
+  should validate_presence_of :name
 end
 
 

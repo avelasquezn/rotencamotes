@@ -1,0 +1,26 @@
+<h1>Listing showtimes</h1>
+
+<table>
+  <tr>
+    <th>Schedule</th>
+    <th>Shown at</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+
+<% @showtimes.each do |showtime| %>
+  <tr>
+    <td><%=h showtime.schedule_id %></td>
+    <td><%=h showtime.shown_at %></td>
+    <td><%=h showtime.description %></td>
+    <td><%=h showtime.status %></td>
+    <td><%= link_to 'Show', showtime %></td>
+    <td><%= link_to 'Edit', edit_showtime_path(showtime) %></td>
+    <td><%= link_to 'Destroy', showtime, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New showtime', new_showtime_path %>
