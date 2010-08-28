@@ -12,9 +12,12 @@ class Blog < ActiveRecord::Base
   named_scope :active,   :conditions => {:active => true}
   named_scope :inactive, :conditions => {:active => false}
   named_scope :from_named_category,
-                lambda{|category_name|{:joins => :category,
-                :conditions =>
-                {:blog => {:categories => {:permalink => category_name}}}}}
+                lambda { |category_name|
+                  { :conditions =>
+                    {:blog => {:categories => {:permalink => category_name}}},
+                  :joins => :category
+                  }
+                }
 
   # methods
   def owner?

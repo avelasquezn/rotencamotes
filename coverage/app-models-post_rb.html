@@ -28,9 +28,9 @@
         <tbody>
           <tr>
             <td class="left_align"><a href="app-models-post_rb.html">app/models/post.rb</a></td>
-            <td class='right_align'><tt>161</tt></td>
+            <td class='right_align'><tt>162</tt></td>
             <td class='right_align'><tt>104</tt></td>
-            <td class="left_align"><div class="percent_graph_legend"><tt class=''>64.60%</tt></div>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>64.81%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:65px"></div>
             <div class="uncovered" style="width:35px"></div>
@@ -885,145 +885,151 @@
           
           
           <tr class="inferred">
-            <td><pre><a name="line139">139</a> # == Schema Information</pre></td>
+            <td><pre><a name="line139">139</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line140">140</a> #</pre></td>
+            <td><pre><a name="line140">140</a> # == Schema Information</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line141">141</a> # Table name: posts</pre></td>
+            <td><pre><a name="line141">141</a> #</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line142">142</a> #</pre></td>
+            <td><pre><a name="line142">142</a> # Table name: posts</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line143">143</a> #  id              :integer(4)      not null, primary key</pre></td>
+            <td><pre><a name="line143">143</a> #</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line144">144</a> #  title           :string(255)</pre></td>
+            <td><pre><a name="line144">144</a> #  id              :integer(4)      not null, primary key</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line145">145</a> #  content         :text</pre></td>
+            <td><pre><a name="line145">145</a> #  title           :string(255)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line146">146</a> #  user_id         :integer(4)</pre></td>
+            <td><pre><a name="line146">146</a> #  content         :text</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line147">147</a> #  permalink       :string(255)</pre></td>
+            <td><pre><a name="line147">147</a> #  user_id         :integer(4)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line148">148</a> #  blog_id         :integer(4)</pre></td>
+            <td><pre><a name="line148">148</a> #  permalink       :string(255)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line149">149</a> #  drafted_at      :datetime</pre></td>
+            <td><pre><a name="line149">149</a> #  blog_id         :integer(4)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line150">150</a> #  published_at    :datetime</pre></td>
+            <td><pre><a name="line150">150</a> #  drafted_at      :datetime</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line151">151</a> #  reviewed_at     :datetime</pre></td>
+            <td><pre><a name="line151">151</a> #  published_at    :datetime</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line152">152</a> #  cached_tag_list :string(255)</pre></td>
+            <td><pre><a name="line152">152</a> #  reviewed_at     :datetime</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line153">153</a> #  comments_count  :integer(4)</pre></td>
+            <td><pre><a name="line153">153</a> #  cached_tag_list :string(255)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line154">154</a> #  visits_count    :integer(4)</pre></td>
+            <td><pre><a name="line154">154</a> #  comments_count  :integer(4)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line155">155</a> #  rating          :decimal(4, 2)   default(0.0)</pre></td>
+            <td><pre><a name="line155">155</a> #  visits_count    :integer(4)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line156">156</a> #  delta           :boolean(1)      default(TRUE)</pre></td>
+            <td><pre><a name="line156">156</a> #  rating          :decimal(4, 2)   default(0.0)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line157">157</a> #  status          :string(255)</pre></td>
+            <td><pre><a name="line157">157</a> #  delta           :boolean(1)      default(TRUE)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line158">158</a> #  created_at      :datetime</pre></td>
+            <td><pre><a name="line158">158</a> #  status          :string(255)     default(&quot;drafted&quot;)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line159">159</a> #  updated_at      :datetime</pre></td>
+            <td><pre><a name="line159">159</a> #  created_at      :datetime</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line160">160</a> #</pre></td>
+            <td><pre><a name="line160">160</a> #  updated_at      :datetime</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line161">161</a> </pre></td>
+            <td><pre><a name="line161">161</a> #</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line162">162</a> </pre></td>
           </tr>
         
       </tbody>
     </table>
 
-    <p>Generated on Thu Aug 26 20:25:23 -0500 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+    <p>Generated on Thu Aug 26 21:29:35 -0500 2010 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
 
   </body>
 </html>

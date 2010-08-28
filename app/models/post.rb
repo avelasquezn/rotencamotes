@@ -1,10 +1,10 @@
 class Post < ActiveRecord::Base
   # relationships
-  belongs_to :blog
-  belongs_to :user
-  has_many :post_categories
-  has_many :categories, :through => :post_categories
-  has_many :comments, :order => "created_at DESC"
+  belongs_to  :blog
+  belongs_to  :user
+  has_many    :post_categories
+  has_many    :categories, :through  => :post_categories
+  has_many    :comments,   :order    => 'created_at DESC'
 
   # validations
   validates_presence_of :title
@@ -21,38 +21,42 @@ class Post < ActiveRecord::Base
                 :if => Proc.new { |post| post.nil? or post.permalink.blank? }
 
   # valid post types
-  POST_TYPES = [ "drafted", "reviewed", "published" ]
+  POST_TYPES = {
+                :drafted    => 'drafted',
+                :reviewed   => 'reviewed',
+                :published  => 'published'
+  }
 
   #named scopes
   named_scope :draft,
-              :conditions => { :status => "drafted" },
-              :order => "drafted_at DESC"
+              :conditions => { :status => 'drafted' },
+              :order => 'drafted_at DESC'
   named_scope :published,
-              :conditions => { :status => "published" },
-              :order => "published_at DESC"
+              :conditions => { :status => 'published' },
+              :order => 'published_at DESC'
   named_scope :reviewed,
-              :conditions => { :status => "reviewed" },
-              :order => "reviewed_at DESC"
+              :conditions => { :status => 'reviewed' },
+              :order => 'reviewed_at DESC'
   named_scope :active,
-              :conditions => "blog.active is true",
+              :conditions => 'blog.active is true',
               :joins => :blog
   named_scope :last_published,
               lambda {|limit| limit = 20 if limit.nil?
-                      {:order =>  "published_at DESC",
-                       :conditions => { :status => "published" },
+                      {:order =>  'published_at DESC',
+                       :conditions => { :status => 'published' },
                        :limit => limit
                      }
                }
   named_scope :next_from,
               lambda { |limit,offset|
-                      { :order => "published_at DESC",
+                      { :order => 'published_at DESC',
                         :limit => limit,
                         :offset => offset
                       }
               }
   named_scope :from_category,
               lambda { |category_id|
-                      { :order => "published_at DESC",
+                      { :order => 'published_at DESC',
                         :conditions =>{:category_id => category_id}
                       }
               }
@@ -72,7 +76,7 @@ class Post < ActiveRecord::Base
                       }
               }
 
-  named_scope :from_blog_named_category,
+  named_scope :from_blog_with_named_category,
               lambda { |category_permalink|
                       { :conditions => {:blog => {:categories=>{:permalink => category_permalink}}},
                         :joins => {:blog=>:category}
@@ -98,39 +102,39 @@ class Post < ActiveRecord::Base
 
   # Status update
   def mark_as_drafted
-    self.status = POST_TYPES[0]
+    self.status = POST_TYPES[:drafted]
     self.drafted_at = Time.zone.now
     self.save
   end
 
   def mark_as_reviewed
-    self.status = POST_TYPES[1]
+    self.status = POST_TYPES[:reviewed]
     self.reviewed_at = Time.zone.now
     self.save
   end
 
   def mark_as_published
-    self.status = POST_TYPES[2]
+    self.status = POST_TYPES[:published]
     self.published_at = Time.zone.now
     self.save
   end
 
   # Status get
   def drafted?
-    self.status == POST_TYPES[0]
+    self.status == POST_TYPES[:drafted]
   end
 
   def reviewed?
-    self.status == POST_TYPES[1]
+    self.status == POST_TYPES[:reviewed]
   end
 
   def published?
-    self.status == POST_TYPES[2]
+    self.status == POST_TYPES[:published]
   end
 
   # Categories
   def category_names
-    return self.categories.empty? ? "" : self.categories.map(&:name).join(",")
+    return self.categories.empty? ? '' : self.categories.map(&:name).join(',')
   end
 
 end
@@ -155,7 +159,7 @@ end
 #  visits_count    :integer(4)
 #  rating          :decimal(4, 2)   default(0.0)
 #  delta           :boolean(1)      default(TRUE)
-#  status          :string(255)     default("drafted")
+#  status          :string(255)     default('drafted')
 #  created_at      :datetime
 #  updated_at      :datetime
 #
