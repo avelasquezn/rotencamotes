@@ -1,15 +1,15 @@
 class Post < ActiveRecord::Base
   # relationships
-  belongs_to  :blog
-  belongs_to  :user
-  has_many    :post_categories
-  has_many    :categories, :through  => :post_categories
-  has_many    :comments,   :order    => 'created_at DESC'
+  belongs_to              :blog
+  belongs_to              :user
+  has_many                :post_categories
+  has_many                :categories, :through  => :post_categories
+  has_many                :comments,   :order    => 'created_at DESC'
 
   # validations
-  validates_presence_of :title
-  validates_presence_of :content
-  validates_presence_of :user_id
+  validates_presence_of   :title
+  validates_presence_of   :content
+  validates_presence_of   :user_id
   validates_uniqueness_of :title
 
   #accesible attributes

@@ -2,10 +2,11 @@ require 'test_helper'
 
 class ShowtimeTest < ActiveSupport::TestCase
   # Relationships
-  should belong_to            :schedule
+  should belong_to              :schedule
   # Validations
-  should validate_presence_of :shown_at
-  should validate_presence_of :status
+  should validate_presence_of   :shown_at
+  should validate_presence_of   :status
+  should validate_uniqueness_of(:shown_at).scoped_to(:schedule_id)
 end
 
 # == Schema Information

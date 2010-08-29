@@ -1,7 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  firt_name: MyString
+  first_name: MyString
   middle_name: MyString
   last_name: MyString
   born_at: 2010-07-19 16:56:22
@@ -10,7 +10,7 @@ one:
   bio: MyText
 
 two:
-  firt_name: MyString
+  first_name: MyString
   middle_name: MyString
   last_name: MyString
   born_at: 2010-07-19 16:56:22
@@ -18,12 +18,13 @@ two:
   procedence: MyString
   bio: MyText
 
+
 # == Schema Information
 #
 # Table name: people
 #
 #  id          :integer(4)      not null, primary key
-#  firt_name   :string(255)
+#  first_name  :string(255)
 #  middle_name :string(255)
 #  last_name   :string(255)
 #  born_at     :datetime

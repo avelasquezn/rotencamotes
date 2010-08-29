@@ -14,10 +14,10 @@ class Movie < ActiveRecord::Base
   has_many :assets
 
   # validations
-  validates_presence_of :title
-  validates_presence_of :country
-  validates_presence_of :language
-  validates_presence_of :mpaa_rate
+  validates_presence_of   :title
+  validates_presence_of   :country
+  validates_presence_of   :language
+  validates_presence_of   :mpaa_rate
   validates_uniqueness_of :title
 
   #named scopes
@@ -55,13 +55,27 @@ class Movie < ActiveRecord::Base
                 }
               }
 
-  #methods
+  named_scope :from_studio,
+              lambda { |studio_id|
+                { :conditions => {:studio_id => studio_id}
+                }
+              }
+
+  # methods
   def list
     Self.all
   end
 
-  def genre_names
-    return self.genres.empty? ? "" : genres.map(&:name).join(",")
+  def genres_names
+    return self.genres.empty? ? '' : genres.map(&:name).join(',')
+  end
+
+  def directors_names
+    return self.directors.empty? ? '' : directors.map(&name).join(',')
+  end
+
+  def writers_names
+    return self.writers.empty? ? '' : writers.map(&name).join(',')
   end
 
 end

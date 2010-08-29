@@ -8,15 +8,18 @@ class PersonTest < ActiveSupport::TestCase
   should have_many :as_a_writer_fans
   should have_many(:directed_movies).through(:movie_directors)
   should have_many(:written_movies).through(:movie_writers)
+  should have_many(:performed_movies).through(:movie_characters)
   should have_many :awards
+  should validate_uniqueness_of(:first_name).scoped_to(:last_name)
 end
+
 
 # == Schema Information
 #
 # Table name: people
 #
 #  id          :integer(4)      not null, primary key
-#  firt_name   :string(255)
+#  first_name  :string(255)
 #  middle_name :string(255)
 #  last_name   :string(255)
 #  born_at     :datetime

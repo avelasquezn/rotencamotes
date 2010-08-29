@@ -1,16 +1,19 @@
 class Blog < ActiveRecord::Base
-  has_many :blog_images
-  has_many :posts
-  belongs_to :category
-  belongs_to :user
+  # relationships
+  has_many              :blog_images
+  has_many              :posts
+  belongs_to            :category
+  belongs_to            :user
   validates_presence_of :name
   # permalink based on :name
-  has_permalink :name, :update => true, :if => Proc.new { |blog| blog.permalink.blank? }
+  has_permalink         :name, :update => true, :if => Proc.new { |blog| blog.permalink.blank? }
   # attached :banner config
-  has_attached_file :banner, :styles => {:thumbnail =>"270x50", :large => "741x120>#"}
+  has_attached_file     :banner, :styles => {:thumbnail =>"270x50", :large => "741x120>#"}
   #named scopes
-  named_scope :active,   :conditions => {:active => true}
-  named_scope :inactive, :conditions => {:active => false}
+  named_scope :active,
+              :conditions => {:active => true}
+  named_scope :inactive,
+              :conditions => {:active => false}
   named_scope :from_named_category,
                 lambda { |category_name|
                   { :conditions =>
