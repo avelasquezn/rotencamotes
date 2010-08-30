@@ -1,9 +1,28 @@
 class Comment < ActiveRecord::Base
+  # relationships
   belongs_to :post
   belongs_to :user
+
+  # validations
   validates_presence_of :post
   validates_presence_of :user
   validates_presence_of :content
+
+  # named scopes
+  named_scope :from_user,
+              lambda { |user_id| {
+                  :conditions =>  { :user_id => user_id },
+                  :order      => 'created_at DESC'
+                }
+              }
+
+  named_scope :from_post,
+              lambda { |post_id| {
+                  :conditions =>  { :post_id => post_id },
+                  :order      => 'created_at DESC'
+                }
+              }
+
 end
 
 # == Schema Information

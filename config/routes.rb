@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :scores
+
   map.resources :showtimes
 
   map.resources :schedules

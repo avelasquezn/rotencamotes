@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
   has_many :fans, :class_name => "Profile", :foreign_key => "favorite_movie_id"
   has_many :awards
   has_many :assets
+  has_many :scores
 
   # validations
   validates_presence_of   :title
@@ -78,6 +79,13 @@ class Movie < ActiveRecord::Base
     return self.writers.empty? ? '' : writers.map(&name).join(',')
   end
 
+  def score_from_community
+    return self.scores.from_community.average('value')
+  end
+
+  def score_from_experts
+    return self.scores.from_experts.average('value')
+  end
 end
 
 

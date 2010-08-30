@@ -14,6 +14,7 @@ class MovieTest < ActiveSupport::TestCase
   should have_many :fans
   should have_many :awards
   should belong_to :studio
+  should have_many :scores
 end
 
 

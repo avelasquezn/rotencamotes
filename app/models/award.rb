@@ -34,7 +34,12 @@ class Award < ActiveRecord::Base
                 { :conditions => { :movie_id => movie_id }
                 }
               }
-
+  named_scope :from_intitution_in_year,
+              lambda  { |institution_id, year_received|
+                { :conditions =>  { :institution_id => institution_id,
+                                    :year_received  =>  year_received }
+                }
+              }
 
   # Methods
 
