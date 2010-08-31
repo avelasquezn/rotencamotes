@@ -67,16 +67,24 @@ class Movie < ActiveRecord::Base
     Self.all
   end
 
+=begin
   def genres_names
     return self.genres.empty? ? '' : genres.map(&:name).join(',')
   end
 
   def directors_names
-    return self.directors.empty? ? '' : directors.map(&name).join(',')
+    return self.directors.empty? ? '' : directors.map(&:name).join(',')
   end
 
   def writers_names
-    return self.writers.empty? ? '' : writers.map(&name).join(',')
+    return self.writers.empty? ? '' : writers.map(&:name).join(',')
+  end
+=end
+
+  %w(genres directors writers).each do |method|
+    define_method("#{method}_names") do
+      self.send(method).empty? ? '' : self.send(method).map(&:name).join(',')
+    end
   end
 
   def score_from_community
