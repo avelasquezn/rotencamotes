@@ -94,7 +94,7 @@ class Movie < ActiveRecord::Base
                                   '(COUNT(*)+1)/2',
                                   Score::SOURCES[score_source.to_sym], self.id,
                                   Score::SOURCES[score_source.to_sym], self.id])
-      return result.empty? ? 0.0 : result.first.value
+      return result.empty? ? 0.0 : result.first.value.to_f
 
       # return self.scores.from_community.average('value')
     end

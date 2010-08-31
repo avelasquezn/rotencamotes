@@ -15,7 +15,7 @@ class MovieTest < ActiveSupport::TestCase
 
   context 'A movie instance' do
     setup do
-      puts "Does this appears?"
+      puts "Movie instance values"
       @movie = Factory.create(:movie)
       puts @movie.inspect
     end
@@ -31,8 +31,9 @@ class MovieTest < ActiveSupport::TestCase
 =end
     context 'with a score' do
       setup do
-        @score = Factory.create(:score)
-        @score.save
+        puts "Score instance values"
+        @score = Factory.create(:score, :movie => @movie)
+        puts @score.inspect
         @movie.scores << @score
         @movie.save
       end
