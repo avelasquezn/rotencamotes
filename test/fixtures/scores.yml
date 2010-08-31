@@ -4,14 +4,14 @@ one:
   movie_id: 1
   user_id: 1
   scored_at: 2010-08-30 12:30:40
-  source: MyString
-  value: 1
+  source: community
+  value: 2
 
 two:
   movie_id: 1
   user_id: 1
   scored_at: 2010-08-29 12:30:40
-  source: MyString
+  source: expert
   value: 1
 
 # == Schema Information

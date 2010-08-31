@@ -16,10 +16,7 @@ class Movie < ActiveRecord::Base
 
   # validations
   validates_presence_of   :title
-  validates_presence_of   :country
-  validates_presence_of   :language
-  validates_presence_of   :mpaa_rate
-  validates_uniqueness_of :title
+#  validates_uniqueness_of :released_at, :scope => :title
 
   #named scopes
   named_scope :from_named_genre,
@@ -87,14 +84,52 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  def score_from_community
-    return self.scores.from_community.average('value')
+  %w(community experts).each do |score_source|
+    define_method("score_from_#{score_source}") do
+      result =  Movie.find_by_sql(['SELECT s1.value from scores s1, scores s2 '+
+                                  'WHERE s1.source LIKE ? and s1.movie_id = ? '+
+                                  'AND s2.source LIKE ? and s2.movie_id = ? '+
+                                  'GROUP BY s1.value '+
+                                  'HAVING SUM(SIGN(1-SIGN(s2.value-s1.value))) = '+
+                                  '(COUNT(*)+1)/2',
+                                  Score::SOURCES[score_source.to_sym], self.id,
+                                  Score::SOURCES[score_source.to_sym], self.id])
+      return result.empty? ? 0.0 : result.first.value
+
+      # return self.scores.from_community.average('value')
+    end
   end
 
-  def score_from_experts
-    return self.scores.from_experts.average('value')
+  #def score_from_experts
+
+    #return self.scores.from_experts.average('value')
+  #end
+
+  def final_score
+    expert_weight     = 0.6
+    community_weight  = 0.4
+    experts_factor    = 1
+    community_factor  = 20
+
+    return self.score_from_community*community_weight*community_factor +
+           self.score_from_experts*expert_weight*experts_factor
+  end
+
+  def update_scores
+    self.community_score  = self.score_from_community
+    self.experts_score    = self.score_from_experts
+    self.final_score      = self.final_score
+    self.save
+  end
+
+  def self.update_all_scores
+    Movie.all.each do | m |
+      m.update_scores
+    end
+    # TODO: Implement SQL version
   end
 end
+
 
 
 
@@ -104,18 +139,21 @@ end
 #
 # Table name: movies
 #
-#  id          :integer(4)      not null, primary key
-#  title       :string(255)
-#  summary     :text
-#  synopsis    :text
-#  released_at :datetime
-#  lenght      :string(255)
-#  website     :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  country     :string(255)
-#  language    :string(255)
-#  mpaa_rate   :string(255)
-#  studio_id   :integer(4)
+#  id              :integer(4)      not null, primary key
+#  title           :string(255)
+#  summary         :text
+#  synopsis        :text
+#  released_at     :datetime
+#  lenght          :string(255)
+#  website         :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  country         :string(255)
+#  language        :string(255)
+#  mpaa_rate       :string(255)
+#  studio_id       :integer(4)
+#  community_score :decimal(5, 2)   default(0.0)
+#  experts_score   :decimal(5, 2)   default(0.0)
+#  final_score     :decimal(5, 2)   default(0.0)
 #
 

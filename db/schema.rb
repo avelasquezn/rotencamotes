@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100830173040) do
+ActiveRecord::Schema.define(:version => 20100831155649) do
 
   create_table "ads", :force => true do |t|
     t.string   "name"
@@ -184,6 +184,9 @@ ActiveRecord::Schema.define(:version => 20100830173040) do
     t.string   "language"
     t.string   "mpaa_rate"
     t.integer  "studio_id"
+    t.decimal  "community_score", :precision => 5, :scale => 2, :default => 0.0
+    t.decimal  "experts_score",   :precision => 5, :scale => 2, :default => 0.0
+    t.decimal  "final_score",     :precision => 5, :scale => 2, :default => 0.0
   end
 
   create_table "people", :force => true do |t|

@@ -1,4 +1,4 @@
 Factory.define :movie do |m|
-  m.title 'Ironman'
+  m.title 'Demo'
 end
 
