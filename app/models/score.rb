@@ -12,7 +12,7 @@ class Score < ActiveRecord::Base
 
   SOURCES = {
     :community  =>  'community',
-    :expert     =>  'expert'
+    :experts     =>  'experts'
   }
 
   # named scopes
@@ -31,7 +31,7 @@ class Score < ActiveRecord::Base
               }
 
   named_scope :from_experts,
-              :conditions =>  { :source  => SOURCES[:expert]  },
+              :conditions =>  { :source  => SOURCES[:experts]  },
               :order      =>  'movie_id, user_id, scored_at DESC'
 
   named_scope :from_community,

@@ -3,7 +3,7 @@ require 'test_helper'
 class MovieTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   should validate_presence_of :title
-#  should validate_uniqueness_of(:released_at).scoped_to(:title)
+  #should validate_uniqueness_of(:title).scoped_to(:released_at).
   should have_many(:genres).through(:movie_genres)
   should have_many(:directors).through(:movie_directors)
   should have_many(:writers).through(:movie_writers)
@@ -13,33 +13,60 @@ class MovieTest < ActiveSupport::TestCase
   should belong_to :studio
   should have_many :scores
 
-  context 'A movie instance' do
+  context 'A movie instance without scores' do
     setup do
-      puts "Movie instance values"
+      #puts "Movie instance values"
       @movie = Factory.create(:movie)
-      puts @movie.inspect
     end
     should 'have calculated scores of zero' do
       assert_equal 0.0, @movie.score_from_community
       assert_equal 0.0, @movie.score_from_experts
       assert_equal 0.0, @movie.final_score
     end
-=begin
-    should 'work' do
-      assert_equal 1, 1
-    end
-=end
-    context 'with a score' do
+    context 'when scored by community members with values of 2, 3, and 4' do
       setup do
-        puts "Score instance values"
-        @score = Factory.create(:score, :movie => @movie)
-        puts @score.inspect
+        @user = Factory.create(:user)
+        @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => 2)
+        @movie.scores << @score
+        @user = Factory.create(:user)
+        @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => 3)
+        @movie.scores << @score
+        @user = Factory.create(:user)
+        @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => 4)
         @movie.scores << @score
         @movie.save
       end
-
-      should 'have a community score' do
-        assert_equal 2.0, @movie.score_from_community
+      should 'have 3 scores' do
+        assert_equal 3, @movie.scores.count
+      end
+      should 'have a calculated community score of 3.0' do
+        assert_in_delta 3.0, @movie.score_from_community, 0.01
+      end
+      should 'have a calculated final score of 24.0' do
+        assert_in_delta 24.0, @movie.calculate_final_score, 0.01
+      end
+    end
+    context 'when scored by experts with values of 50, 40 and 30' do
+      setup do
+        @user = Factory.create(:user)
+        @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => 50)
+        @movie.scores << @score
+        @user = Factory.create(:user)
+        @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => 40)
+        @movie.scores << @score
+        @user = Factory.create(:user)
+        @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => 30)
+        @movie.scores << @score
+        @movie.save
+      end
+      should 'have 3 scores' do
+        assert_equal 3, @movie.scores.count
+      end
+      should 'have a calculated experts score of 40.0' do
+        assert_in_delta 40.0, @movie.score_from_experts, 0.01
+      end
+      should 'have a calculated final score of 24.0' do
+        assert_in_delta 24.0, @movie.calculate_final_score, 0.01
       end
     end
   end

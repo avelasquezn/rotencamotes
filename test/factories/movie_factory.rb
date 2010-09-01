@@ -1,4 +1,4 @@
 Factory.define :movie do |m|
-  m.title 'Demo'
+  m.sequence(:title) { |n| "Test Movie #{n}" }
 end
 

@@ -84,7 +84,7 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  %w(community experts).each do |score_source|
+  %w(experts community).each do |score_source|
     define_method("score_from_#{score_source}") do
       result =  Movie.find_by_sql(['SELECT s1.value from scores s1, scores s2 '+
                                   'WHERE s1.source LIKE ? and s1.movie_id = ? '+
@@ -100,13 +100,8 @@ class Movie < ActiveRecord::Base
     end
   end
 
-  #def score_from_experts
-
-    #return self.scores.from_experts.average('value')
-  #end
-
-  def final_score
-    expert_weight     = 0.6
+  def calculate_final_score
+    expert_weight     = 0.6 #0.4x20x3 + 0.6x1x40 = 24 + 24 = 48
     community_weight  = 0.4
     experts_factor    = 1
     community_factor  = 20
@@ -118,7 +113,7 @@ class Movie < ActiveRecord::Base
   def update_scores
     self.community_score  = self.score_from_community
     self.experts_score    = self.score_from_experts
-    self.final_score      = self.final_score
+    self.final_score      = self.calculate_final_score
     self.save
   end
 
@@ -128,6 +123,7 @@ class Movie < ActiveRecord::Base
     end
     # TODO: Implement SQL version
   end
+
 end
 
 
