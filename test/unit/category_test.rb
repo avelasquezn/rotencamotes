@@ -6,7 +6,7 @@ class CategoryTest < ActiveSupport::TestCase
   should validate_presence_of :name
   should validate_presence_of :category_type
   should belong_to :user
-  should validate_presence_of :permalink
+  #should validate_presence_of :permalink
 end
 
 

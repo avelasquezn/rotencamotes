@@ -1,4 +1,4 @@
 Factory.define :movie_chain do |m|
-  m.name 'Cinemark Perú'
+  m.sequence(:name) {|n| "Test Chain #{n}"}
 end
 

@@ -8,11 +8,11 @@ class Score < ActiveRecord::Base
   validates_presence_of   :user
   validates_presence_of   :value
   validates_presence_of   :scored_at
-  validates_uniqueness_of :scored_at, :scope  => [:user_id, :movie_id]
+  validates_uniqueness_of :movie_id, :case_sensitive => true, :scope => [:user_id, :scored_at]
 
   SOURCES = {
     :community  =>  'community',
-    :experts     =>  'experts'
+    :experts    =>  'experts'
   }
 
   # named scopes

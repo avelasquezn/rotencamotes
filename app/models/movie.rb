@@ -16,7 +16,7 @@ class Movie < ActiveRecord::Base
 
   # validations
   validates_presence_of   :title
-#  validates_uniqueness_of :released_at, :scope => :title
+  validates_uniqueness_of :released_at, :scope => :title, :case_sensitive => false
 
   #named scopes
   named_scope :from_named_genre,

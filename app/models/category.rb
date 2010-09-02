@@ -5,8 +5,12 @@ class Category < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :name
   validates_presence_of :category_type
-  validates_presence_of :permalink
+  #validates_presence_of :permalink
 
+  TYPES = {
+    :general  =>  'general'
+  }
+  #TODO: Review default value for category_type
 end
 
 

@@ -12,11 +12,11 @@ class PostTest < ActiveSupport::TestCase
 
   context "A Post instance" do
     setup do
-      @post = Factory.build(:post)
+      @post = Factory.create(:post)
     end
 
-    should "start as a draft" do
-      assert_equal "drafted", @post.status
+    should "start as a drafted" do
+      assert_equal Post::STATUSES[:drafted], @post.status
     end
 
     context "marked as published" do
@@ -25,22 +25,21 @@ class PostTest < ActiveSupport::TestCase
       end
 
       should "be published" do
-        assert_equal "published", @post.status
+        assert_equal Post::STATUSES[:published], @post.status
       end
     end
 
-    context "with categories" do
+    context "with assigned categories" do
       setup do
-        @category_one = Category.new
-        @category_one.name = "IT"
-        @category_two = Category.new
-        @category_two.name = "Business"
-        @post.categories << @category_one
-        @post.categories << @category_two
+        @category = Factory.create(:category, :name => 'IT')
+        @post.categories << @category
+        @category = Factory.create(:category, :name => 'Business')
+        @post.categories << @category
+        @post.save
       end
 
       should "return its category names" do
-        assert_equal "IT,Business", @post.category_names
+        assert_equal 'IT,Business', @post.category_names
       end
     end
   end

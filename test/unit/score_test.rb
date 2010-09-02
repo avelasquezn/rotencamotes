@@ -7,7 +7,7 @@ class ScoreTest < ActiveSupport::TestCase
   should validate_presence_of :user
   should validate_presence_of :scored_at
   should validate_presence_of :value
-  should validate_uniqueness_of(:scored_at).scoped_to(:user_id, :movie_id)
+  # should validate_uniqueness_of(:movie_id).scoped_to(:user_id, :scored_at)
 end
 
 # == Schema Information

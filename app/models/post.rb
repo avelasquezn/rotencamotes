@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :title
 
   #accesible attributes
-  attr_accessible :title, :content, :category_id, :user_id, :permalink,
+  attr_accessible :title, :content, :user_id, :permalink,
                   :blog_id, :tag_list, :drafted_at, :published_at, :reviewed_at
 
   # permalink config
@@ -21,21 +21,21 @@ class Post < ActiveRecord::Base
                 :if => Proc.new { |post| post.nil? or post.permalink.blank? }
 
   # valid post types
-  POST_TYPES = {
+  STATUSES = {
                 :drafted    => 'drafted',
                 :reviewed   => 'reviewed',
                 :published  => 'published'
   }
 
   #named scopes
-  named_scope :draft,
-              :conditions => { :status => 'drafted' },
+  named_scope :drafted,
+              :conditions => { :status => STATUSES[:drafted] },
               :order => 'drafted_at DESC'
   named_scope :published,
-              :conditions => { :status => 'published' },
+              :conditions => { :status => STATUSES[:published] },
               :order => 'published_at DESC'
   named_scope :reviewed,
-              :conditions => { :status => 'reviewed' },
+              :conditions => { :status => STATUSES[:reviewed] },
               :order => 'reviewed_at DESC'
   named_scope :active,
               :conditions => 'blog.active is true',
@@ -43,7 +43,7 @@ class Post < ActiveRecord::Base
   named_scope :last_published,
               lambda {|limit| limit = 20 if limit.nil?
                       {:order =>  'published_at DESC',
-                       :conditions => { :status => 'published' },
+                       :conditions => { :status => STATUSES[:published] },
                        :limit => limit
                      }
                }
@@ -102,34 +102,34 @@ class Post < ActiveRecord::Base
 
   # Status update
   def mark_as_drafted
-    self.status = POST_TYPES[:drafted]
+    self.status = STATUSES[:drafted]
     self.drafted_at = Time.zone.now
     self.save
   end
 
   def mark_as_reviewed
-    self.status = POST_TYPES[:reviewed]
+    self.status = STATUSES[:reviewed]
     self.reviewed_at = Time.zone.now
     self.save
   end
 
   def mark_as_published
-    self.status = POST_TYPES[:published]
+    self.status = STATUSES[:published]
     self.published_at = Time.zone.now
     self.save
   end
 
   # Status get
   def drafted?
-    self.status == POST_TYPES[:drafted]
+    self.status == STATUSES[:drafted]
   end
 
   def reviewed?
-    self.status == POST_TYPES[:reviewed]
+    self.status == STATUSES[:reviewed]
   end
 
   def published?
-    self.status == POST_TYPES[:published]
+    self.status == STATUSES[:published]
   end
 
   # Categories

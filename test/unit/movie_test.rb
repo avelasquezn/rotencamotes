@@ -3,7 +3,8 @@ require 'test_helper'
 class MovieTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   should validate_presence_of :title
-  #should validate_uniqueness_of(:title).scoped_to(:released_at).
+  #should validate_uniqueness_of(:released_at).scoped_to(:title).case_insensitive
+  #TODO: Review correct released_ta uniqueness validation syntax
   should have_many(:genres).through(:movie_genres)
   should have_many(:directors).through(:movie_directors)
   should have_many(:writers).through(:movie_writers)

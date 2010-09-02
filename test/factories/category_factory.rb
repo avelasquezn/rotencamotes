@@ -1,4 +1,5 @@
 Factory.define :category do |c|
-  c.name 'IT'
+  c.sequence(:name) {|n| "Test Category #{n}"}
+  c.category_type Category::TYPES[:general]
 end
 
