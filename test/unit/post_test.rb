@@ -15,11 +15,11 @@ class PostTest < ActiveSupport::TestCase
       @post = Factory.create(:post)
     end
 
-    should "start as a drafted" do
+    should "started as a drafted" do
       assert_equal Post::STATUSES[:drafted], @post.status
     end
 
-    context "marked as published" do
+    context "when marked as published" do
       setup do
         @post.mark_as_published
       end
