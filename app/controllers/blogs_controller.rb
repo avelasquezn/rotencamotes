@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
   # POST /blogs
   # POST /blogs.xml
   def create
-    @blog = Blog.new(params[:blog])
+    @blog = Blog.create(params[:blog])
 
     respond_to do |format|
       if @blog.save
@@ -81,3 +81,4 @@ class BlogsController < ApplicationController
     end
   end
 end
+

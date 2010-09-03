@@ -1,3 +1,7 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <p>
   <b>Name:</b>
   <%=h @blog.name %>
@@ -8,30 +12,10 @@
   <%=h @blog.permalink %>
 </p>
 
-<p>
-  <b>Banner file name:</b>
-  <%=h @blog.banner_file_name %>
-</p>
+<%= image_tag @blog.banner.url %>
+<%= image_tag @blog.banner.url(:medium) %>
+<%= image_tag @blog.banner.url(:thumb) %>
 
-<p>
-  <b>Banner content type:</b>
-  <%=h @blog.banner_content_type %>
-</p>
-
-<p>
-  <b>Banner file size:</b>
-  <%=h @blog.banner_file_size %>
-</p>
-
-<p>
-  <b>Banner updated at:</b>
-  <%=h @blog.banner_updated_at %>
-</p>
-
-<p>
-  <b>Banner:</b>
-  <%=h @blog.banner %>
-</p>
 
 <p>
   <b>Category:</b>

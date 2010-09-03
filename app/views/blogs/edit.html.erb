@@ -1,56 +1,22 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
 <h1>Editing blog</h1>
 
-<% form_for(@blog) do |f| %>
+<% semantic_form_for @blog, :html => { :multipart => true }  do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :permalink %><br />
-    <%= f.text_field :permalink %>
-  </p>
-  <p>
-    <%= f.label :banner_file_name %><br />
-    <%= f.text_field :banner_file_name %>
-  </p>
-  <p>
-    <%= f.label :banner_content_type %><br />
-    <%= f.text_field :banner_content_type %>
-  </p>
-  <p>
-    <%= f.label :banner_file_size %><br />
-    <%= f.text_field :banner_file_size %>
-  </p>
-  <p>
-    <%= f.label :banner_updated_at %><br />
-    <%= f.text_field :banner_updated_at %>
-  </p>
-  <p>
-    <%= f.label :banner %><br />
-    <%= f.text_field :banner %>
-  </p>
-  <p>
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </p>
-  <p>
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
-  </p>
-
-  <p>
-    <%= f.label :posts_counts %><br />
-    <%= f.text_field :posts_counts %>
-  </p>
-  <p>
-    <%= f.label :visits_count %><br />
-    <%= f.text_field :visits_count %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :permalink %>
+    <%= f.input :banner,  :as => :file %>
+    <%= f.input :category %>
+    <%= f.input :active %>
+    <%= f.input :posts_counts, :as => :numeric %>
+    <%= f.input :visits_count, :as => :numeric %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Update' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @blog %> |
