@@ -1,3 +1,7 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <p>
   <b>Name:</b>
   <%=h @ad.name %>
@@ -31,3 +35,4 @@
 
 <%= link_to 'Edit', edit_ad_path(@ad) %> |
 <%= link_to 'Back', ads_path %>
+

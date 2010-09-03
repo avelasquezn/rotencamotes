@@ -40,7 +40,7 @@ class AwardInstitutionsController < ApplicationController
   # POST /award_institutions
   # POST /award_institutions.xml
   def create
-    @award_institution = AwardInstitution.new(params[:award_institution])
+    @award_institution = AwardInstitution.create(params[:award_institution])
 
     respond_to do |format|
       if @award_institution.save
@@ -81,3 +81,4 @@ class AwardInstitutionsController < ApplicationController
     end
   end
 end
+

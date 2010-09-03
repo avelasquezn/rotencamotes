@@ -1,3 +1,7 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <p>
   <b>Name:</b>
   <%=h @award_category.name %>
@@ -6,3 +10,4 @@
 
 <%= link_to 'Edit', edit_award_category_path(@award_category) %> |
 <%= link_to 'Back', award_categories_path %>
+

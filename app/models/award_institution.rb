@@ -2,6 +2,8 @@ class AwardInstitution < ActiveRecord::Base
   has_many :awards, :foreign_key => "institution_id"
   validates_presence_of :name
   validates_uniqueness_of :name
+  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+
 end
 
 # == Schema Information

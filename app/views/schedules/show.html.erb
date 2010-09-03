@@ -1,3 +1,6 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
 <p>
   <b>Theatre:</b>
   <%=h @schedule.theatre_id %>
@@ -31,3 +34,4 @@
 
 <%= link_to 'Edit', edit_schedule_path(@schedule) %> |
 <%= link_to 'Back', schedules_path %>
+

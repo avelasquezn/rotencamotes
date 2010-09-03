@@ -1,3 +1,7 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <p>
   <b>Name:</b>
   <%=h @award_institution.name %>
@@ -20,24 +24,20 @@
 
 <p>
   <b>Logo file name:</b>
-  <%=h @award_institution.logo_file_name %>
+  <%= image_tag @award_institution.logo.url %>
 </p>
 
 <p>
-  <b>Logo content type:</b>
-  <%=h @award_institution.logo_content_type %>
+  <b>Logo content:</b>
+  <%= image_tag @award_institution.logo.url(:medium) %>
 </p>
 
 <p>
-  <b>Logo file size:</b>
-  <%=h @award_institution.logo_file_size %>
-</p>
-
-<p>
-  <b>Logo updated at:</b>
-  <%=h @award_institution.logo_updated_at %>
+  <b>Logo thumb:</b>
+  <%= image_tag @award_institution.logo.url(:thumb) %>
 </p>
 
 
 <%= link_to 'Edit', edit_award_institution_path(@award_institution) %> |
 <%= link_to 'Back', award_institutions_path %>
+

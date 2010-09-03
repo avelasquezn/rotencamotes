@@ -1,15 +1,18 @@
-<h1>New award_category</h1>
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
 
-<% form_for(@award_category) do |f| %>
+<h1>New award category</h1>
+
+<% semantic_form_for(@award_category) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :name %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Create' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', award_categories_path %>
+

@@ -1,43 +1,22 @@
-<h1>New award_institution</h1>
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
 
-<% form_for(@award_institution) do |f| %>
+<h1>New Award Institution</h1>
+
+<% semantic_form_for @award_institution, :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
-  </p>
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.label :logo_file_name %><br />
-    <%= f.text_field :logo_file_name %>
-  </p>
-  <p>
-    <%= f.label :logo_content_type %><br />
-    <%= f.text_field :logo_content_type %>
-  </p>
-  <p>
-    <%= f.label :logo_file_size %><br />
-    <%= f.text_field :logo_file_size %>
-  </p>
-  <p>
-    <%= f.label :logo_updated_at %><br />
-    <%= f.datetime_select :logo_updated_at %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :bio,   :as => :text %>
+    <%= f.input :url %>
+    <%= f.input :logo,  :as => :file %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Create' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', award_institutions_path %>
+
