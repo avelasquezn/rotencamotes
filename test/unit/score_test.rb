@@ -8,6 +8,28 @@ class ScoreTest < ActiveSupport::TestCase
   should validate_presence_of :scored_at
   should validate_presence_of :value
   # should validate_uniqueness_of(:movie_id).scoped_to(:user_id, :scored_at)
+
+  context 'Given a movie' do
+    setup do
+      @movie = Factory(:movie)
+    end
+
+    context 'a user instance' do
+      setup do
+        @user = Factory(:user)
+      end
+
+      should 'rate the movie' do
+        assert_equal true, Score.rate(@user, @movie.id, 30)
+      end
+
+      should 'not rate the movie twice' do
+        assert_equal true, Score.rate(@user, @movie.id, 30)
+        assert_equal false, Score.rate(@user, @movie.id, 20)
+      end
+    end
+  end
+
 end
 
 # == Schema Information

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.devise_for :admins
+
   map.resources :scores
 
   map.resources :showtimes
@@ -51,6 +53,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :movies, :collection => {:latest => :get}
 
+  map.devise_for :users
+
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -92,7 +97,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing or commenting them out if you're using named routes and resources.
 
   # map routes
-  map.root :controller => "movies"
+  map.root :controller => "home"
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

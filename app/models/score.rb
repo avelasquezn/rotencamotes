@@ -46,6 +46,40 @@ class Score < ActiveRecord::Base
   def experts_score_for_movie(movie_id)
     return self.from_experts.from_movie(movie_id).average('value')
   end
+
+  def self.able_to_rate_movie(user, movie_id)
+    user.scores.from_movie(movie_id).find_all_by_scored_at(Date.today).empty?
+  end
+
+  def self.rate(user, movie_id, value)
+    if able_to_rate_movie(user, movie_id)
+      score           = Score.new
+      score.user_id   = user.id
+      score.movie_id  = movie_id
+      score.value     = value
+      score.scored_at = Date.today
+      score.source    = user.member_of
+      score.save
+    else
+      false
+    end
+  end
+
+  def self.expert_weight(movie_id)
+    Score.from_community.find_all_by_movie_id(movie_id).empty? ? 1.0 : 0.6
+  end
+
+  def self.community_weight(movie_id)
+    Score.from_experts.find_all_by_movie_id(movie_id).empty? ? 1.0 : 0.4
+  end
+
+  def self.calculate_final_score(movie_id, score_from_community, score_from_experts)
+    experts_factor    = 1
+    community_factor  = 20
+    return score_from_community*community_weight(movie_id)*community_factor +
+           score_from_experts*expert_weight(movie_id)*experts_factor
+  end
+
 end
 
 # == Schema Information

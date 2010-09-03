@@ -15,8 +15,20 @@ class PostTest < ActiveSupport::TestCase
       @post = Factory.create(:post)
     end
 
-    should "started as a drafted" do
-      assert_equal Post::STATUSES[:drafted], @post.status
+    should "start as a drafted" do
+      assert_equal true, @post.drafted?
+      #TODO: generate default value for drafted_at
+    end
+
+    context "when marked as reviewed" do
+      setup do
+        @post.mark_as_reviewed
+      end
+
+      should "be reviewed" do
+        assert_equal true, @post.reviewed?
+        assert_not_nil @post.reviewed_at
+      end
     end
 
     context "when marked as published" do
@@ -25,11 +37,12 @@ class PostTest < ActiveSupport::TestCase
       end
 
       should "be published" do
-        assert_equal Post::STATUSES[:published], @post.status
+        assert_equal true, @post.published?
+        assert_not_nil @post.published_at
       end
     end
 
-    context "with assigned categories" do
+    context "when assigned some categories" do
       setup do
         @category = Factory.create(:category, :name => 'IT')
         @post.categories << @category

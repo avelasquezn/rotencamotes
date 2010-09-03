@@ -6,6 +6,40 @@ class BlogTest < ActiveSupport::TestCase
   should belong_to :category
   should have_many :blog_images
   should belong_to :user
+
+  context 'A blog instance' do
+    setup do
+      @blog = Factory.create(:blog)
+    end
+
+    should 'have an owner' do
+      assert true, @blog.owned?
+    end
+
+    should 'have nil last updated date' do
+      assert_nil @blog.last_updated
+    end
+
+    should 'have no published posts' do
+      assert_nil @blog.last_post
+    end
+
+    context 'when having published posts' do
+      setup do
+        @post = Factory.create(:published_post, :blog => @blog, :title => 'Last',   :published_at => 3.days.ago.at_beginning_of_day)
+        @post = Factory.create(:published_post, :blog => @blog, :title => 'First',  :published_at => 1.week.ago.at_beginning_of_day)
+      end
+
+      should 'return the last published post' do
+        assert_equal 'Last', @blog.last_post.title
+      end
+
+      should 'return the last published post date' do
+        assert_equal 3.days.ago.at_beginning_of_day, @blog.last_updated
+      end
+
+    end
+  end
 end
 
 

@@ -13,6 +13,8 @@ class Movie < ActiveRecord::Base
   has_many :awards
   has_many :assets
   has_many :scores
+  has_many :schedules
+  has_many :theatres, :through => :schedules
 
   # validations
   validates_presence_of   :title
@@ -59,6 +61,9 @@ class Movie < ActiveRecord::Base
                 }
               }
 
+  named_scope :on_theatres,
+              :conditions => { :schedules => {:status => Schedule::STATUSES[:active]}},
+              :joins      => :schedules
   # methods
   def list
     Self.all
@@ -87,13 +92,7 @@ class Movie < ActiveRecord::Base
   end
 
   def calculate_final_score
-    expert_weight     = 0.6 #0.4x20x3 + 0.6x1x40 = 24 + 24 = 48
-    community_weight  = 0.4
-    experts_factor    = 1
-    community_factor  = 20
-
-    return self.score_from_community*community_weight*community_factor +
-           self.score_from_experts*expert_weight*experts_factor
+      Score.calculate_final_score(self.id, self.score_from_community, self.score_from_experts)
   end
 
   def update_scores

@@ -1,4 +1,4 @@
-Factory.define :score do |s|
+Factory.define :score, :default_strategy => :create do |s|
   s.association :movie
   s.association :user
   s.scored_at Time.zone.now

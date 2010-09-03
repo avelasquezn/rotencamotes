@@ -52,6 +52,12 @@ class Schedule < ActiveRecord::Base
   def current_showtimes
     return self.showtimes.active.empty? ? '' : self.showtimes.active.map(&time_shown_at).join(' | ')
   end
+
+  def self.scheduled_movies
+    Movie.find_by_sql(
+      'select * from movies where id in (select movie_id from schedules where status like "active" and in_theatre_from >= date_sub(curdate(), interval 3 week) group by movie_id) ')
+  end
+
 end
 
 # == Schema Information

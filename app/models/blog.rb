@@ -1,7 +1,7 @@
 class Blog < ActiveRecord::Base
   # relationships
   has_many              :blog_images
-  has_many              :posts
+  has_many              :posts, :order => 'published_at DESC'
   belongs_to            :category
   belongs_to            :user
   validates_presence_of :name
@@ -23,7 +23,7 @@ class Blog < ActiveRecord::Base
                 }
 
   # methods
-  def owner?
+  def owned?
     return false unless user
   end
 
@@ -31,16 +31,16 @@ class Blog < ActiveRecord::Base
     Blog.all
   end
 
-  def self.last_updated
-    self.posts.last.published_at
+  def last_updated
+    return self.posts.published.empty? ? nil : self.posts.published.first.published_at
   end
 
   def profile
-    Profile.find_by_user_id(self.user_id) unless self.user_id.nil?
+    return self.user_id.nil? ? nil : Profile.find_by_user_id(self.user_id)
   end
 
   def last_post
-    self.posts.published.last
+    return self.posts.published.empty? ? nil : self.posts.published.first
   end
 
   def tag_list

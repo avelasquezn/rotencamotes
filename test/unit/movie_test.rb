@@ -16,7 +16,6 @@ class MovieTest < ActiveSupport::TestCase
 
   context 'A movie instance without scores' do
     setup do
-      #puts "Movie instance values"
       @movie = Factory.create(:movie)
     end
     should 'have calculated scores of zero' do
@@ -25,18 +24,13 @@ class MovieTest < ActiveSupport::TestCase
       assert_equal 0.0, @movie.final_score
     end
     context 'when scored by community members with values of 2, 3, and 4' do
+
       setup do
-        @user = Factory.create(:user)
-        @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => 2)
-        @movie.scores << @score
-        @user = Factory.create(:user)
-        @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => 3)
-        @movie.scores << @score
-        @user = Factory.create(:user)
-        @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => 4)
-        @movie.scores << @score
-        @movie.save
+        [2,3,4].each do |score|
+          create_community_member_score(score)
+         end
       end
+
       should 'have 3 scores' do
         assert_equal 3, @movie.scores.count
       end
@@ -44,22 +38,17 @@ class MovieTest < ActiveSupport::TestCase
         assert_in_delta 3.0, @movie.score_from_community, 0.01
       end
       should 'have a calculated final score of 24.0' do
-        assert_in_delta 24.0, @movie.calculate_final_score, 0.01
+        assert_in_delta 60.0, @movie.calculate_final_score, 0.01
       end
     end
+
     context 'when scored by experts with values of 50, 40 and 30' do
       setup do
-        @user = Factory.create(:user)
-        @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => 50)
-        @movie.scores << @score
-        @user = Factory.create(:user)
-        @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => 40)
-        @movie.scores << @score
-        @user = Factory.create(:user)
-        @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => 30)
-        @movie.scores << @score
-        @movie.save
+        [50,40,30].each do |score|
+          create_expert_score(score)
+        end
       end
+
       should 'have 3 scores' do
         assert_equal 3, @movie.scores.count
       end
@@ -67,10 +56,48 @@ class MovieTest < ActiveSupport::TestCase
         assert_in_delta 40.0, @movie.score_from_experts, 0.01
       end
       should 'have a calculated final score of 24.0' do
-        assert_in_delta 24.0, @movie.calculate_final_score, 0.01
+        assert_in_delta 40.0, @movie.calculate_final_score, 0.01
+      end
+    end
+
+    context 'when scored by by both community (with values of 2, 3, and 4) and experts (with values of 50, 40 and 30)' do
+      setup do
+        [2,3,4].each do |score|
+          create_community_member_score(score)
+         end
+        [50,40,30].each do |score|
+          create_expert_score(score)
+        end
+      end
+
+      should 'have 6 scores' do
+        assert_equal 6, @movie.scores.count
+      end
+      should 'have a calculated community score of 3.0' do
+        assert_in_delta 3.0, @movie.score_from_community, 0.01
+      end
+      should 'have a calculated experts score of 40.0' do
+        assert_in_delta 40.0, @movie.score_from_experts, 0.01
+      end
+      should 'have a calculated final score of 48.0' do
+        assert_in_delta 48.0, @movie.calculate_final_score, 0.01
       end
     end
   end
+
+  private
+
+    def create_community_member_score(score)
+      @user = Factory.create(:user)
+      @score = Factory.create(:community_member_score, :movie => @movie, :user => @user, :value => score)
+    end
+
+    def create_expert_score(score)
+     @user = Factory.create(:user)
+     @score = Factory.create(:expert_score, :movie => @movie, :user => @user, :value => score)
+    end
+
+
 end
 
 

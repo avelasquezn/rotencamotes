@@ -1,34 +1,19 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+class Admin < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :http_authenticatable, :token_authenticatable, :confirmable, :lockable, :timeoutable and :activatable
+  devise :registerable, :database_authenticatable, :recoverable,
+         :rememberable, :trackable, :validatable
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  password: MyString
-  born_at: 2010-07-23
-
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  password: MyString
-  born_at: 2010-07-23
-
-
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation
+end
 
 # == Schema Information
 #
-# Table name: users
+# Table name: admins
 #
 #  id                   :integer(4)      not null, primary key
-#  first_name           :string(255)
-#  last_name            :string(255)
 #  email                :string(255)     default(""), not null
-#  password             :string(255)
-#  born_at              :date
-#  created_at           :datetime
-#  updated_at           :datetime
-#  member_of            :string(255)     default("community")
 #  encrypted_password   :string(128)     default(""), not null
 #  password_salt        :string(255)     default(""), not null
 #  confirmation_token   :string(255)
@@ -42,5 +27,7 @@ two:
 #  last_sign_in_at      :datetime
 #  current_sign_in_ip   :string(255)
 #  last_sign_in_ip      :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
 #
 

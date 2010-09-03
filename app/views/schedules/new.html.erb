@@ -1,35 +1,30 @@
 <h1>New schedule</h1>
 
-<% form_for(@schedule) do |f| %>
+<% semantic_form_for(@schedule) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :theatre_id %><br />
-    <%= f.text_field :theatre_id %>
+    <%= f.input :theatre %>
   </p>
   <p>
-    <%= f.label :movie_id %><br />
-    <%= f.text_field :movie_id %>
+    <%= f.input :movie %>
   </p>
   <p>
-    <%= f.label :in_theatre_from %><br />
-    <%= f.datetime_select :in_theatre_from %>
+    <%= f.input :in_theatre_from %>
   </p>
   <p>
-    <%= f.label :in_theatre_to %><br />
-    <%= f.datetime_select :in_theatre_to %>
+    <%= f.input :in_theatre_to %>
   </p>
   <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.input :description %>
   </p>
   <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
+    <%= f.input :status,:as => :select, :collection => Schedule::STATUSES  %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.commit_button 'Create' %>
   </p>
 <% end %>
 
 <%= link_to 'Back', schedules_path %>
+
