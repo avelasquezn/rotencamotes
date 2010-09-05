@@ -10,7 +10,7 @@
     <%= f.input :institution %>
     <%= f.input :category %>
     <%= f.input :year_received %>
-    <%= f.input :status,  :as => :select, :collection => Award::STATUSES %>
+    <%= f.input :status,  :as => :select, :collection => Award::STATUSES.values %>
     <%= f.input :person %>
     <%= f.input :movie %>
   <% end %>

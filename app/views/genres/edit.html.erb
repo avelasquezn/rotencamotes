@@ -1,16 +1,19 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>Editing genre</h1>
 
-<% form_for(@genre) do |f| %>
+<% semantic_form_for(@genre) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :name %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Update' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @genre %> |
 <%= link_to 'Back', genres_path %>
+

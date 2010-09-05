@@ -1,71 +1,31 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>New post</h1>
 
-<% form_for(@post) do |f| %>
+<% semantic_form_for(@post) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.label :category_id %><br />
-    <%= f.text_field :category_id %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :permalink %><br />
-    <%= f.text_field :permalink %>
-  </p>
-  <p>
-    <%= f.label :blog_id %><br />
-    <%= f.text_field :blog_id %>
-  </p>
-  <p>
-    <%= f.label :drafted_at %><br />
-    <%= f.datetime_select :drafted_at %>
-  </p>
-  <p>
-    <%= f.label :published_at %><br />
-    <%= f.datetime_select :published_at %>
-  </p>
-  <p>
-    <%= f.label :reviewed_at %><br />
-    <%= f.datetime_select :reviewed_at %>
-  </p>
-  <p>
-    <%= f.label :cached_tag_list %><br />
-    <%= f.text_field :cached_tag_list %>
-  </p>
-  <p>
-    <%= f.label :comments_count %><br />
-    <%= f.text_field :comments_count %>
-  </p>
-  <p>
-    <%= f.label :visits_count %><br />
-    <%= f.text_field :visits_count %>
-  </p>
-  <p>
-    <%= f.label :rating %><br />
-    <%= f.text_field :rating %>
-  </p>
-  <p>
-    <%= f.label :delta %><br />
-    <%= f.check_box :delta %>
-  </p>
-  <p>
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :title %>
+    <%= f.input :content, :as => :text %>
+    <%= f.input :user %>
+    <%= f.input :permalink %>
+    <%= f.input :blog %>
+    <%= f.input :drafted_at, :as => :date %>
+    <%= f.input :published_at, :as => :date %>
+    <%= f.input :reviewed_at, :as => :date %>
+    <%= f.input :cached_tag_list %>
+    <%= f.input :comments_count, :as => :numeric %>
+    <%= f.input :visits_count, :as => :numeric %>
+    <%= f.input :rating, :as => :numeric %>
+    <%= f.input :delta, :as => :radio %>
+    <%= f.input :status, :as => :select, :collection => Post::STATUSES.values %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Create' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', posts_path %>
+

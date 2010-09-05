@@ -1,3 +1,6 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
 <p>
   <b>First name:</b>
   <%=h @user.first_name %>
@@ -26,3 +29,4 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+

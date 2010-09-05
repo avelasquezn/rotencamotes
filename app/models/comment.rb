@@ -8,6 +8,11 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user
   validates_presence_of :content
 
+  STATUSES = {
+                :active     => 'active',
+                :inactive   => 'inactive'
+  }
+
   # named scopes
   named_scope :from_user,
               lambda { |user_id| {

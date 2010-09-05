@@ -1,24 +1,21 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>Editing movie_character</h1>
 
-<% form_for(@movie_character) do |f| %>
+<% semantic_form_for(@movie_character) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :movie_id %><br />
-    <%= f.text_field :movie_id %>
-  </p>
-  <p>
-    <%= f.label :person_id %><br />
-    <%= f.text_field :person_id %>
-  </p>
-  <p>
-    <%= f.label :character_name %><br />
-    <%= f.text_field :character_name %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :movie %>
+    <%= f.input :person, :label => 'Actor' %>
+    <%= f.input :character_name %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Update' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @movie_character %> |
 <%= link_to 'Back', movie_characters_path %>
+

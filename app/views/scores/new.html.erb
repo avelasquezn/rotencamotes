@@ -1,31 +1,23 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>New score</h1>
 
-<% form_for(@score) do |f| %>
+<% semantic_form_for(@score) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :movie_id %><br />
-    <%= f.text_field :movie_id %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :scored_at %><br />
-    <%= f.datetime_select :scored_at %>
-  </p>
-  <p>
-    <%= f.label :source %><br />
-    <%= f.text_field :source %>
-  </p>
-  <p>
-    <%= f.label :value %><br />
-    <%= f.text_field :value %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :movie %>
+    <%= f.input :user %>
+    <%= f.input :scored_at, :as => :date %>
+    <%= f.input :source, :as => :select, :collection => Score::SOURCES.values %>
+    <%= f.input :value, :as => :numeric %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Create' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', scores_path %>
+

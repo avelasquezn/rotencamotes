@@ -1,20 +1,22 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>Editing theatre</h1>
 
-<% form_for(@theatre) do |f| %>
+<% semantic_form_for(@theatre) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :movie_chain %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Update' %>
+  <% end %>
 <% end %>
+
 
 <%= link_to 'Show', @theatre %> |
 <%= link_to 'Back', theatres_path %>
+

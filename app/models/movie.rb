@@ -16,6 +16,24 @@ class Movie < ActiveRecord::Base
   has_many :schedules
   has_many :theatres, :through => :schedules
 
+  MPAA_RATES = {
+    :NR     => 'NR- This Film is Not Yet Rated',
+    :G      => 'G- General Audiences',
+    :PG     => 'PG- Parental Guidance Suggested',
+    :"PG-13"=> 'PG-13- Parents Strongly Cautioned',
+    :R      => 'R- Restricted',
+    :"NC-17"=> 'NC-17- No One 17 and Under Admitted'
+  }
+
+  LANGUAGES = {
+    :sp =>  'Spanish',
+    :en =>  'English',
+    :fr =>  'French',
+    :de =>  'German',
+    :ch =>  'Chinese',
+    :jp =>  'Japanese',
+    :pr =>  'Portuguese'
+  }
   # validations
   validates_presence_of   :title
   validates_uniqueness_of :released_at, :scope => :title, :case_sensitive => false

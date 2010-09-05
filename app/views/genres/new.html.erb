@@ -1,15 +1,18 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>New genre</h1>
 
-<% form_for(@genre) do |f| %>
+<% semantic_form_for(@genre) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :name %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Create' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', genres_path %>
+

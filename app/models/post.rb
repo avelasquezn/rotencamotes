@@ -38,7 +38,7 @@ class Post < ActiveRecord::Base
               :conditions => { :status => STATUSES[:reviewed] },
               :order => 'reviewed_at DESC'
   named_scope :active,
-              :conditions => 'blog.active is true',
+              :conditions => { :blogs => {:active => true}},
               :joins => :blog
   named_scope :last_published,
               lambda {|limit| limit = 20 if limit.nil?

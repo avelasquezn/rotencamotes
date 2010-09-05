@@ -1,3 +1,7 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>Listing people</h1>
 
 <table>
@@ -13,12 +17,11 @@
 
 <% @people.each do |person| %>
   <tr>
-    <td><%=h person.firt_name %></td>
+    <td><%=h person.first_name %></td>
     <td><%=h person.middle_name %></td>
     <td><%=h person.last_name %></td>
     <td><%=h person.born_at %></td>
     <td><%=h person.born_in %></td>
-    <td><%=h person.procedence %></td>
     <td><%=h person.bio %></td>
     <td><%= link_to 'Show', person %></td>
     <td><%= link_to 'Edit', edit_person_path(person) %></td>
@@ -30,3 +33,4 @@
 <br />
 
 <%= link_to 'New person', new_person_path %>
+

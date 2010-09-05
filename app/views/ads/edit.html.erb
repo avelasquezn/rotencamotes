@@ -12,7 +12,7 @@
     <%= f.input :content,     :as => :text %>
     <%= f.input :started_at,  :as => :date %>
     <%= f.input :finished_at, :as => :date %>
-    <%= f.input :place,       :as => :select, :collection => Ad::PLACES %>
+    <%= f.input :place,       :as => :select, :collection => Ad::PLACES.values %>
   <% end %>
   <% f.buttons do %>
       <%= f.commit_button 'Update' %>

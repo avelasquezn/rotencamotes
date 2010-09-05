@@ -26,6 +26,7 @@ class Person < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: people
@@ -36,7 +37,6 @@ end
 #  last_name   :string(255)
 #  born_at     :datetime
 #  born_in     :string(255)
-#  procedence  :string(255)
 #  bio         :text
 #  created_at  :datetime
 #  updated_at  :datetime

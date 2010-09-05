@@ -1,24 +1,26 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>Editing profile</h1>
 
-<% form_for(@profile) do |f| %>
+<% semantic_form_for(@profile) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :current_location %><br />
-    <%= f.text_field :current_location %>
-  </p>
-  <p>
-    <%= f.label :favorite_movie_character %><br />
-    <%= f.text_field :favorite_movie_character %>
-  </p>
-  <p>
-    <%= f.label :favorite_movie_line %><br />
-    <%= f.text_field :favorite_movie_line %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :current_location, :as => :country %>
+    <%= f.input :favorite_genre %>
+    <%= f.input :favorite_actor %>
+    <%= f.input :favorite_director %>
+    <%= f.input :favorite_writer %>
+    <%= f.input :favorite_movie %>
+    <%= f.input :favorite_movie_character %>
+    <%= f.input :favorite_movie_line %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Update' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Show', @profile %> |
 <%= link_to 'Back', profiles_path %>
+

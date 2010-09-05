@@ -1,49 +1,25 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <h1>New movie</h1>
 
-<% form_for(@movie) do |f| %>
+<% semantic_form_for(@movie) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :summary %><br />
-    <%= f.text_area :summary %>
-  </p>
-  <p>
-    <%= f.label :synopsis %><br />
-    <%= f.text_area :synopsis %>
-  </p>
-  <p>
-    <%= f.label :released_at %><br />
-    <%= f.datetime_select :released_at %>
-  </p>
-  <p>
-    <%= f.label :lenght %><br />
-    <%= f.text_field :lenght %>
-  </p>
-  <p>
-    <%= f.label :website %><br />
-    <%= f.text_field :website %>
-  </p>
-  <p>
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </p>
-  <p>
-    <%= f.label :language %><br />
-    <%= f.text_field :language %>
-  </p>
-  <p>
-    <%= f.label :mpaa_rate %><br />
-    <%= f.text_field :mpaa_rate %>
-  </p>
-
-
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <% f.inputs do %>
+    <%= f.input :title %>
+    <%= f.input :summary, :as => :text %>
+    <%= f.input :synopsis, :as => :text %>
+    <%= f.input :released_at, :as => :date %>
+    <%= f.input :lenght, :as => :numeric %>
+    <%= f.input :website %>
+    <%= f.input :country, :as => :country %>
+    <%= f.input :language,  :as => :select, :collection => Movie::LANGUAGES.values %>
+    <%= f.input :mpaa_rate, :as => :select, :collection => Movie::MPAA_RATES.values %>
+  <% end %>
+  <% f.buttons do %>
+    <%= f.commit_button 'Create' %>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', movies_path %>

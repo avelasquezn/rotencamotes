@@ -1,10 +1,14 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
 <p>
   <b>Movie:</b>
   <%=h @movie_character.movie_id %>
 </p>
 
 <p>
-  <b>Person:</b>
+  <b>Actor:</b>
   <%=h @movie_character.person_id %>
 </p>
 
@@ -16,3 +20,4 @@
 
 <%= link_to 'Edit', edit_movie_character_path(@movie_character) %> |
 <%= link_to 'Back', movie_characters_path %>
+
