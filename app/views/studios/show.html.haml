@@ -1,0 +1,12 @@
+%p
+  %b Name:
+  = h @studio.name
+%p
+  %b Address:
+  = h @studio.address
+%p
+  %b Bio:
+  = h @studio.bio
+= link_to 'Edit', edit_studio_path(@studio)
+|
+\#{link_to 'Back', studios_path}

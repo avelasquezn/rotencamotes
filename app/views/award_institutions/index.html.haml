@@ -1,0 +1,28 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing award_institutions
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Bio
+    %th Url
+    %th Logo file name
+    %th Logo content type
+    %th Logo file size
+    %th Logo updated at
+  - @award_institutions.each do |award_institution|
+    %tr
+      %td= h award_institution.name
+      %td= h award_institution.description
+      %td= h award_institution.bio
+      %td= h award_institution.url
+      %td= h award_institution.logo_file_name
+      %td= h award_institution.logo_content_type
+      %td= h award_institution.logo_file_size
+      %td= h award_institution.logo_updated_at
+      %td= link_to 'Show', award_institution
+      %td= link_to 'Edit', edit_award_institution_path(award_institution)
+      %td= link_to 'Destroy', award_institution, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New award_institution', new_award_institution_path

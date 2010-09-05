@@ -1,0 +1,23 @@
+%head
+  = formtastic_stylesheet_link_tag
+%p
+  %b Firt name:
+  = h @person.first_name
+%p
+  %b Middle name:
+  = h @person.middle_name
+%p
+  %b Last name:
+  = h @person.last_name
+%p
+  %b Born at:
+  = h @person.born_at
+%p
+  %b Born in:
+  = h @person.born_in
+%p
+  %b Bio:
+  = h @person.bio
+= link_to 'Edit', edit_person_path(@person)
+|
+\#{link_to 'Back', people_path}

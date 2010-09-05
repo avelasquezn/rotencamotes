@@ -1,0 +1,30 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing comments
+%table
+  %tr
+    %th Post
+    %th Email
+    %th Name
+    %th Website
+    %th User
+    %th Parent
+    %th Content
+    %th Status
+    %th Featured
+  - @comments.each do |comment|
+    %tr
+      %td= h comment.post_id
+      %td= h comment.email
+      %td= h comment.name
+      %td= h comment.website
+      %td= h comment.user_id
+      %td= h comment.parent_id
+      %td= h comment.content
+      %td= h comment.status
+      %td= h comment.featured
+      %td= link_to 'Show', comment
+      %td= link_to 'Edit', edit_comment_path(comment)
+      %td= link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New comment', new_comment_path

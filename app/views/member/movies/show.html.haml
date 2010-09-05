@@ -1,0 +1,30 @@
+%p
+  %b Title:
+  = h @movie.title
+%p
+  %b Summary:
+  = h @movie.summary
+%p
+  %b Synopsis:
+  = h @movie.synopsis
+%p
+  %b Released at:
+  = h @movie.released_at
+%p
+  %b Lenght:
+  = h @movie.lenght
+%p
+  %b Website:
+  = h @movie.website
+%p
+  %b Country:
+  = h @movie.country
+%p
+  %b Language:
+  = h @movie.language
+%p
+  %b MPAA Rate:
+  = h @movie.mpaa_rate
+= link_to 'Edit', edit_movie_path(@movie)
+|
+\#{link_to 'Back', movies_path}

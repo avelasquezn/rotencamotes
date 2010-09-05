@@ -1,0 +1,21 @@
+%p
+  %b Blog:
+  = h @blog_image.blog_id
+%p
+  %b Image file name:
+  = h @blog_image.image_file_name
+%p
+  %b Image content type:
+  = h @blog_image.image_content_type
+%p
+  %b Image file size:
+  = h @blog_image.image_file_size
+%p
+  %b Image updated at:
+  = h @blog_image.image_updated_at
+%p
+  %b Image url:
+  = h @blog_image.image_url
+= link_to 'Edit', edit_blog_image_path(@blog_image)
+|
+\#{link_to 'Back', blog_images_path}

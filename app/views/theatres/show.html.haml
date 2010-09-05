@@ -1,0 +1,9 @@
+%p
+  %b Name:
+  = h @theatre.name
+%p
+  %b Address:
+  = h @theatre.address
+= link_to 'Edit', edit_theatre_path(@theatre)
+|
+\#{link_to 'Back', theatres_path}

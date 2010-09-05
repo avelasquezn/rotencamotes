@@ -1,0 +1,15 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 New award
+- semantic_form_for(@award) do |f|
+  = f.error_messages
+  - f.inputs do
+    = f.input :institution
+    = f.input :category
+    = f.input :year_received
+    = f.input :status,  :as => :select, :collection => Award::STATUSES.values
+    = f.input :person
+    = f.input :movie
+  - f.buttons do
+    = f.commit_button 'Create'
+= link_to 'Back', awards_path

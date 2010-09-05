@@ -1,0 +1,18 @@
+%p
+  %b Movie:
+  = h @score.movie_id
+%p
+  %b User:
+  = h @score.user_id
+%p
+  %b Scored at:
+  = h @score.scored_at
+%p
+  %b Source:
+  = h @score.source
+%p
+  %b Value:
+  = h @score.value
+= link_to 'Edit', edit_score_path(@score)
+|
+\#{link_to 'Back', scores_path}

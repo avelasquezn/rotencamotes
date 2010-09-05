@@ -1,0 +1,17 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Editing ad
+- semantic_form_for(@ad) do |f|
+  = f.error_messages
+  - f.inputs do
+    = f.input :name
+    = f.input :campaign
+    = f.input :content,     :as => :text
+    = f.input :started_at,  :as => :date
+    = f.input :finished_at, :as => :date
+    = f.input :place,       :as => :select, :collection => Ad::PLACES.values
+  - f.buttons do
+    = f.commit_button 'Update'
+= link_to 'Show', @ad
+|
+\#{link_to 'Back', ads_path}

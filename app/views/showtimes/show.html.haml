@@ -1,0 +1,15 @@
+%p
+  %b Schedule:
+  = h @showtime.schedule_id
+%p
+  %b Shown at:
+  = h @showtime.shown_at
+%p
+  %b Description:
+  = h @showtime.description
+%p
+  %b Status:
+  = h @showtime.status
+= link_to 'Edit', edit_showtime_path(@showtime)
+|
+\#{link_to 'Back', showtimes_path}

@@ -1,0 +1,23 @@
+%head
+  = formtastic_stylesheet_link_tag
+%p
+  %b Theatre:
+  = h @schedule.theatre_id
+%p
+  %b Movie:
+  = h @schedule.movie_id
+%p
+  %b In theatre from:
+  = h @schedule.in_theatre_from
+%p
+  %b In theatre to:
+  = h @schedule.in_theatre_to
+%p
+  %b Description:
+  = h @schedule.description
+%p
+  %b Status:
+  = h @schedule.status
+= link_to 'Edit', edit_schedule_path(@schedule)
+|
+\#{link_to 'Back', schedules_path}

@@ -1,0 +1,20 @@
+%head
+  = formtastic_stylesheet_link_tag
+%p
+  %b First name:
+  = h @user.first_name
+%p
+  %b Last name:
+  = h @user.last_name
+%p
+  %b Email:
+  = h @user.email
+%p
+  %b Password:
+  = h @user.password
+%p
+  %b Born at:
+  = h @user.born_at
+= link_to 'Edit', edit_user_path(@user)
+|
+\#{link_to 'Back', users_path}

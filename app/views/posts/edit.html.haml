@@ -1,0 +1,68 @@
+%h1 Editing post
+- form_for(@post) do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br/
+    = f.text_field :title
+  %p
+    = f.label :content
+    %br/
+    = f.text_area :content
+  %p
+    = f.label :category_id
+    %br/
+    = f.text_field :category_id
+  %p
+    = f.label :user_id
+    %br/
+    = f.text_field :user_id
+  %p
+    = f.label :permalink
+    %br/
+    = f.text_field :permalink
+  %p
+    = f.label :blog_id
+    %br/
+    = f.text_field :blog_id
+  %p
+    = f.label :drafted_at
+    %br/
+    = f.datetime_select :drafted_at
+  %p
+    = f.label :published_at
+    %br/
+    = f.datetime_select :published_at
+  %p
+    = f.label :reviewed_at
+    %br/
+    = f.datetime_select :reviewed_at
+  %p
+    = f.label :cached_tag_list
+    %br/
+    = f.text_field :cached_tag_list
+  %p
+    = f.label :comments_count
+    %br/
+    = f.text_field :comments_count
+  %p
+    = f.label :visits_count
+    %br/
+    = f.text_field :visits_count
+  %p
+    = f.label :rating
+    %br/
+    = f.text_field :rating
+  %p
+    = f.label :delta
+    %br/
+    = f.check_box :delta
+  %p
+    = f.label :status
+    %br/
+    = f.text_field :status
+  %p
+    = f.submit 'Update'
+= link_to 'Show', @post
+|
+\#{link_to 'Back', posts_path}

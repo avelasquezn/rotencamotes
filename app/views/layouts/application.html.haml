@@ -1,0 +1,11 @@
+!!!
+%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    %title
+      Movies: #{controller.action_name}
+    = stylesheet_link_tag 'scaffold'
+  %body
+    %h1= link_to 'RotenCamotes', root_path, :title => 'RotenCamotes', :class => 'Logo'
+    %p{:style => "color: green"}= notice
+    = yield
