@@ -1,0 +1,11 @@
+%head
+  = formtastic_stylesheet_link_tag
+%p
+  %b Name:
+  = h @category.name
+%p
+  %b Category type:
+  = h @category.category_type
+= link_to 'Edit', edit_category_path(@category)
+|
+\#{link_to 'Back', categories_path}

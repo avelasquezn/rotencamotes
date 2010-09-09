@@ -1,0 +1,12 @@
+%p
+  %b Title:
+  = h @external_link.title
+%p
+  %b Description:
+  = h @external_link.description
+%p
+  %b Url:
+  = h @external_link.url
+= link_to 'Edit', edit_external_link_path(@external_link)
+|
+\#{link_to 'Back', external_links_path}

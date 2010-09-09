@@ -28,7 +28,7 @@ Rails::Initializer.run do |config|
   config.gem 'haml'
   config.gem 'paperclip'
   config.gem 'thinking-sphinx', :lib => 'thinking_sphinx'
-
+  config.gem "inherited_resources", :version => "1.0.6"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

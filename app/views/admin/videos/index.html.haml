@@ -1,0 +1,18 @@
+%h1 Listing videos
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Video type
+    %th Content
+  - @videos.each do |video|
+    %tr
+      %td= h video.title
+      %td= h video.description
+      %td= h video.video_type
+      %td= h video.content
+      %td= link_to 'Show', video
+      %td= link_to 'Edit', edit_video_path(video)
+      %td= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New video', new_video_path

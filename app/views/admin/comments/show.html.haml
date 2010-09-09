@@ -1,0 +1,32 @@
+%head
+  = formtastic_stylesheet_link_tag
+%p
+  %b Post:
+  = h @comment.post_id
+%p
+  %b Email:
+  = h @comment.email
+%p
+  %b Name:
+  = h @comment.name
+%p
+  %b Website:
+  = h @comment.website
+%p
+  %b User:
+  = h @comment.user_id
+%p
+  %b Parent:
+  = h @comment.parent_id
+%p
+  %b Content:
+  = h @comment.content
+%p
+  %b Status:
+  = h @comment.status
+%p
+  %b Featured:
+  = h @comment.featured
+= link_to 'Edit', edit_comment_path(@comment)
+|
+\#{link_to 'Back', comments_path}

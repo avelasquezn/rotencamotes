@@ -1,0 +1,19 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing movie_chains
+%table
+  %tr
+    %th Name
+    %th Address
+    %th Bio
+  - @movie_chains.each do |movie_chain|
+    %tr
+      %td= h movie_chain.name
+      %td= h movie_chain.address
+      %td= h movie_chain.bio
+      %td= link_to 'Show', [:admin, movie_chain]
+      %td= link_to 'Edit', edit_admin_movie_chain_path(movie_chain)
+      %td= link_to 'Destroy', [:admin, movie_chain], :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New movie_chain', new_admin_movie_chain_path
+

@@ -1,0 +1,26 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing photos
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Photo type
+    %th Photo file name
+    %th Photo content type
+    %th Photo file size
+    %th Photo updated at
+  - @photos.each do |photo|
+    %tr
+      %td= h photo.title
+      %td= h photo.description
+      %td= h photo.photo_type
+      %td= h photo.photo_file_name
+      %td= h photo.photo_content_type
+      %td= h photo.photo_file_size
+      %td= h photo.photo_updated_at
+      %td= link_to 'Show', photo
+      %td= link_to 'Edit', edit_photo_path(photo)
+      %td= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New photo', new_photo_path

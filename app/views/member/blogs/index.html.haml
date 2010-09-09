@@ -1,2 +1,34 @@
-%h1 Member::Blogs#index
-%p Find me in app/views/member/blogs/index.html.erb
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing blogs
+%table
+  %tr
+    %th Name
+    %th Permalink
+    %th Banner file name
+    %th Banner content type
+    %th Banner file size
+    %th Banner updated at
+    %th Banner
+    %th Category
+    %th Active
+    %th Posts counts
+    %th Visits count
+  - @blogs.each do |blog|
+    %tr
+      %td= h blog.name
+      %td= h blog.permalink
+      %td= h blog.banner_file_name
+      %td= h blog.banner_content_type
+      %td= h blog.banner_file_size
+      %td= h blog.banner_updated_at
+      %td= h blog.banner
+      %td= h blog.category_id
+      %td= h blog.active
+      %td= h blog.posts_counts
+      %td= h blog.visits_count
+      %td= link_to 'Show', blog
+      %td= link_to 'Edit', edit_blog_path(blog)
+      %td= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New blog', new_blog_path

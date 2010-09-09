@@ -1,23 +1,15 @@
-class Member::BlogsController < ApplicationController
-  def index
-  end
+class Member::BlogsController < InheritedResources::Base
+  before_filter :authenticate_user!
+  respond_to    :html, :xml
+  actions       :all
 
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
-  def create
+  def default_path
+    member_blogs_path
   end
 
   def update
-  end
-
-  def destroy
+    update!   { default_path }
   end
 
 end
+

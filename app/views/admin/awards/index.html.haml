@@ -1,0 +1,24 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing awards
+%table
+  %tr
+    %th Institution
+    %th Category
+    %th Year received
+    %th Status
+    %th Person
+    %th Movie
+  - @awards.each do |award|
+    %tr
+      %td= h award.institution_id
+      %td= h award.category_id
+      %td= h award.year_received
+      %td= h award.status
+      %td= h award.person_id
+      %td= h award.movie_id
+      %td= link_to 'Show', award
+      %td= link_to 'Edit', edit_award_path(award)
+      %td= link_to 'Destroy', award, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New award', new_award_path

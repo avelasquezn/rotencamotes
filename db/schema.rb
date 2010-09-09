@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100903235602) do
+ActiveRecord::Schema.define(:version => 20100909192321) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -207,9 +207,13 @@ ActiveRecord::Schema.define(:version => 20100903235602) do
     t.string   "language"
     t.string   "mpaa_rate"
     t.integer  "studio_id"
-    t.decimal  "community_score", :precision => 5, :scale => 2, :default => 0.0
-    t.decimal  "experts_score",   :precision => 5, :scale => 2, :default => 0.0
-    t.decimal  "final_score",     :precision => 5, :scale => 2, :default => 0.0
+    t.decimal  "community_score",     :precision => 5, :scale => 2, :default => 0.0
+    t.decimal  "experts_score",       :precision => 5, :scale => 2, :default => 0.0
+    t.decimal  "final_score",         :precision => 5, :scale => 2, :default => 0.0
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   create_table "people", :force => true do |t|
@@ -358,6 +362,10 @@ ActiveRecord::Schema.define(:version => 20100903235602) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "videos", :force => true do |t|

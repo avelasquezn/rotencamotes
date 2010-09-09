@@ -1,0 +1,18 @@
+%h1 Listing showtimes
+%table
+  %tr
+    %th Schedule
+    %th Shown at
+    %th Description
+    %th Status
+  - @showtimes.each do |showtime|
+    %tr
+      %td= h showtime.schedule_id
+      %td= h showtime.shown_at
+      %td= h showtime.description
+      %td= h showtime.status
+      %td= link_to 'Show', showtime
+      %td= link_to 'Edit', edit_showtime_path(showtime)
+      %td= link_to 'Destroy', showtime, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New showtime', new_showtime_path

@@ -1,0 +1,12 @@
+%p
+  %b Current location:
+  = h @profile.current_location
+%p
+  %b Favorite movie character:
+  = h @profile.favorite_movie_character
+%p
+  %b Favorite movie line:
+  = h @profile.favorite_movie_line
+= link_to 'Edit', edit_profile_path(@profile)
+|
+\#{link_to 'Back', profiles_path}

@@ -1,0 +1,45 @@
+<head>
+  <%= formtastic_stylesheet_link_tag %>
+</head>
+
+<p>
+  <b>Name:</b>
+  <%=h @blog.name %>
+</p>
+
+<p>
+  <b>Permalink:</b>
+  <%=h @blog.permalink %>
+</p>
+
+<%= image_tag @blog.banner.url %>
+<%= image_tag @blog.banner.url(:medium) %>
+<%= image_tag @blog.banner.url(:thumb) %>
+
+
+<p>
+  <b>Category:</b>
+  <%=h @blog.category_id %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @blog.active %>
+</p>
+
+
+
+<p>
+  <b>Posts counts:</b>
+  <%=h @blog.posts_counts %>
+</p>
+
+<p>
+  <b>Visits count:</b>
+  <%=h @blog.visits_count %>
+</p>
+
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
+

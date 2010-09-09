@@ -1,0 +1,23 @@
+%h1 Listing schedules
+%table
+  %tr
+    %th Theatre
+    %th Movie
+    %th In theatre from
+    %th In theatre to
+    %th Description
+    %th Status
+  - @schedules.each do |schedule|
+    %tr
+      %td= h schedule.theatre_id
+      %td= h schedule.movie_id
+      %td= h schedule.in_theatre_from
+      %td= h schedule.in_theatre_to
+      %td= h schedule.description
+      %td= h schedule.status
+      %td= link_to 'Show', [:admin, schedule]
+      %td= link_to 'Edit', edit_admin_schedule_path(schedule)
+      %td= link_to 'Destroy', [:admin, schedule], :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New schedule', new_admin_schedule_path
+

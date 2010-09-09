@@ -1,0 +1,23 @@
+%head
+  = formtastic_stylesheet_link_tag
+%p
+  %b Institution:
+  = h @award.institution_id
+%p
+  %b Category:
+  = h @award.category_id
+%p
+  %b Year received:
+  = h @award.year_received
+%p
+  %b Status:
+  = h @award.status
+%p
+  %b Person:
+  = h @award.person_id
+%p
+  %b Movie:
+  = h @award.movie_id
+= link_to 'Edit', edit_award_path(@award)
+|
+\#{link_to 'Back', awards_path}

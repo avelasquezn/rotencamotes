@@ -1,2 +1,47 @@
-%h1 Member::Posts#show
-%p Find me in app/views/member/posts/show.html.erb
+%p
+  %b Title:
+  = h @post.title
+%p
+  %b Content:
+  = h @post.content
+
+%p
+  %b User:
+  = h @post.user_id
+%p
+  %b Permalink:
+  = h @post.permalink
+%p
+  %b Blog:
+  = h @post.blog_id
+%p
+  %b Drafted at:
+  = h @post.drafted_at
+%p
+  %b Published at:
+  = h @post.published_at
+%p
+  %b Reviewed at:
+  = h @post.reviewed_at
+%p
+  %b Cached tag list:
+  = h @post.cached_tag_list
+%p
+  %b Comments count:
+  = h @post.comments_count
+%p
+  %b Visits count:
+  = h @post.visits_count
+%p
+  %b Rating:
+  = h @post.rating
+%p
+  %b Delta:
+  = h @post.delta
+%p
+  %b Status:
+  = h @post.status
+= link_to 'Edit', edit_post_path(@post)
+|
+\#{link_to 'Back', posts_path}
+

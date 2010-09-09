@@ -1,0 +1,15 @@
+%p
+  %b Title:
+  = h @video.title
+%p
+  %b Description:
+  = h @video.description
+%p
+  %b Video type:
+  = h @video.video_type
+%p
+  %b Content:
+  = h @video.content
+= link_to 'Edit', edit_video_path(@video)
+|
+\#{link_to 'Back', videos_path}

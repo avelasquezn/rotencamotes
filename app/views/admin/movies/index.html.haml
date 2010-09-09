@@ -1,0 +1,27 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing movies
+%table
+  %tr
+    %th Title
+    %th Summary
+    %th Synopsis
+    %th Released at
+    %th Lenght
+    %th Website
+    %th Banner
+  - @movies.each do |movie|
+    %tr
+      %td= h movie.title
+      %td= h movie.summary
+      %td= h movie.synopsis
+      %td= h movie.released_at
+      %td= h movie.lenght
+      %td= h movie.website
+      %td= image_tag movie.banner.url(:thumb)
+      %td= link_to 'Show', [:admin,movie]
+      %td= link_to 'Edit', edit_admin_movie_path(movie)
+      %td= link_to 'Destroy', [:admin, movie], :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New movie', new_admin_movie_path
+

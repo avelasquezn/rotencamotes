@@ -1,0 +1,16 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 New comment
+- semantic_form_for(@comment) do |f|
+  = f.error_messages
+  - f.inputs do
+    = f.input :post, :as => :select, :collection => Post.active.last_published.find(:all)
+    = f.input :email
+    = f.input :name
+    = f.input :website
+    = f.input :content, :as => :text
+    = f.input :status, :as => :select, :collection => Comment::STATUSES.values
+    = f.input :featured, :as => :check_boxes
+  - f.buttons do
+    = f.commit_button 'Create'
+= link_to 'Back', comments_path

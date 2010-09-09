@@ -1,2 +1,18 @@
-%h1 Member::Blogs#new
-%p Find me in app/views/member/blogs/new.html.erb
+%head
+  = formtastic_stylesheet_link_tag
+%h1 New blog
+- semantic_form_for @blog, :html => { :multipart => true } do |f|
+  = f.error_messages
+  - f.inputs do
+    = f.input :name
+    = f.input :permalink
+    = f.input :banner,  :as => :file
+    = f.input :category
+    = f.input :user
+    = f.input :active
+    = f.input :posts_counts, :as => :numeric
+    = f.input :visits_count, :as => :numeric
+  - f.buttons do
+    = f.commit_button 'Create'
+= link_to 'Back', blogs_path
+

@@ -1,5 +1,6 @@
 class MovieChain < ActiveRecord::Base
-  has_many :theatres
+  has_many :theatres, :dependent => :destroy
+  accepts_nested_attributes_for :theatres
   validates_presence_of :name
 end
 

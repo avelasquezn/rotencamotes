@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_presence_of   :email
-  validates_presence_of   :last_name
+  validates_presence_of   :last_name, :on => :update
   validates_uniqueness_of :email
   has_one   :profile
   has_many  :posts
@@ -10,8 +10,10 @@ class User < ActiveRecord::Base
   has_one   :blog
   has_many  :scores
 
-  devise  :database_authenticatable, :confirmable, :recoverable,
-          :rememberable, :trackable, :validatable
+  after_create  :setup_profile
+
+  devise  :registerable, :database_authenticatable,
+          :recoverable,:rememberable, :trackable, :validatable
 
 
   ROLES = {
@@ -24,6 +26,9 @@ class User < ActiveRecord::Base
 
   # methods
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   def mark_as_community_member
     self.member_of = ROLES[:community]
     self.save
@@ -46,7 +51,47 @@ class User < ActiveRecord::Base
     Score.rate(self, movie_id, value)
   end
 
+  def allowed_to_post?
+    self.blog.present? && expert?
+  end
+
+  def build_post
+    if allowed_to_post?
+      post = self.blog.posts.build
+      post.user = self
+      return post
+    end
+  end
+
+  def allowed_to_score?
+    true
+  end
+
+  def build_score
+    if allowed_to_score?
+      score = self.scores.build
+      score.user = self
+      return score
+    end
+  end
+
+  def allowed_to_comment?
+    true
+  end
+
+  def build_comment
+    if allowed_to_comment?
+      comment = self.comments.build
+      comment.user = self
+      return comment
+    end
+  end
+
+  def setup_profile
+    self.create_profile
+  end
 end
+
 
 
 
@@ -76,5 +121,9 @@ end
 #  last_sign_in_at      :datetime
 #  current_sign_in_ip   :string(255)
 #  last_sign_in_ip      :string(255)
+#  avatar_file_name     :string(255)
+#  avatar_content_type  :string(255)
+#  avatar_file_size     :integer(4)
+#  avatar_updated_at    :datetime
 #
 

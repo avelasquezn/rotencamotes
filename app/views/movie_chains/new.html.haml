@@ -1,12 +1,9 @@
 %head
   = formtastic_stylesheet_link_tag
-%h1 New movie_chain
+%h1 New Movie Chain
 - semantic_form_for(@movie_chain) do |f|
-  = f.error_messages
-  - f.inputs do
-    = f.input :name
-    = f.input :address
-    = f.input :bio, :as => :text
+  = render 'form', :f => f
   - f.buttons do
     = f.commit_button 'Create'
 = link_to 'Back', movie_chains_path
+

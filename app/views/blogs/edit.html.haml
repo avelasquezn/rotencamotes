@@ -8,6 +8,7 @@
     = f.input :permalink
     = f.input :banner,  :as => :file
     = f.input :category
+    = f.input :user
     = f.input :active
     = f.input :posts_counts, :as => :numeric
     = f.input :visits_count, :as => :numeric
@@ -16,3 +17,4 @@
 = link_to 'Show', @blog
 |
 \#{link_to 'Back', blogs_path}
+

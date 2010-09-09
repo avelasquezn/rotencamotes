@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.devise_for :users
+
   map.devise_for :admins
 
   map.resources :scores
@@ -53,7 +56,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :movies, :collection => {:latest => :get}
 
-  map.devise_for :users
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -86,6 +89,49 @@ ActionController::Routing::Routes.draw do |map|
   #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
   #     admin.resources :products
   #   end
+
+  map.namespace :admin do |admin|
+  # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+    admin.admin_root '/', :controller => :home
+    admin.resources :ads
+    admin.resources :assets
+    admin.resources :award_categories
+    admin.resources :award_institutions
+    admin.resources :awards
+    admin.resources :blogs
+    admin.resources :categories
+    admin.resources :comments
+    admin.resources :external_links
+    admin.resources :genres
+    admin.resources :movie_chains
+    admin.resources :movie_characters
+    admin.resources :movies
+    admin.resources :people
+   #   map.namespace :admin do |admin|
+  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+  #     admin.resources :products
+  #   end
+    admin.resources :photos
+    admin.resources :post_categories
+    admin.resources :posts
+    admin.resources :profiles
+    admin.resources :schedules
+    admin.resources :scores
+    admin.resources :showtimes
+    admin.resources :studios
+    admin.resources :theatres
+    admin.resources :users
+    admin.resources :videos
+  end
+
+  map.namespace :member do |member|
+    member.resources :assets
+    member.resources :blog_images
+    member.resources :blogs
+    member.resources :categories
+    member.resources :post_categories
+    member.resources :posts
+  end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"

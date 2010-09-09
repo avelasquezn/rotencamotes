@@ -1,0 +1,18 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing movie_characters
+%table
+  %tr
+    %th Movie
+    %th Actor
+    %th Character name
+  - @movie_characters.each do |movie_character|
+    %tr
+      %td= h movie_character.movie_id
+      %td= h movie_character.person_id
+      %td= h movie_character.character_name
+      %td= link_to 'Show', movie_character
+      %td= link_to 'Edit', edit_movie_character_path(movie_character)
+      %td= link_to 'Destroy', movie_character, :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New movie_character', new_movie_character_path

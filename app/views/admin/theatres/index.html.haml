@@ -1,0 +1,15 @@
+%h1 Listing theatres
+%table
+  %tr
+    %th Name
+    %th Address
+  - @theatres.each do |theatre|
+    %tr
+      %td= h theatre.name
+      %td= h theatre.address
+      %td= link_to 'Show', [:admin, theatre]
+      %td= link_to 'Edit', edit_admin_theatre_path(theatre)
+      %td= link_to 'Destroy', [:admin, theatre], :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New theatre', new_admin_theatre_path
+

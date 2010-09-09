@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Admin</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Admin</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/app/models/admin_rb.html">
+                app/models/admin.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                ActiveRecord::Base
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+    <div id="class-list">
+      <h3 class="section-bar">Classes and Modules</h3>
+
+      Class <a href="Admin/AdsController.html" class="link">Admin::AdsController</a><br />
+Class <a href="Admin/AwardCategoriesController.html" class="link">Admin::AwardCategoriesController</a><br />
+Class <a href="Admin/AwardInstitutionsController.html" class="link">Admin::AwardInstitutionsController</a><br />
+Class <a href="Admin/AwardsController.html" class="link">Admin::AwardsController</a><br />
+Class <a href="Admin/BlogsController.html" class="link">Admin::BlogsController</a><br />
+Class <a href="Admin/CategoriesController.html" class="link">Admin::CategoriesController</a><br />
+Class <a href="Admin/ExternalLinksController.html" class="link">Admin::ExternalLinksController</a><br />
+Class <a href="Admin/GenresController.html" class="link">Admin::GenresController</a><br />
+Class <a href="Admin/MovieChainsController.html" class="link">Admin::MovieChainsController</a><br />
+Class <a href="Admin/MovieCharactersController.html" class="link">Admin::MovieCharactersController</a><br />
+Class <a href="Admin/PeopleController.html" class="link">Admin::PeopleController</a><br />
+Class <a href="Admin/PhotosController.html" class="link">Admin::PhotosController</a><br />
+Class <a href="Admin/PostCategoriesController.html" class="link">Admin::PostCategoriesController</a><br />
+Class <a href="Admin/PostsController.html" class="link">Admin::PostsController</a><br />
+Class <a href="Admin/ProfilesController.html" class="link">Admin::ProfilesController</a><br />
+Class <a href="Admin/SchedulesController.html" class="link">Admin::SchedulesController</a><br />
+Class <a href="Admin/ShowtimesController.html" class="link">Admin::ShowtimesController</a><br />
+Class <a href="Admin/StudiosController.html" class="link">Admin::StudiosController</a><br />
+Class <a href="Admin/TheatresController.html" class="link">Admin::TheatresController</a><br />
+Class <a href="Admin/VideosController.html" class="link">Admin::VideosController</a><br />
+
+    </div>
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

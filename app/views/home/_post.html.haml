@@ -1,0 +1,11 @@
+.post
+  .post_content
+    %h4
+      = link_to(post.title, post)
+    = summary_of(post.content)
+    = link_to('Más', post)
+  .post_author
+    %h4
+      = link_to(post.user.full_name, post.user.profile)
+      = image_tag(post.user.avatar.url(:thumb))
+

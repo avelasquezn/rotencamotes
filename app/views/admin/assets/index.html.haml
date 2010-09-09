@@ -1,0 +1,19 @@
+%head
+  = formtastic_stylesheet_link_tag
+%h1 Listing assets
+%table
+  %tr
+    %th movie_id
+    %th attachable_id
+    %th attachable_type
+  - @assets.each do |asset|
+    %tr
+      %td= h asset.movie_id
+      %td= h asset.attachable_id
+      %td= h asset.attachable_type
+      %td= link_to 'Show', [:admin, asset]
+      %td= link_to 'Edit', edit_admin_asset_path(asset)
+      %td= link_to 'Destroy', [:admin, asset], :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New asset', new_admin_asset_path
+

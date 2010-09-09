@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+  has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   # relationships
   belongs_to :studio
   has_many :movie_genres
@@ -134,25 +135,32 @@ end
 
 
 
+
+
+
 # == Schema Information
 #
 # Table name: movies
 #
-#  id              :integer(4)      not null, primary key
-#  title           :string(255)
-#  summary         :text
-#  synopsis        :text
-#  released_at     :datetime
-#  lenght          :string(255)
-#  website         :string(255)
-#  created_at      :datetime
-#  updated_at      :datetime
-#  country         :string(255)
-#  language        :string(255)
-#  mpaa_rate       :string(255)
-#  studio_id       :integer(4)
-#  community_score :decimal(5, 2)   default(0.0)
-#  experts_score   :decimal(5, 2)   default(0.0)
-#  final_score     :decimal(5, 2)   default(0.0)
+#  id                  :integer(4)      not null, primary key
+#  title               :string(255)
+#  summary             :text
+#  synopsis            :text
+#  released_at         :datetime
+#  lenght              :string(255)
+#  website             :string(255)
+#  created_at          :datetime
+#  updated_at          :datetime
+#  country             :string(255)
+#  language            :string(255)
+#  mpaa_rate           :string(255)
+#  studio_id           :integer(4)
+#  community_score     :decimal(5, 2)   default(0.0)
+#  experts_score       :decimal(5, 2)   default(0.0)
+#  final_score         :decimal(5, 2)   default(0.0)
+#  banner_file_name    :string(255)
+#  banner_content_type :string(255)
+#  banner_file_size    :integer(4)
+#  banner_updated_at   :datetime
 #
 

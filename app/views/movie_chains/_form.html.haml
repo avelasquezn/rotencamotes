@@ -1,0 +1,9 @@
+= f.error_messages
+  - f.inputs do
+    = f.input :name
+    = f.input :address
+    = f.input :bio, :as => :text
+    - semantic_fields_for :theatres do |builder|
+      = render :partial => 'theatre_fields', :locals => { :f => builder }
+    = link_to_add_fields 'Add Theatre', f, :theatres
+
