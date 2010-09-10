@@ -9,6 +9,21 @@
 %p
   %b Bio:
   = h @movie_chain.bio
+%p
+  %b Theatres:
+  %table
+    %tr
+      %th Name
+      %th Address
+    - @movie_chain.theatres.each do |theatre|
+      %tr
+        %td= h theatre.name
+        %td= h theatre.address
+        %td= link_to 'Edit', edit_admin_theatre_path(theatre)
+        %td= link_to 'Destroy', [:admin, theatre], :confirm => 'Are you sure?', :method => :delete
+
+%p
+  = link_to 'Add Theatre', new_admin_theatre_path(:movie_chain_id => @movie_chain.id)
 = link_to 'Edit', edit_admin_movie_chain_path(@movie_chain)
 |
 \#{link_to 'Back', admin_movie_chains_path}

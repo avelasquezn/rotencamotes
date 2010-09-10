@@ -2,8 +2,6 @@
   = formtastic_stylesheet_link_tag
 %h1 New Movie Chain
 - semantic_form_for([:admin, @movie_chain]) do |f|
-  = render 'form', :f => f
-  - f.buttons do
-    = f.commit_button 'Create'
-= link_to 'Back', movie_chains_path
+  = render 'form', {:f => f, :commit_label => 'Update'}
+= link_to 'Back', admin_movie_chains_path
 

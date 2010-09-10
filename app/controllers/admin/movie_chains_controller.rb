@@ -16,10 +16,5 @@ class Admin::MovieChainsController < InheritedResources::Base
     update!   { default_path }
   end
 
-  def update
-    update! { default_path }
-  end
-
-
 end
 

@@ -7,16 +7,25 @@ class Admin::TheatresController < InheritedResources::Base
     admin_theatres_path
   end
 
+  def new
+    if params[:movie_chain_id]
+	    @movie_chain = MovieChain.find(params[:movie_chain_id])
+	    @theatre = @movie_chain.theatres.new
+	  else
+	    redirect_to admin_movie_chains_path
+	  end
+	  new!
+  end
   def create
-    create!   { default_path }
+    create!   { admin_movie_chain_path(@theatre.movie_chain) }
   end
 
   def update
-    update!   { default_path }
+    update!   { admin_movie_chain_path(@theatre.movie_chain) }
   end
 
   def destroy
-    destroy!  { default_path }
+    destroy!  { admin_movie_chain_path(@theatre.movie_chain) }
   end
 
 

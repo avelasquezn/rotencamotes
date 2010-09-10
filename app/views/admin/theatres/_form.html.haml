@@ -1,0 +1,8 @@
+= f.error_messages
+- f.inputs do
+  = f.input :name
+  = f.input :address
+  = f.input :movie_chain_id, :as => :hidden, :value => @theatre.movie_chain_id
+- f.buttons do
+  = f.commit_button commit_label
+

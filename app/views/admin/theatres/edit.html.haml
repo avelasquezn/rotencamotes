@@ -1,15 +1,7 @@
 %head
   = formtastic_stylesheet_link_tag
-%h1 Editing theatre
+%h1 Edit theatre for #{@theatre.movie_chain.name}
 - semantic_form_for([:admin, @theatre]) do |f|
-  = f.error_messages
-  - f.inputs do
-    = f.input :movie_chain
-    = f.input :name
-    = f.input :address
-  - f.buttons do
-    = f.commit_button 'Update'
-= link_to 'Show', [:admin, @theatre]
-|
-\#{link_to 'Back', admin_theatres_path}
+  = render 'form', {:f => f, :commit_label => 'Update'}
+= link_to "Back to #{@theatre.movie_chain.name} ", [:admin, @theatre.movie_chain]
 
