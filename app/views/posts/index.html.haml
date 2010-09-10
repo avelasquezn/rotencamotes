@@ -1,40 +1,17 @@
 %h1 Listing posts
 %table
   %tr
+    %th Blog
     %th Title
     %th Content
-    %th Category
-    %th User
-    %th Permalink
-    %th Blog
-    %th Drafted at
+    %th Author
     %th Published at
-    %th Reviewed at
-    %th Cached tag list
-    %th Comments count
-    %th Visits count
-    %th Rating
-    %th Delta
-    %th Status
   - @posts.each do |post|
     %tr
+      %td= h post.blog.name
       %td= h post.title
-      %td= h post.content
-      %td= h post.category_id
-      %td= h post.user_id
-      %td= h post.permalink
-      %td= h post.blog_id
-      %td= h post.drafted_at
-      %td= h post.published_at
-      %td= h post.reviewed_at
-      %td= h post.cached_tag_list
-      %td= h post.comments_count
-      %td= h post.visits_count
-      %td= h post.rating
-      %td= h post.delta
-      %td= h post.status
+      %td= h summary_of(post.content, 30)
+      %td= h post.user.full_name
+      %td= h post.published_at.to_date
       %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-%br/
-= link_to 'New post', new_post_path
+

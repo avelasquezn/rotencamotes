@@ -8,7 +8,9 @@ class CommentsController < InheritedResources::Base
   end
 
   def new
-    @comment = current_user.build_comment
+    if params[:post_id]
+      @comment = current_user.build_comment_on(params[:post_id])
+    end
     new!
   end
 

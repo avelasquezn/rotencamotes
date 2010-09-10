@@ -58,7 +58,6 @@ class User < ActiveRecord::Base
   def build_post
     if allowed_to_post?
       post = self.blog.posts.build
-      post.user = self
       return post
     end
   end
@@ -79,10 +78,10 @@ class User < ActiveRecord::Base
     true
   end
 
-  def build_comment
+  def build_comment_on(post_id)
     if allowed_to_comment?
       comment = self.comments.build
-      comment.user = self
+      comment.post = Post.find(post_id)
       return comment
     end
   end

@@ -107,10 +107,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :movie_characters
     admin.resources :movies
     admin.resources :people
-   #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
-  #   end
     admin.resources :photos
     admin.resources :post_categories
     admin.resources :posts
@@ -131,6 +127,7 @@ ActionController::Routing::Routes.draw do |map|
     member.resources :categories
     member.resources :post_categories
     member.resources :posts
+    member.resources :comments
   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.

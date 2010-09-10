@@ -3,7 +3,6 @@
   %tr
     %th Title
     %th Content
-    %th Category
     %th User
     %th Permalink
     %th Blog
@@ -20,7 +19,6 @@
     %tr
       %td= h post.title
       %td= h post.content
-      %td= h post.category_id
       %td= h post.user_id
       %td= h post.permalink
       %td= h post.blog_id
@@ -33,8 +31,9 @@
       %td= h post.rating
       %td= h post.delta
       %td= h post.status
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', [:admin, post]
+      %td= link_to 'Edit', edit_admin_post_path(post)
+      %td= link_to 'Destroy', [:admin, post], :confirm => 'Are you sure?', :method => :delete
 %br/
-= link_to 'New post', new_post_path
+= link_to 'New post', new_admin_post_path
+
