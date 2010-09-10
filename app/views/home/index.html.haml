@@ -3,5 +3,6 @@
     = m.title
     = number_to_percentage(m.final_score, :precision => 0)
 = render :partial => 'post', :collection => @posts
-= render :partial => 'schedule', :collection => @schedule
+= render :partial => 'schedule', :collection => @schedules
+= render :partial => 'comment', :collection => @comments
 

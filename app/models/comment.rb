@@ -28,6 +28,14 @@ class Comment < ActiveRecord::Base
                 }
               }
 
+  named_scope :last_published,
+              lambda { |limit| limit = 20 if limit.nil?
+                { :order =>  'created_at DESC',
+                  #:conditions => { :status => STATUSES[:active] },
+                  :limit => limit
+                }
+
+              }
 end
 
 # == Schema Information
