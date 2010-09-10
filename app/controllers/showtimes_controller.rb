@@ -4,7 +4,11 @@ class ShowtimesController < InheritedResources::Base
   actions       :index, :show
 
   def default_path
-    movies_path
+    schedules_path
+  end
+
+  def index
+    redirect_to default_path
   end
 
 end

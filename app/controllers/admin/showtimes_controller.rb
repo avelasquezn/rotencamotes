@@ -7,18 +7,31 @@ class Admin::ShowtimesController < InheritedResources::Base
     admin_showtimes_path
   end
 
+  def index
+    redirect_to admin_schedules_path
+  end
+
+  def new
+    if params[:schedule_id]
+	    @schedule = Schedule.find(params[:schedule_id])
+	    @showtime = @schedule.showtimes.new
+	    new!
+	  else
+	    redirect_to admin_schedules_path
+	  end
+  end
+
   def create
-    create!   { default_path }
+    create!   { admin_schedule_path(@showtime.schedule) }
   end
 
   def update
-    update!   { default_path }
+    update!   { admin_schedule_path(@showtime.schedule) }
   end
 
   def destroy
-    destroy!  { default_path }
+    destroy!  { admin_schedule_path(@showtime.schedule) }
   end
-
 
 end
 

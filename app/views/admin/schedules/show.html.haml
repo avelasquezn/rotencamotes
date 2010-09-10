@@ -2,22 +2,40 @@
   = formtastic_stylesheet_link_tag
 %p
   %b Theatre:
-  = h @schedule.theatre_id
+  = h @schedule.theatre.name
 %p
   %b Movie:
-  = h @schedule.movie_id
+  = h @schedule.movie.title
 %p
   %b In theatre from:
-  = h @schedule.in_theatre_from
+  = h @schedule.in_theatre_from.to_date
 %p
   %b In theatre to:
-  = h @schedule.in_theatre_to
+  = h @schedule.in_theatre_to.to_date
 %p
   %b Description:
   = h @schedule.description
 %p
   %b Status:
   = h @schedule.status
+%p
+  %b Showtimes:
+  %table
+    %tr
+      %th Shown at
+      %th Description
+      %th Status
+    - @schedule.showtimes.each do |showtime|
+      %tr
+        %td= h showtime.shown_at.to_time.to_formatted_s(:time)
+        %td= h showtime.description
+        %td= h showtime.status
+        %td= link_to 'Edit', edit_admin_showtime_path(showtime)
+        %td= link_to 'Destroy', [:admin, showtime], :confirm => 'Are you sure?', :method => :delete
+
+%p
+  = link_to 'Add Showtime', new_admin_showtime_path(:schedule_id => @schedule.id)
+
 = link_to 'Edit', edit_admin_schedule_path(@schedule)
 |
 \#{link_to 'Back', admin_schedules_path}

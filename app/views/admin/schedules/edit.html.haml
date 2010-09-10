@@ -2,16 +2,7 @@
   = formtastic_stylesheet_link_tag
 %h1 Editing schedule
 - semantic_form_for([:admin, @schedule]) do |f|
-  - f.inputs do
-    = f.error_messages
-    = f.input :theatre
-    = f.input :movie
-    = f.input :in_theatre_from, :as => :date
-    = f.input :in_theatre_to,   :as => :date
-    = f.input :description
-    = f.input :status,          :as => :select, :collection => Schedule::STATUSES
-  - f.buttons do
-    = f.commit_button 'Update'
+  = render 'form', {:f => f, :commit_label => 'Update'}
 = link_to 'Show', [:admin, @schedule]
 |
 \#{link_to 'Back', admin_schedules_path}

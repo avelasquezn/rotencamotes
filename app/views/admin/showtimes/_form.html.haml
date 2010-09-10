@@ -1,0 +1,9 @@
+= f.error_messages
+- f.inputs do
+  = f.input :schedule_id, :as => :hidden, :value => @showtime.schedule.id
+  = f.input :shown_at, :as => :time
+  = f.input :description
+  = f.input :status, :as => :select, :collection => Showtime::STATUSES.values
+- f.inputs do
+  = f.commit_button commit_label
+
