@@ -1,8 +1,8 @@
 .comment
   .comment_author
     %h4
-      = link_to(comment.user.full_name, comment.user.profile)
       = image_tag(comment.user.avatar.url(:thumb))
+      = link_to(comment.user.full_name, comment.user.profile)
   .comment_content
     = summary_of(comment.content)
     = link_to('Más', comment)
