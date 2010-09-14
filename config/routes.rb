@@ -4,15 +4,15 @@ ActionController::Routing::Routes.draw do |map|
 
   map.devise_for :admins
 
-  map.resources :scores
+  map.resources :scores, :as => "puntajes"
 
   map.resources :showtimes
 
-  map.resources :schedules
+  map.resources :schedules, :as =>"cartelera"
 
-  map.resources :movie_characters
+  map.resources :movie_characters, :as => "actores"
 
-  map.resources :awards
+  map.resources :awards, :as => "premios"
 
   map.resources :award_categories
 
@@ -20,41 +20,41 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :videos
 
-  map.resources :photos
+  map.resources :photos, :as => "fotos"
 
   map.resources :post_categories
 
-  map.resources :ads
+  map.resources :ads, :as => "anuncios"
 
-  map.resources :comments
+  map.resources :comments, :as => "comentarios"
 
-  map.resources :posts
+  map.resources :posts, :as => "opiniones"
 
   map.resources :blog_images
 
   map.resources :blogs
 
-  map.resources :categories
+  map.resources :categories, :as => "categorias"
 
   map.resources :external_links
 
   map.resources :assets
 
-  map.resources :studios
+  map.resources :studios, :as => "estudios"
 
-  map.resources :movie_chains
+  map.resources :movie_chains, :as => "cadenas"
 
-  map.resources :theatres
+  map.resources :theatres, :as => "cines"
 
-  map.resources :profiles
+  map.resources :profiles, :as => "perfiles"
 
-  map.resources :users
+  map.resources :users, :as => "usuarios"
 
-  map.resources :genres
+  map.resources :genres, :as => "generos"
 
   map.resources :people
 
-  map.resources :movies, :collection => {:latest => :get}
+  map.resources :movies, :collection => {:latest => :get}, :as => "peliculas"
 
 
 

@@ -1,5 +1,5 @@
 class TheatresController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   # GET /theatres
   # GET /theatres.xml
   def index

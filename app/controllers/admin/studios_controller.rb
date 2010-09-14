@@ -1,5 +1,5 @@
 class Admin::StudiosController < InheritedResources::Base
-  before_filter :authenticate_user!
+  before_filter :authenticate_admin!
   def default_path
     admin_studios_path
   end
