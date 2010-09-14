@@ -1,0 +1,111 @@
+body {
+	background:#260101;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:.75em; /* = 12px */
+}
+
+header,
+#header{
+	height:94px;
+	border-bottom:solid 9px #BF7839;
+	/* css gradients */
+	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDE3CB', endColorstr='#F3B178');*/ /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FDE3CB), to(#F3B178)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #FDE3CB,  #F3B178); /* for firefox 3.6+ */
+}
+
+.wrapper {
+	width:940px;
+	margin:0 auto;
+	position:relative;
+	height:100%;
+}
+
+header form.search,
+#header form.search{
+	position:absolute;
+	width:440px;
+	height:24px;
+	bottom:16px;
+	right:21px;
+}
+
+header form.search input,
+#header form.search input{
+	width:382px;
+	height:24px;
+	border:none;
+	background:url(../images/search-input.png) no-repeat;
+	float:left;
+}
+
+header form.search input.submit,
+#header form.search input.submit{
+	width:58px;
+	height:24px;
+	border:none;
+	background:url(../images/search-button.png) no-repeat;
+	float:right;
+	text-indent:-9000em;	
+}
+
+nav {
+	position:absolute;
+	top:0;
+	right:21px;
+}
+
+nav ul li {
+	margin-right:2px;
+	float:left;
+	/* css gradients */
+	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDE3CB', endColorstr='#F3B178');*/ /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#FDE3CB), to(#F3B178)); /* for webkit browsers */
+	background: -moz-linear-gradient(left,  #B66027,  #BF7839); /* for firefox 3.6+ */
+	/* roundes */
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	-webkit-border-radius-bottomleft:8px;
+	-webkit-border-radius-bottomright:8px;
+}
+
+nav ul li.last {
+	margin:0;
+}
+
+nav ul li a{
+	display:block;
+	padding:7px 14px;
+	color:#fff;
+}
+
+
+#container {
+	background:#F1E9E3;
+}
+
+footer,
+#footer {
+	height:70px;
+}
+
+/* movies */
+
+.movie {
+	width:169px;
+}
+
+.movie .top {
+	background:url(../images/movie-top.png) no-repeat;
+	height:8px;
+}
+
+.movie .bottom {
+	background:url(../images/movie-bottom.png) no-repeat;
+	height:10px;
+}
+
+.movie .middle {
+	background:url(../images/movie-middle.png) repeat-y;
+	padding:0 10px;
+}

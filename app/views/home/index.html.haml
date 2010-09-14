@@ -1,8 +1,93 @@
-- @movies.each do |m|
-    = image_tag(m.banner.url(:thumb))
-    = m.title
-    = number_to_percentage(m.final_score, :precision => 0)
-= render :partial => 'post', :collection => @posts
-= render :partial => 'schedule', :collection => @schedules
-= render :partial => 'comment', :collection => @comments
-
+!!! Strict
+%html
+  %head
+    %meta{'http-equiv' => 'Content-Type', :content => "text/html; charset=iso-8859-1"}
+    %title Untitled Document
+    %link{:href => "stylesheets/reset.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/layout.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "stylesheets/banner.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+  %body#home  	
+    %header
+      #header
+        .wrapper
+          %nav{:role => "navigation"}
+            %ul
+              %li
+                %a{:href => "#"}Inicio
+              %li
+                %a{:href => "#"}Cartelera
+              %li
+                %a{:href => "#"}Opiniones
+              %li
+                %a{:href => "#"}Cines
+              %li
+                %a{:href => "#"}Contáctenos              
+          %form.search{:role => "search", :enctype => "text/plain", :method => "post", :action => "#"}
+            %input{:type => "text", :value => "Busca tus películas, géneros, años o lo que quieras"}
+            %input.submit{:type => "submit"}
+    #container.wrapper
+      #banner-cont{:role => "banner"}
+        .banner
+          %ul
+            %li.movie
+              .top
+              .middle
+                %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/prince-of-persia.jpg"}
+                %a{:href => "#"}Prince of persia
+                .camote 80%
+              .bottom
+            %li.movie
+              .top
+              .middle
+                %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/robin-hood.jpg"}
+                %a{:href => "#"}Robin Hood
+                .camote 80%
+              .bottom
+            %li.movie
+              .top
+              .middle
+                %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/eclipse.jpg"}
+                %a{:href => "#"}Eclipse
+                .camote 80%
+              .bottom   
+            %li.movie
+              .top
+              .middle
+                %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/ironman-2.jpg"}
+                %a{:href => "#"}Ironman 2
+                .camote 80%
+              .bottom   
+            %li.movie
+              .top
+              .middle
+                %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/the-backup-plan.jpg"}
+                %a{:href => "#"}The backup plan
+                .camote 80%
+              .bottom
+        .nav
+          %ul
+            %li
+              %a{:href=>"#"}Ahora mismo
+            %li
+              %a{:href=>"#"}Ahora mismo
+            %li
+              %a{:href=>"#"}Ahora mismo
+          .prev.arrow
+          .next.arrow
+      #opiniones
+      #cartelera
+      #talking
+    %footer
+      #footer.wrapper
+        %nav{:role => "navigation"}
+          %ul
+            %li
+              %a{:href => "#"}Inicio
+            %li
+              %a{:href => "#"}Cartelera
+            %li
+              %a{:href => "#"}Opiniones
+            %li
+              %a{:href => "#"}Cines
+            %li
+              %a{:href => "#"}Contáctenos              
