@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-  has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>", :banner => "150x222#" }
   # relationships
   belongs_to :studio
   has_many :movie_genres

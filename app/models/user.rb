@@ -58,6 +58,7 @@ class User < ActiveRecord::Base
   def build_post
     if allowed_to_post?
       post = self.blog.posts.build
+      post.user = self
       return post
     end
   end

@@ -1,41 +1,7 @@
 #banner-cont{:role => "banner"}
   .banner
-    %ul
-      %li.movie
-        .top
-        .middle
-          %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/prince-of-persia.jpg"}
-          %a{:href => "#"}Prince of persia
-          .camote 80%
-        .bottom
-      %li.movie
-        .top
-        .middle
-          %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/robin-hood.jpg"}
-          %a{:href => "#"}Robin Hood
-          .camote 80%
-        .bottom
-      %li.movie
-        .top
-        .middle
-          %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/eclipse.jpg"}
-          %a{:href => "#"}Eclipse
-          .camote 80%
-        .bottom   
-      %li.movie
-        .top
-        .middle
-          %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/ironman-2.jpg"}
-          %a{:href => "#"}Ironman 2
-          .camote 80%
-        .bottom   
-      %li.movie
-        .top
-        .middle
-          %img{:width => "150", :height => "222", :title => "Title", :alt => "Alt", :src => "images/the-backup-plan.jpg"}
-          %a{:href => "#"}The backup plan
-          .camote 80%
-        .bottom
+    %ul= render :partial => "movie", :collection => @movies    
+  
   .nav
     %ul
       %li

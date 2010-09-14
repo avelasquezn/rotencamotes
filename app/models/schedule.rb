@@ -55,7 +55,7 @@ class Schedule < ActiveRecord::Base
 
   def self.scheduled_movies
     Movie.find_by_sql(
-      'select * from movies where id in (select movie_id from schedules where status like "active" and in_theatre_from >= date_sub(curdate(), interval 3 week) group by movie_id) ')
+      'select * from movies where id in (select movie_id from schedules where status like "active" group by movie_id) order by created_at DESC')
   end
 
 end

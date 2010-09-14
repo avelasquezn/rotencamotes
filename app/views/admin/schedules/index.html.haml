@@ -13,8 +13,8 @@
       %td= h schedule.theatre.movie_chain.name
       %td= h schedule.theatre.name
       %td= h schedule.movie.title
-      %td= h schedule.in_theatre_from.to_date
-      %td= h schedule.in_theatre_to.to_date
+      %td= h schedule.try(:in_theatre_from).try(:to_s,:short)
+      %td= h schedule.try(:in_theatre_to).try(:to_s,:short)
       %td= h schedule.description
       %td= h schedule.status
       %td= link_to 'Show', [:admin, schedule]

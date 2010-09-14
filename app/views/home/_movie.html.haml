@@ -1,0 +1,7 @@
+%li.movie
+  .top
+  .middle
+    = image_tag movie.banner.url(:banner), :alt => movie.title, :title => movie.title, :size => "150x222"
+    = link_to movie.title, movie
+    .camote= number_to_percentage(movie.final_score, :precision => 0)
+  .bottom
