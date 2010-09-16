@@ -1,5 +1,139 @@
+#content
+  #movie.widget
+    .top
+    .middle
+      .movie
+        =image_tag @movie.banner.url(:banner), :size => "150x222", :title => @movie.title, :alt => @movie.title, :class => "poster"
+        %a.saw{:href => "#"}la he visto
+        %a.comment{:href => "#"}comenta
+      .detail
+        %h3= @movie.name_with_year
+        #tags
+          - @movie.genres.each do |g|
+            = link_to g.name, g
+        #rating
+          %h4 Puntaje General
+          .rating= @movie.final_score
+          .camote 121
+          .rotten 41
+        .spec
+          %p
+            %span Sinopsis:
+            = @movie.summary
+          %p
+            %span Sinopsis:
+            A young
+          %p
+            %span Sinopsis:
+            A young
+          %p
+            %span Sinopsis:
+            A young
+          %p
+            %span Sinopsis:
+            A young
+      .clear                                  
+    .bottom
+  #reviews.widget
+    .top
+    .middle
+      %h3 comentarios y valoraciones
+      %ul
+        %li.camote
+          .avatar
+            %a{:href=>"#"}
+              %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
+          .talk
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          %p.posted
+            Respuesta a Lorem en Lorem
+          .clear
+        %li.rotten
+          .avatar
+            %a{:href=>"#"}
+              %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
+          .talk
+            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          %p.posted
+            Respuesta a Lorem en Lorem
+          .clear              
+                          
+    .bottom
+    .pager
+  #reply.widget
+    .top
+    .middle
+      %h3 deja tu comentario y valoracion para
+      %h4 prince of persia: the sands of time
+      %form
+        %label{:for=>"comment"} Comentario
+        %textarea{:id=>"comment", :name=>"comment"}
+        %label{:for=>"name"} Nombre
+        %input{:id=>"name", :name=>"name", :type=>"text"}
+        %label{:for=>"email"} Email
+        %textarea{:id=>"email", :name=>"email", :type=>"text"}
+        %label{:for=>"cine"} La vi en
+        %select{:id =>"cine", :name=>"cine"}
+          %option{:value=>1} Cineplanet Alcazar
+    .bottom   
+#sidebar
+  #share.widget
+    .top
+    .middle
+      %h3 Comparte esta pagina
+      .links
+        %a.facebook{:href=>"#"}
+        %a.twitter{:href=>"#"}
+        %a.email{:href=>"#"}
+      %p.share
+    .bottom
+  #watch.widget
+    .top
+    .middle
+      %h3 ¿Donde verla?
+      %ul
+        %li
+          %h4 Cine Alcazar
+          .alcazar.logo-cine
+          %table
+            %tr
+              %td Doblada
+              %td Doblada
+              %td Doblada
+              %td Doblada
+              %td Doblada
+            %tr
+              %td Doblada
+              %td Doblada
+              %td Doblada
+              %td Doblada
+              %td                      
+    .bottom        
+  #related.widget
+    .top
+    .middle
+      %h3 Opiniones Relacionadas
+      %ul
+        %li
+          %p
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+            %a{:href=>"#"}Mas
+            %br
+            %a{:href=>"#"}Iron Man 2 (2010)
+          .rating
+            100%
+          .avatar
+            %a{:href=>"#"}
+              %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
+          .clear                
+    .bottom                    
+.clear
+
 %head
   = formtastic_stylesheet_link_tag
+
+
+
 %p
   %b Title:
   = h @movie.title
@@ -27,7 +161,3 @@
 %p
   %b MPAA Rate:
   = h @movie.mpaa_rate
-
-|
-\#{link_to 'Back', movies_path}
-
