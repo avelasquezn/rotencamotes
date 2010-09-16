@@ -1,28 +1,27 @@
 #banner-cont {
-	height:345px;
+	height:330px;
 	margin:0 auto;
-	background:url(../images/banner-bg.png) no-repeat left 42px;
+	background:#F1E9E3;
 	position:relative;
 	z-index:20;
 	overflow:hidden;
-	padding:15px 0;
+	padding:15px 0 0 0;
 }
 
 #banner-cont .banner {
 	overflow:hidden;
-padding:0 20px 0 30px;	
+	padding:0 20px 0 30px;	
 }
 
 #banner-cont .nav {
+	position:absolute;
+	bottom:0;
 	height:33px;
+	width:100%;
 	/* css gradients */
 	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDE3CB', endColorstr='#F3B178');*/ /* for IE */
 	background: -webkit-gradient(linear, left top, left bottom, from(#D6B08E), to(#FBDABD)); /* for webkit browsers */
 	background: -moz-linear-gradient(bottom,  #D6B08E,  #FBDABD); /* for firefox 3.6+ */	
-}
-
-#banner-cont .banner a{
-	display:block;
 }
 
 #banner-cont .arrow {
@@ -46,21 +45,9 @@ padding:0 20px 0 30px;
 	right:-22px;
 }
 
-#banner-cont li {
+#banner-cont .banner li {
 	float:left !important;
 	margin-right:9px;
-}
-
-#banner-cont div.facebook {
-	background:url(../images/banners/banner-1.png) no-repeat;
-	padding-left:348px;
-	padding-right:45px;
-}
-
-#banner-cont .html > div {
-	height:271px;
-	padding-top:52px;
-	background-position:left bottom;
 }
 
 #banner-cont li.img a {
@@ -74,67 +61,6 @@ padding:0 20px 0 30px;
 	height:271px;
 	padding-top:52px;
 }
-
-.banner .html .facebook a {
-	width:165px;
-	height:27px;
-	background-position:-323px top;
-	display:block;
-	color:#1E61B6;
-	line-height:27px;
-	float:left;
-}
-
-.banner .html .facebook a.fb-btn {
-	background-position:-323px -27px;
-	margin-left:18px;
-}
-
-.banner .html .facebook a.fb-btn span{
-	padding-left:11px;
-	visibility:hidden;
-}
-
-.banner .html .facebook h3,
-.banner .html .facebook p {
-	color:#fff;
-}	
-
-.banner .html .facebook h3 {
-	font-size:2.5em;
-	margin-top:23px;
-	letter-spacing:-.02em;
-	word-spacing:-.04em;
-	line-height:35px;
-	height:70px;
-}
-
-.banner .html .facebook h4 {
-	color:#84C2F0;
-	font-size:1.5em;
-	letter-spacing:-.02em;
-	line-height:23px;
-	margin-top:7px;
-	height:54px;
-}
-
-.banner .html .facebook h4 {
-	font-size:1.2em;
-	}
-
-.banner .html .facebook p {
-	font-family:Arial;
-	margin-top:6px;
-	padding-left:7px;
-	line-height:20px;
-	height:40px;
-	margin-bottom:12px;
-}
-
-.banner .html .facebook p {
-	font-size:.9em;
-}
-
 
 #ie6 #banner-cont {
 	text-align:left;
@@ -159,21 +85,6 @@ padding:0 20px 0 30px;
 #ie6 #banner-cont .arrow {
 	visibility:hidden;
 	display:none;
-}
-
-#ie6 #banner-cont .html .facebook {
-	height:323px;
-}
-
-
-#ie6 .banner .html .facebook a {
-	font-size:.75em;
-}
-
-
-#ie6 .banner .html .facebook h3 {
-	font-size:2.1em;
-	margin-top:40px;
 }
 
 #ie6 #banner-cont .arrow {
