@@ -128,6 +128,11 @@ class Movie < ActiveRecord::Base
     # TODO: Implement SQL version
   end
 
+  def name_with_year
+    name = "#{self.title}"
+    name << "(#{self.released_at.year})" if self.released_at
+  end
+
 end
 
 
