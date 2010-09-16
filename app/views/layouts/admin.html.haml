@@ -2,6 +2,7 @@
 %html{:lang => "es", "xml:lang" => "es", :xmlns => "http://www.w3.org/1999/xhtml"}
   %head
     %meta{:content => "text/html;charset=UTF-8", "http-equiv" => "content-type"}/
+    = formtastic_stylesheet_link_tag
     %title
       Movies: #{controller.action_name}
     = stylesheet_link_tag 'scaffold'

@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing award_category
 - form_for(@award_category) do |f|
   = f.error_messages
@@ -12,3 +11,4 @@
   = link_to 'Show', @award_category
   |
   \#{link_to 'Back', award_categories_path}
+

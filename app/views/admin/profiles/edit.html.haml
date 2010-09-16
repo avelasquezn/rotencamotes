@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing profile
 - semantic_form_for(@profile) do |f|
   = f.error_messages
@@ -17,3 +16,4 @@
 = link_to 'Show', @profile
 |
 \#{link_to 'Back', profiles_path}
+

@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 New award category
 - semantic_form_for(@award_category) do |f|
   = f.error_messages
@@ -8,3 +7,4 @@
   - f.buttons do
     = f.commit_button 'Create'
 = link_to 'Back', award_categories_path
+

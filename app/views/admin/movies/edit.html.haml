@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing movie
 - semantic_form_for([:admin, @movie],:html => { :multipart => true }) do |f|
   = f.error_messages

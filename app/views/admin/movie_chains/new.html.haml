@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 New Movie Chain
 - semantic_form_for([:admin, @movie_chain], :html => { :multipart => true }) do |f|
   = render 'form', {:f => f, :commit_label => 'Create'}

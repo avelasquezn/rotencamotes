@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing ad
 - semantic_form_for(@ad) do |f|
   = f.error_messages
@@ -15,3 +14,4 @@
 = link_to 'Show', @ad
 |
 \#{link_to 'Back', ads_path}
+

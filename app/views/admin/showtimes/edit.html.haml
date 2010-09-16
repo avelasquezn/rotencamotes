@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing showtime
 - semantic_form_for([:admin, @showtime]) do |f|
   = render 'form', {:f => f, :commit_label => 'Update'}

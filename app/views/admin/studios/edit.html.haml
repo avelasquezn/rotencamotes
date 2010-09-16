@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing studio
 - semantic_form_for(@studio) do |f|
   = f.error_messages
@@ -12,3 +11,4 @@
 = link_to 'Show', @studio
 |
 \#{link_to 'Back', studios_path}
+

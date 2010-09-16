@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing award_institution
 - semantic_form_for @award_institution, :html => { :multipart => true } do |f|
   = f.error_messages
@@ -14,3 +13,4 @@
 = link_to 'Show', @award_institution
 |
 \#{link_to 'Back', award_institutions_path}
+

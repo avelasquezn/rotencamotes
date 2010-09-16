@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 New movie_character
 - semantic_form_for(@movie_character) do |f|
   = f.error_messages
@@ -10,3 +9,4 @@
   - f.buttons do
     = f.commit_button 'Create'
 = link_to 'Back', movie_characters_path
+

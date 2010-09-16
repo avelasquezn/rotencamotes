@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 New category
 - semantic_form_for(@category) do |f|
   = f.error_messages
@@ -9,3 +8,4 @@
   - f.buttons do
     = f.commit_button 'Create'
 = link_to 'Back', categories_path
+

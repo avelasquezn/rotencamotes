@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing ad
 - semantic_form_for([:admin, @asset]) do |f|
   = render 'form', { :f => f, :commit_label => 'Update' }

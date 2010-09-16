@@ -1,5 +1,4 @@
-%head
-  = formtastic_stylesheet_link_tag
+
 %h1 Editing post_category
 - semantic_form_for(@post_category) do |f|
   = f.error_messages
@@ -11,3 +10,4 @@
 = link_to 'Show', @post_category
 |
 \#{link_to 'Back', post_categories_path}
+
