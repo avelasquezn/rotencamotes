@@ -8,9 +8,7 @@
         %a.comment{:href => "#"}comenta
       .detail
         %h3= @movie.name_with_year
-        #tags
-          - @movie.genres.each do |g|
-            = link_to g.name, g
+        #tags= render_genres_links
         #rating
           %h4 Puntaje General
           .rating= @movie.final_score
@@ -77,6 +75,14 @@
           %option{:value=>1} Cineplanet Alcazar
     .bottom
 #sidebar
+
+  #object.widget
+    .top
+    .middle
+      %h3 Este es un demo
+    .bottom
+
+
   #share.widget
     .top
     .middle

@@ -1,18 +1,17 @@
-
-%h1 Listing Movie Chains
+%h1
+  %b Cadenas de cines
+%br/
 %table
   %tr
-    %th Name
-    %th Address
-    %th Bio
+    %th Cadena
+    %th Acerca de
   - @movie_chains.each do |movie_chain|
     %tr
-      %td= h movie_chain.name
-      %td= h movie_chain.address
+      %td= image_tag movie_chain.logo.url(:thumb)
       %td= h movie_chain.bio
-      %td= link_to 'Show', [:admin, movie_chain]
-      %td= link_to 'Edit', edit_admin_movie_chain_path(movie_chain)
-      %td= link_to 'Destroy', [:admin, movie_chain], :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin, movie_chain]
+      %td= link_to 'Editar', edit_admin_movie_chain_path(movie_chain)
+      %td= link_to 'Eliminar', [:admin, movie_chain], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New Movie chain', new_admin_movie_chain_path
+= link_to 'Nueva cadena de cines', new_admin_movie_chain_path
 

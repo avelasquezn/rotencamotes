@@ -1,19 +1,17 @@
-%h1 Listing schedules
+%h1 Cartelera
 %table
   %tr
-    %th Theatre
-    %th Movie
-    %th In theatre from
+    %th Cadena
+    %th Cine
+    %th Película
     %th Description
-    %th Status
   - @schedules.each do |schedule|
     %tr
+      %td= image_tag schedule.theatre.movie_chain.logo.url(:thumb)
       %td= h schedule.theatre.name
       %td= h schedule.movie.title
-      %td= h schedule.in_theatre_from.to_date
       %td= h schedule.description
-      %td= h schedule.status
-      %td= link_to 'Showtimes', schedule
+      %td= link_to 'Horarios', schedule
 %br/
-= link_to 'Home', root_path
+= link_to 'Inicio', root_path
 
