@@ -15,19 +15,24 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: people
 #
-#  id          :integer(4)      not null, primary key
-#  first_name  :string(255)
-#  middle_name :string(255)
-#  last_name   :string(255)
-#  born_at     :datetime
-#  born_in     :string(255)
-#  bio         :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#  url         :string(255)
+#  id                   :integer(4)      not null, primary key
+#  first_name           :string(255)
+#  middle_name          :string(255)
+#  last_name            :string(255)
+#  born_at              :datetime
+#  born_in              :string(255)
+#  bio                  :text
+#  created_at           :datetime
+#  updated_at           :datetime
+#  url                  :string(255)
+#  picture_file_name    :string(255)
+#  picture_content_type :string(255)
+#  picture_file_size    :integer(4)
+#  picture_updated_at   :datetime
 #
 

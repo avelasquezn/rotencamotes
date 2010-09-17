@@ -1,17 +1,18 @@
 %h1 Cartelera
-%table
-  %tr
-    %th Cadena
-    %th Cine
-    %th Película
-    %th Description
-  - @schedules.each do |schedule|
+- @scheduled_movies.each do |scheduled_movie|
+  = image_tag scheduled_movie.banner.url(:thumb)
+  = h scheduled_movie.title
+  %table
     %tr
-      %td= image_tag schedule.theatre.movie_chain.logo.url(:thumb)
-      %td= h schedule.theatre.name
-      %td= h schedule.movie.title
-      %td= h schedule.description
-      %td= link_to 'Horarios', schedule
+      %th
+      %th
+      %th
+      %th
+    - scheduled_movie.schedules.each do |schedule|
+      %tr
+        %td= image_tag schedule.theatre.movie_chain.logo.url(:thumb)
+        %td= h schedule.theatre.name
+        %td= h schedule.description
+        %td= h schedule.current_showtimes
 %br/
-= link_to 'Inicio', root_path
 

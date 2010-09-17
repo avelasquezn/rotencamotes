@@ -1,13 +1,13 @@
 
-%h1 Listing people
+%h1 Listando personas
 %table
   %tr
-    %th Firt name
-    %th Middle name
-    %th Last name
-    %th Born at
-    %th Born in
-    %th Procedence
+    %th Primer nombre
+    %th Segundo nombre
+    %th Apellidos
+    %th Fecha de nacimiento
+    %th Lugar de nacimiento
+    %th Procedencia
     %th Bio
   - @people.each do |person|
     %tr
@@ -17,9 +17,9 @@
       %td= h person.born_at
       %td= h person.born_in
       %td= h person.bio
-      %td= link_to 'Show', person
-      %td= link_to 'Edit', edit_person_path(person)
-      %td= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin, person]
+      %td= link_to 'Editar', edit_admin_person_path(person)
+      %td= link_to 'Eliminar', [:admin, person], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New person', new_person_path
+= link_to 'Nueva persona', new_admin_person_path
 

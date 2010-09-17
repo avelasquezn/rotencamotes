@@ -1,41 +1,42 @@
-
 %p
-  %b Theatre:
+  = image_tag @schedule.theatre.movie_chain.logo.url(:thumb)
+%p
+  %b Cine:
   = h @schedule.theatre.name
 %p
-  %b Movie:
-  = h @schedule.movie.title
+  %b Película:
+  = image_tag @schedule.movie.banner.url(:thumb)
 %p
-  %b In theatre from:
-  = h @schedule.in_theatre_from.to_date
+  %b En exhibición desde:
+  = h @schedule.in_theatre_from.to_date.to_formatted_s(:short)
 %p
-  %b In theatre to:
-  = h @schedule.in_theatre_to.to_date
+  %b En exhibición desde:
+  = h @schedule.in_theatre_to.to_date.to_formatted_s(:short)
 %p
-  %b Description:
+  %b Descripción:
   = h @schedule.description
 %p
-  %b Status:
+  %b Estado:
   = h @schedule.status
 %p
-  %b Showtimes:
+  %b Horarios:
   %table
     %tr
-      %th Shown at
-      %th Description
-      %th Status
+      %th Horario
+      %th Descripción
+      %th Estado
     - @schedule.showtimes.each do |showtime|
       %tr
         %td= h showtime.shown_at.to_time.to_formatted_s(:time)
         %td= h showtime.description
         %td= h showtime.status
-        %td= link_to 'Edit', edit_admin_showtime_path(showtime)
-        %td= link_to 'Destroy', [:admin, showtime], :confirm => 'Are you sure?', :method => :delete
+        %td= link_to 'Editar', edit_admin_showtime_path(showtime)
+        %td= link_to 'Eliminar', [:admin, showtime], :confirm => '¿Estás seguro?', :method => :delete
 
 %p
-  = link_to 'Add Showtime', new_admin_showtime_path(:schedule_id => @schedule.id)
+  = link_to 'Agregar Horario', new_admin_showtime_path(:schedule_id => @schedule.id)
 
-= link_to 'Edit', edit_admin_schedule_path(@schedule)
+= link_to 'Editar', edit_admin_schedule_path(@schedule)
 |
-\#{link_to 'Back', admin_schedules_path}
+\#{link_to 'Regresar', admin_schedules_path}
 

@@ -1,25 +1,27 @@
-%h1 Listing schedules
+%h1 Listando Carteleras
 %table
   %tr
-    %th Movie Chain
-    %th Theatre
-    %th Movie
-    %th In theatre from
-    %th In theatre to
-    %th Description
-    %th Status
+    %th Cadena
+    %th Cine
+    %th Película
+    %th Desde
+    %th Hasta
+    %th Descripción
+    %th Horarios
+    %th Estado
   - @schedules.each do |schedule|
     %tr
-      %td= h schedule.theatre.movie_chain.name
+      %td= image_tag schedule.theatre.movie_chain.logo.url(:thumb)
       %td= h schedule.theatre.name
       %td= h schedule.movie.title
       %td= h schedule.try(:in_theatre_from).try(:to_s,:short)
       %td= h schedule.try(:in_theatre_to).try(:to_s,:short)
       %td= h schedule.description
+      %td= h schedule.current_showtimes
       %td= h schedule.status
-      %td= link_to 'Show', [:admin, schedule]
-      %td= link_to 'Edit', edit_admin_schedule_path(schedule)
-      %td= link_to 'Destroy', [:admin, schedule], :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin, schedule]
+      %td= link_to 'Editar', edit_admin_schedule_path(schedule)
+      %td= link_to 'Eliminar', [:admin, schedule], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New schedule', new_admin_schedule_path
+= link_to 'Nueva cartelera', new_admin_schedule_path
 

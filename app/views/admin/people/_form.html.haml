@@ -1,0 +1,12 @@
+= f.error_messages
+- f.inputs do
+  = f.input :first_name, :label => 'Primer Nombre'
+  = f.input :middle_name, :label => 'Segundo Nombre'
+  = f.input :last_name, :label => 'Apellidos'
+  = f.input :born_at, :as => :date, :label => 'Fecha de nacimiento'
+  = f.input :born_in, :as => :country, :label => 'Nacionalidad'
+  = f.input :bio,     :as => :text
+  = f.input :picture, :as => :file
+- f.buttons do
+  = f.commit_button commit_label
+

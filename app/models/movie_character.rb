@@ -23,7 +23,9 @@ class MovieCharacter < ActiveRecord::Base
                   :order      =>  'character_name DESC'
                 }
               }
-
+  def cast_member
+    self.person.name << ' (' << self.character_name << ')'
+  end
 end
 
 # == Schema Information

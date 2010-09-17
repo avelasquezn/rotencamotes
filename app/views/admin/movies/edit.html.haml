@@ -1,21 +1,8 @@
 
-%h1 Editing movie
+%h1 Editando película
 - semantic_form_for([:admin, @movie],:html => { :multipart => true }) do |f|
-  = f.error_messages
-  - f.inputs do
-    = f.input :title
-    = f.input :summary, :as => :text
-    = f.input :synopsis, :as => :text
-    = f.input :released_at, :as => :date
-    = f.input :lenght, :as => :numeric
-    = f.input :website
-    = f.input :country, :as => :country
-    = f.input :language , :as => :select, :collection => Movie::LANGUAGES.values
-    = f.input :mpaa_rate, :as => :select, :collection => Movie::MPAA_RATES.values
-    = f.input :banner, :as => :file
-  - f.buttons do
-    = f.commit_button 'Update'
-= link_to 'Show', [:admin, @movie]
+  = render 'form', {:f => f, :commit_label => 'Actualizar'}
+= link_to 'Ver', [:admin, @movie]
 |
-\#{link_to 'Back', admin_movies_path}
+\#{link_to 'Regresar', admin_movies_path}
 

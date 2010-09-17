@@ -8,7 +8,7 @@
   = f.input :status,          :as => :select, :collection => Schedule::STATUSES
   - semantic_fields_for :showtimes do |builder|
     = render :partial => 'showtime_fields', :locals => { :f => builder }
-  = link_to_add_fields 'Add Showtime', f, :showtimes
+  = link_to_add_fields 'Agregar Horario', f, :showtimes
 
 - f.buttons do
   = f.commit_button commit_label

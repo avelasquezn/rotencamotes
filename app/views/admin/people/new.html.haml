@@ -1,15 +1,6 @@
 
-%h1 New person
-- semantic_form_for(@person) do |f|
-  = f.error_messages
-  - f.inputs do
-    = f.input :first_name
-    = f.input :middle_name
-    = f.input :last_name
-    = f.input :born_at, :as => :date
-    = f.input :born_in, :as => :country, :label => 'Nationality'
-    = f.input :bio,     :as => :text
-  - f.buttons do
-    = f.commit_button 'Create'
-= link_to 'Back', people_path
+%h1 Nueva persona
+- semantic_form_for([:admin, @person], :html => {:multipart => :true}) do |f|
+  = render 'form', {:f => f, :commit_label => 'Crear'}
+= link_to 'Regresar', admin_people_path
 

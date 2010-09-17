@@ -1,26 +1,22 @@
 
-%h1 Listing movies
+%h1 Listando películas
 %table
   %tr
-    %th Title
-    %th Summary
-    %th Synopsis
-    %th Released at
-    %th Lenght
+    %th Título
+    %th Fecha de estreno
+    %th Duración (minutos)
     %th Website
     %th Banner
   - @movies.each do |movie|
     %tr
       %td= h movie.title
-      %td= h movie.summary
-      %td= h movie.synopsis
-      %td= h movie.released_at
+      %td= h movie.released_at.nil? ? "": movie.released_at.strftime("%d-%b-%Y")
       %td= h movie.lenght
       %td= h movie.website
       %td= image_tag movie.banner.url(:thumb)
-      %td= link_to 'Show', [:admin,movie]
-      %td= link_to 'Edit', edit_admin_movie_path(movie)
-      %td= link_to 'Destroy', [:admin, movie], :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin,movie]
+      %td= link_to 'Editar', edit_admin_movie_path(movie)
+      %td= link_to 'Eliminar', [:admin, movie], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New movie', new_admin_movie_path
+= link_to 'Nueva película', new_admin_movie_path
 

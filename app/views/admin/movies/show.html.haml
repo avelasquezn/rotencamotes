@@ -1,37 +1,35 @@
-
 %p
-  %b Title:
+  = image_tag @movie.banner.url(:medium)
+%p
+  %b Título:
   = h @movie.title
 %p
-  %b Summary:
-  = h @movie.summary
+  %b Fecha de estreno:
+  = h @movie.released_at.strftime("%d-%b-%Y")
 %p
-  %b Synopsis:
-  = h @movie.synopsis
-%p
-  %b Released at:
-  = h @movie.released_at
-%p
-  %b Lenght:
-  = h @movie.lenght
+  %b Duración:
+  = h "#{@movie.lenght} minutos"
 %p
   %b Website:
   = h @movie.website
 %p
-  %b Country:
+  %b País:
   = h @movie.country
 %p
-  %b Language:
+  %b Idioma:
   = h @movie.language
 %p
-  %b MPAA Rate:
+  %b Calificación MPAA:
   = h @movie.mpaa_rate
+%p
+  %b Acerca de:
+  = h @movie.summary
 
 %p
-  %b Banner:
-  = h @movie.banner_file_name
+  %b Sinopsis:
+  = h @movie.synopsis
 
-= link_to 'Edit', edit_admin_movie_path(@movie)
+= link_to 'Editar', edit_admin_movie_path(@movie)
 |
-\#{link_to 'Back', admin_movies_path}
+\#{link_to 'Regresar', admin_movies_path}
 

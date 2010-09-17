@@ -37,7 +37,7 @@ class Showtime < ActiveRecord::Base
   end
 
   def time_shown_at
-    return self.strftime('%H:%M')
+    return self.shown_at.to_time.strftime('%H:%M')
   end
 end
 

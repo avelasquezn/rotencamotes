@@ -7,5 +7,10 @@ class SchedulesController < InheritedResources::Base
     movies_path
   end
 
+  def index
+    @scheduled_movies = Schedule.scheduled_movies
+    index!
+  end
+
 end
 

@@ -1,0 +1,17 @@
+= f.error_messages
+- f.inputs do
+  = f.input :title, :label => 'Título'
+  = f.input :summary, :as => :text, :label => 'Acerca de'
+  = f.input :synopsis, :as => :text, :label => 'Sinopsis'
+  = f.input :released_at, :as => :date, :label => 'Fecha de estreno'
+  = f.input :lenght, :as => :numeric, :label => 'Duración (minutos)'
+  = f.input :website, :label => 'Website'
+  = f.input :country, :as => :country, :label => 'País'
+  = f.input :language,  :as => :select, :collection => Movie::LANGUAGES.values, :label => 'Idioma'
+  = f.input :genres, :as => :check_boxes, :label => 'Géneros'
+  = f.input :mpaa_rate, :as => :select, :collection => Movie::MPAA_RATES.values, :label => 'Clasificación MPAA'
+  = image_tag @movie.banner.url(:thumb)
+  = f.input :banner, :as => :file, :label => 'Banner'
+- f.buttons do
+  = f.commit_button commit_label
+

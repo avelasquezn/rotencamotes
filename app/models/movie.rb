@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
   has_attached_file :banner, :styles => { :medium => "300x300>", :thumb => "100x100>", :banner => "150x222#" }
+
   # relationships
   belongs_to :studio
   has_many :movie_genres
@@ -133,6 +134,9 @@ class Movie < ActiveRecord::Base
     name << "(#{self.released_at.year})" if self.released_at
   end
 
+  def cast_names
+    self.movie_characters.empty? ? '' : self.movie_characters.map(&:cast_member).join(', ')
+  end
 end
 
 

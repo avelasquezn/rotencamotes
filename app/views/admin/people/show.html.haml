@@ -1,23 +1,24 @@
-
 %p
-  %b Firt name:
+  = image_tag @person.picture.url(:medium)
+%p
+  %b Primer nombre:
   = h @person.first_name
 %p
-  %b Middle name:
+  %b Segundo nombre:
   = h @person.middle_name
 %p
-  %b Last name:
+  %b Apellidos:
   = h @person.last_name
 %p
-  %b Born at:
+  %b Fecha de nacimiento:
   = h @person.born_at
 %p
-  %b Born in:
+  %b Lugar de nacimiento:
   = h @person.born_in
 %p
   %b Bio:
   = h @person.bio
-= link_to 'Edit', edit_person_path(@person)
+= link_to 'Editar', edit_admin_person_path(@person)
 |
-\#{link_to 'Back', people_path}
+\#{link_to 'Regresar', admin_people_path}
 

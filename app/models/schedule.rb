@@ -50,7 +50,7 @@ class Schedule < ActiveRecord::Base
   end
 
   def current_showtimes
-    return self.showtimes.active.empty? ? '' : self.showtimes.active.map(&time_shown_at).join(' | ')
+    return self.showtimes.active.empty? ? '' : self.showtimes.active.map(&:time_shown_at).join(' | ')
   end
 
   def self.scheduled_movies
