@@ -1,22 +1,43 @@
-%p
-  %b Firt name:
-  = h @person.first_name
-%p
-  %b Middle name:
-  = h @person.middle_name
-%p
-  %b Last name:
-  = h @person.last_name
-%p
-  %b Born at:
-  = h @person.born_at
-%p
-  %b Born in:
-  = h @person.born_in
-%p
-  %b Bio:
-  = h @person.bio
-= link_to 'Edit', edit_person_path(@person)
-|
-\#{link_to 'Back', people_path}
+#content
+  #person.widget
+    .top
+    .middle
+      %h3= "Perfil de #{@person.name}"
+      .picture
+        = image_tag @person.picture.url(:medium)
+      .detail
+        #personal_data
+          %h4= "Primer nombre"
+          %p
+            = h @person.first_name
+          %p
+            %span Segundo nombre:
+            = h @person.middle_name
+          %p
+            %span Apellidos:
+            = h @person.last_name
+          %p
+            %span Fecha de nacimiento:
+            = h @person.born_at.strftime("%d-%b-%Y")
+          %p
+            %span Lugar de nacimiento:
+            = h @person.born_in
+      .spec
+      .clear
+    .bottom
+  #bio.widget
+    .top
+    .middle
+      %h3= "Biografía"
+      %p
+        = h @person.bio
+    .bottom
+#sidebar
+  #new.widget
+    .top
+    .middle
+      %h3 Galerías
+    .bottom
+
+.clear
 
