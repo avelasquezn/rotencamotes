@@ -62,8 +62,8 @@
   #reply.widget
     .top
     .middle
-      %h3 deja tu comentario y valoracion para
-      %h4 prince of persia: the sands of time
+      %h3= "Deja Tu comentario y valoración"
+      %h4= "Para #{@movie.title}"
       %form
         %label{:for=>"comment"} Comentario
         %textarea{:id=>"comment", :name=>"comment"}
