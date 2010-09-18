@@ -1,0 +1,19 @@
+%p
+  %b Género:
+  = h @genre.name
+%p
+  %table
+    %tr
+      %th Película
+      %th Título
+      %th Año
+      %th Calificación
+  - Movie.on_theatres.from_named_genre(@genre.name).each do |movie|
+    %tr
+      %td= image_tag movie.banner.url(:thumb)
+      %td= link_to movie.title, movie
+      %td= movie.released_at.strftime("%Y")
+      %td= movie.final_score
+|
+\#{link_to 'Regresar', genres_path}
+

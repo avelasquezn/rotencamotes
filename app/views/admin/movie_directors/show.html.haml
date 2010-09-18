@@ -1,0 +1,11 @@
+
+%p
+  %b Película:
+  = h @movie_director.movie.title
+%p
+  %b Director:
+  = h @movie_director.director.name
+= link_to 'Editar', edit_admin_movie_director_path(@movie_director)
+|
+\#{link_to 'Regresar', [:admin, movie_directors_path]}
+

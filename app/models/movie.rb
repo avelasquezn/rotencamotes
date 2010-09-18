@@ -43,7 +43,7 @@ class Movie < ActiveRecord::Base
   #named scopes
   named_scope :from_named_genre,
               lambda{|genre_name|
-                { :conditions => {:movie_genres=>{:genre=>{:genre_name => genre_name}}},
+                { :conditions => {:movie_genres=>{:genres=>{:name => genre_name}}},
                   :joins      => {:movie_genres=>:genre}
                 }
               }
@@ -82,6 +82,7 @@ class Movie < ActiveRecord::Base
               }
 
   named_scope :on_theatres,
+              :select     => 'distinct movies.*',
               :conditions => { :schedules => {:status => Schedule::STATUSES[:active]}},
               :joins      => :schedules
   # methods

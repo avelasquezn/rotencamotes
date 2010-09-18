@@ -1,0 +1,16 @@
+
+%h1 Listando directores de películas
+%table
+  %tr
+    %th Película
+    %th Director
+  - @movie_directors.each do |movie_director|
+    %tr
+      %td= h movie_director.movie.title
+      %td= h movie_director.director.name
+      %td= link_to 'Show', [:admin, movie_director]
+      %td= link_to 'Edit', edit_admin_movie_director_path(movie_director)
+      %td= link_to 'Destroy', [:admin, movie_director], :confirm => '¿Estás seguro?', :method => :delete
+%br/
+= link_to 'Nuevo director de película', new_admin_movie_director_path
+

@@ -1,0 +1,18 @@
+
+%h1 Listing movie_characters
+%table
+  %tr
+    %th Movie
+    %th Actor
+    %th Character name
+  - @movie_characters.each do |movie_character|
+    %tr
+      %td= h movie_character.movie_id
+      %td= h movie_character.person_id
+      %td= h movie_character.character_name
+      %td= link_to 'Show', [:admin, movie_character]
+      %td= link_to 'Edit', edit_admin_movie_character_path(movie_character)
+      %td= link_to 'Destroy', [:admin, movie_character], :confirm => 'Are you sure?', :method => :delete
+%br/
+= link_to 'New movie_character', new_admin_movie_character_path
+

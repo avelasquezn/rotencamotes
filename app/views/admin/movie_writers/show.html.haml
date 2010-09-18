@@ -1,0 +1,14 @@
+
+%p
+  %b Movie:
+  = h @movie_character.movie_id
+%p
+  %b Actor:
+  = h @movie_character.person_id
+%p
+  %b Character name:
+  = h @movie_character.character_name
+= link_to 'Edit', edit_movie_character_path(@movie_character)
+|
+\#{link_to 'Back', movie_characters_path}
+

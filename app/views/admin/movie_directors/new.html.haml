@@ -1,0 +1,6 @@
+
+%h1 Nuevo director de película
+- semantic_form_for([:admin, @movie_director]) do |f|
+  = render 'form', {:f => f, :commit_label => 'Crear'}
+= link_to 'Back', admin_movie_directors_path
+

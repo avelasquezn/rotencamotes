@@ -1,0 +1,8 @@
+
+%h1 Editing movie_character
+- semantic_form_for([:admin, @movie_character]) do |f|
+  = render 'form', {:f => f, :commit_label => 'Actualizar'}
+= link_to 'Show', [:admin, @movie_character]
+|
+\#{link_to 'Back', admin_movie_characters_path}
+

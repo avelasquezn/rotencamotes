@@ -33,11 +33,55 @@
         = h @person.bio
     .bottom
 #sidebar
-  #new.widget
+  #cast.widget
     .top
     .middle
-      %h3 Galerías
+      %h3 Actúa en
+      %table
+        %th Película
+        %th Año
+        %th Personaje
+      - @person.movie_characters.each do |cast_member|
+        %tr= link_to cast_member.movie.title, cast_member.movie
+        %tr= cast_member.movie.released_at.strftime("%Y")
+        %tr= cast_member.character_name
     .bottom
+  #crew.widget
+    .top
+    .middle
+      %h3 Colabora en
+      %table
+        %th Película
+        %th Año
+        %th Colaboración
+      - @person.movie_directors.each do |crew_member|
+        %tr= link_to crew_member.movie.title, crew_member.movie
+        %tr= crew_member.movie.released_at.strftime("%Y")
+        %tr= 'Director'
+      - @person.movie_writers.each do |crew_member|
+        %tr= link_to crew_member.movie.title, crew_member.movie
+        %tr= crew_member.movie.released_at.strftime("%Y")
+        %tr= 'Guionista'
+    .bottom
+  #awards.widget
+    .top
+    .middle
+      %h3 Premios
+      %table
+        %th Institución
+        %th Película
+        %th Año
+        %th Categoría
+        %th Estado
+      - @person.awards.each do |award|
+        %tr= award.institution.name
+        %tr= award.movie.title
+        %tr= award.year_received
+        %tr= award.category.name
+        %tr= award.status
+
+    .bottom
+
 
 .clear
 

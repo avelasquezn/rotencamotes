@@ -4,9 +4,9 @@ class Person < ActiveRecord::Base
   has_many :as_an_actor_fans,   :class_name => "Profile", :foreign_key => "favorite_actor_id"
   has_many :as_a_writer_fans,   :class_name => "Profile", :foreign_key => "favorite_writer_id"
   has_many :as_a_director_fans, :class_name => "Profile", :foreign_key => "favorite_director_id"
-  has_many :movie_directors
+  has_many :movie_directors, :foreign_key => "director_id"
   has_many :directed_movies,  :through => :movie_directors
-  has_many :movie_writers
+  has_many :movie_writers, :foreign_key => "writer_id"
   has_many :written_movies,   :through => :movie_writers
   has_many :movie_characters
   has_many :performed_movies, :through => :movie_characters

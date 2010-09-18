@@ -1,0 +1,11 @@
+
+%h1 Listando géneros
+%table
+  %tr
+    %th Nombre
+  - @genres.each do |genre|
+    %tr
+      %td= h genre.name
+      %td= link_to 'Ver', genre
+%br/
+

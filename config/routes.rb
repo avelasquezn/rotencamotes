@@ -52,7 +52,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :genres, :as => "generos"
 
-  map.resources :people
+  map.resources :people, :as => "personas"
 
   map.resources :movies, :collection => {:latest => :get}, :as => "peliculas"
 
@@ -105,6 +105,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :genres
     admin.resources :movie_chains
     admin.resources :movie_characters
+    admin.resources :movie_directors
+    admin.resources :movie_writers
     admin.resources :movies
     admin.resources :people
     admin.resources :photos
