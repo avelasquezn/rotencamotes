@@ -91,7 +91,7 @@ class Movie < ActiveRecord::Base
 
   %w(genres directors writers).each do |method|
     define_method("#{method}_names") do
-      self.send(method).empty? ? '' : self.send(method).map(&:name).join(',')
+      self.send(method).empty? ? '' : self.send(method).map(&:name).join(', ')
     end
   end
 

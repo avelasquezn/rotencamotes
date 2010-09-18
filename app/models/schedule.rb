@@ -30,6 +30,14 @@ class Schedule < ActiveRecord::Base
                   :order      =>  'in_theatre_from DESC'
                 }
               }
+  named_scope :from_movie_chain,
+                lambda  { |movie_chain_id|  {
+                  :conditions =>  { :theatres => {  :movie_chain_id => movie_chain_id }},
+                  :order      =>  'in_theatre_from DESC',
+                  :joins      => :theatre
+                }
+
+                }
   # methods
   def activate
     self.status = STATUSES[:active]
@@ -58,6 +66,10 @@ class Schedule < ActiveRecord::Base
       'select * from movies where id in (select movie_id from schedules where status like "active" group by movie_id) order by created_at DESC')
   end
 
+  def self.scheduled_movie_chains_for_movie movie_id
+    MovieChain.find_by_sql([
+      'select * from movie_chains where id in (select movie_chain_id from theatres where id in (select theatre_id from schedules where status like "active" and movie_id = ?))', movie_id])
+  end
 end
 
 # == Schema Information

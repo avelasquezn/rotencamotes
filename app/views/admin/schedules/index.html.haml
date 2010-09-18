@@ -14,8 +14,8 @@
       %td= image_tag schedule.theatre.movie_chain.logo.url(:thumb)
       %td= h schedule.theatre.name
       %td= h schedule.movie.title
-      %td= h schedule.try(:in_theatre_from).try(:to_s,:short)
-      %td= h schedule.try(:in_theatre_to).try(:to_s,:short)
+      %td= h schedule.try(:in_theatre_from).try(:strftime,"%d-%b-%Y")
+      %td= h schedule.try(:in_theatre_to).try(:strftime,"%d-%b-%Y")
       %td= h schedule.description
       %td= h schedule.current_showtimes
       %td= h schedule.status

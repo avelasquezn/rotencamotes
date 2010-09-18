@@ -16,20 +16,14 @@
           .rotten 41
         .spec
           %p
-            %span Sinopsis:
+            %span Reparto:
+          #tags= render_cast_links
+          %p
+            %span Acerca de:
             = @movie.summary
           %p
             %span Sinopsis:
-            A young
-          %p
-            %span Sinopsis:
-            A young
-          %p
-            %span Sinopsis:
-            A young
-          %p
-            %span Sinopsis:
-            A young
+            = @movie.synopsis
       .clear
     .bottom
   #reviews.widget
@@ -76,13 +70,6 @@
     .bottom
 #sidebar
 
-  #object.widget
-    .top
-    .middle
-      %h3 Este es un demo
-    .bottom
-
-
   #share.widget
     .top
     .middle
@@ -98,22 +85,17 @@
     .middle
       %h3 ¿Donde verla?
       %ul
-        %li
-          %h4 Cine Alcazar
-          .alcazar.logo-cine
-          %table
-            %tr
-              %td Doblada
-              %td Doblada
-              %td Doblada
-              %td Doblada
-              %td Doblada
-            %tr
-              %td Doblada
-              %td Doblada
-              %td Doblada
-              %td Doblada
-              %td
+        - @scheduled_movie_chains_for_movie.each do |movie_chain|
+          %li
+            %h4
+              = image_tag movie_chain.logo.url(:thumb)
+            .alcazar.logo-cine
+            %table
+            - Schedule.active.from_movie_chain(movie_chain.id).from_movie(@movie.id).each do |schedule|
+              %tr
+                %td= schedule.theatre.name
+                %td= schedule.description
+                %td= schedule.current_showtimes
     .bottom
   #related.widget
     .top
