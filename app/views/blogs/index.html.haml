@@ -1,33 +1,15 @@
-%h1 Listing blogs
+%h1 Los blogs
 %table
   %tr
-    %th Name
-    %th Permalink
-    %th Banner file name
-    %th Banner content type
-    %th Banner file size
-    %th Banner updated at
-    %th Banner
-    %th Category
-    %th Active
-    %th Posts counts
-    %th Visits count
+    %th Blog
+    %th Categoría
+    %th Entradas
+    %th Visitas
   - @blogs.each do |blog|
     %tr
       %td= h blog.name
-      %td= h blog.permalink
-      %td= h blog.banner_file_name
-      %td= h blog.banner_content_type
-      %td= h blog.banner_file_size
-      %td= h blog.banner_updated_at
-      %td= h blog.banner
-      %td= h blog.category_id
-      %td= h blog.active
+      %td= h blog.category_name
       %td= h blog.posts_counts
       %td= h blog.visits_count
-      %td= link_to 'Show', blog
-      %td= link_to 'Edit', edit_blog_path(blog)
-      %td= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete
-%br/
-= link_to 'New blog', new_blog_path
+      %td= link_to 'Ver', blog
 

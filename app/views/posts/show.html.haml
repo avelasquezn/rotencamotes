@@ -1,45 +1,40 @@
 %p
-  %b Blog:
+  = image_tag @post.blog.banner.url(:medium)
   = h @post.blog.name
 %p
-  %b Title:
+  %b Autor:
+  = h @post.user.full_name
+
+%p
+  %b Título:
   = h @post.title
 %p
-  %b Content:
+  %b Publicado:
+  = h @post.published_at.strftime('%d-%b-%Y')
+%p
+  %b Contenido:
   = h @post.content
 %p
-  %b Authot:
-  = h @post.user.full_name
-%p
-  %b Permalink:
-  = h @post.permalink
-%p
-  %b Published at:
-  = h @post.published_at
-%p
-  %b Cached tag list:
+  %b Etiquetas:
   = h @post.cached_tag_list
 %p
-  %b Comments count:
+  %b Número de comentarios:
   = h @post.comments_count
 %p
-  %b Visits count:
+  %b Número de Visitas:
   = h @post.visits_count
 %p
   %b Rating:
   = h @post.rating
 %p
-  %b Status:
-  = h @post.status
-%p
-  %b Comments:
+  %b Comentarios:
   - @post.comments.each do |comment|
     %p
-      = h "#{comment.user.full_name} says:"
+      = h "#{comment.user.full_name} dice:"
     %p
       = h comment.content
 %p
-  = link_to 'Add Comment', new_comment_path(:post_id => @post.id)
-|
-\#{link_to 'Back', posts_path}
+  = link_to 'Agregar comentario', new_comment_path(:post_id => @post.id)
+
+\#{link_to 'Regresar', posts_path}
 

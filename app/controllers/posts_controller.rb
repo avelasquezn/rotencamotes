@@ -8,5 +8,9 @@ class PostsController < InheritedResources::Base
     posts_path
   end
 
+  def index
+    @posts = Post.published
+    index!
+  end
 end
 

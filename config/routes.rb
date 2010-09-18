@@ -4,6 +4,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.devise_for :admins
 
+  map.resources :about, :as => "acerca", :controller => :about
+
   map.resources :scores, :as => "puntajes"
 
   map.resources :showtimes
@@ -146,6 +148,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-
+  map.connect ':acerca/', :controller => 'about', :action => 'index'
 end
 

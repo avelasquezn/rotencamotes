@@ -64,6 +64,9 @@ class Blog < ActiveRecord::Base
     self.user.categories.with_fields("name")
   end
 
+  def category_name
+    self.category.nil? ? '' : self.category.name
+  end
 
 end
 

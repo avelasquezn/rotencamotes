@@ -4,8 +4,8 @@
   = f.input :user_id, :as => :hidden, :value => @comment.user.id
   = f.input :email, :as => :hidden, :value => @comment.user.email
   = f.input :name, :as => :hidden, :value => @comment.user.full_name
-  = f.input :website
-  = f.input :content, :as => :text
+  = f.input :content, :as => :text, :label => 'Comentario'
+  = f.input :website, :required => false
   = f.input :status, :as => :hidden, :value => Comment::STATUSES[:active]
   = f.input :featured, :as => :hidden, :value => false
 - f.buttons do

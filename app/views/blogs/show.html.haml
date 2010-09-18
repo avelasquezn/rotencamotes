@@ -1,26 +1,36 @@
-
 %p
-  %b Name:
+  %b Nombre:
   = h @blog.name
 %p
   %b Permalink:
   = h @blog.permalink
-= image_tag @blog.banner.url
 = image_tag @blog.banner.url(:medium)
-= image_tag @blog.banner.url(:thumb)
 %p
-  %b Category:
-  = h @blog.category_id
+  %b Categoría:
+  = h @blog.category_name
 %p
-  %b Active:
+  %b Activo:
   = h @blog.active
 %p
-  %b Posts counts:
+  %b Entradas:
   = h @blog.posts_counts
 %p
-  %b Visits count:
+  %b Visitas:
   = h @blog.visits_count
-= link_to 'Edit', edit_blog_path(@blog)
+%p
+  Últimas entradas
+%table
+  %tr
+    %th Fecha
+    %th Película
+    %th Título
+    %th Calificación
+  - @blog.posts.published.each do |post|
+    %tr
+      %td= post.published_at.strftime('%d-%b-%Y')
+      %td= 'Pending'
+      %td= link_to post.title, post
+      %td= post.rating
 |
-\#{link_to 'Back', blogs_path}
+\#{link_to 'Regresar', blogs_path}
 

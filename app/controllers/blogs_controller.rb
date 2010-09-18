@@ -3,18 +3,13 @@ class BlogsController < InheritedResources::Base
   respond_to    :html, :xml
   actions       :index, :show
 
-=begin
   def default_path
     blogs_path
   end
 
-  def create
-    create!   { default_path }
+  def index
+    @blogs = Blog.active
+    index!
   end
-
-  def destroy
-    destroy!  { default_path }
-  end
-=end
 end
 

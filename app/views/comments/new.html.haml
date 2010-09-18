@@ -1,7 +1,7 @@
 
-%h1 New comment for #{@comment.post.title}
-%h2 From #{@comment.user.full_name}
+%h1 Agregando comentario sobre opinión #{@comment.post.title}
+%h2 De #{@comment.user.full_name}
 - semantic_form_for(@comment) do |f|
-  = render 'form', {:f => f, :commit_label => 'Create'}
-= link_to 'Back', comments_path
+  = render 'form', {:f => f, :commit_label => 'Crear'}
+= link_to 'Regresar', comments_path
 

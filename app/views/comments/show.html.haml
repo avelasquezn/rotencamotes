@@ -1,32 +1,16 @@
 
 %p
-  %b Post:
-  = h @comment.post_id
+  %b Opnión:
+  = h @comment.post.title
 %p
-  %b Email:
-  = h @comment.email
-%p
-  %b Name:
-  = h @comment.name
+  %b Autor:
+  = h @comment.user.full_name
 %p
   %b Website:
   = h @comment.website
 %p
-  %b User:
-  = h @comment.user_id
-%p
-  %b Parent:
-  = h @comment.parent_id
-%p
-  %b Content:
+  %b Contenido:
   = h @comment.content
-%p
-  %b Status:
-  = h @comment.status
-%p
-  %b Featured:
-  = h @comment.featured
-= link_to 'Edit', edit_comment_path(@comment)
-|
-\#{link_to 'Back', comments_path}
+
+\#{link_to 'Regresar', comments_path}
 
