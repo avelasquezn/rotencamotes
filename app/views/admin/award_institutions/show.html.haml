@@ -1,9 +1,10 @@
-
 %p
-  %b Name:
+  = image_tag @award_institution.logo.url(:medium)
+%p
+  %b Nombre:
   = h @award_institution.name
 %p
-  %b Description:
+  %b Descripción:
   = h @award_institution.description
 %p
   %b Bio:
@@ -11,16 +12,7 @@
 %p
   %b Url:
   = h @award_institution.url
-%p
-  %b Logo file name:
-  = image_tag @award_institution.logo.url
-%p
-  %b Logo content:
-  = image_tag @award_institution.logo.url(:medium)
-%p
-  %b Logo thumb:
-  = image_tag @award_institution.logo.url(:thumb)
-= link_to 'Edit', edit_award_institution_path(@award_institution)
+= link_to 'Edit', edit_admin_award_institution_path(@award_institution)
 |
-\#{link_to 'Back', award_institutions_path}
+\#{link_to 'Back', admin_award_institutions_path}
 

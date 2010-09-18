@@ -1,13 +1,13 @@
 
-%h1 Listing awards
+%h1 Listando premios
 %table
   %tr
-    %th Institution
-    %th Category
-    %th Year received
-    %th Status
-    %th Person
-    %th Movie
+    %th Institución
+    %th Categoría
+    %th Año recibido
+    %th Estado
+    %th Persona
+    %th Película
   - @awards.each do |award|
     %tr
       %td= h award.institution_id
@@ -16,9 +16,9 @@
       %td= h award.status
       %td= h award.person_id
       %td= h award.movie_id
-      %td= link_to 'Show', award
-      %td= link_to 'Edit', edit_award_path(award)
-      %td= link_to 'Destroy', award, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin, award]
+      %td= link_to 'Editar', edit_admin_award_path(award)
+      %td= link_to 'Eliminar', [:admin, award], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New award', new_award_path
+= link_to 'Nuevo premio', new_admin_award_path
 

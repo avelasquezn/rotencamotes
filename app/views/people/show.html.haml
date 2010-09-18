@@ -7,8 +7,9 @@
         = image_tag @person.picture.url(:medium)
       .detail
         #personal_data
-          %h4= "Primer nombre"
+          %h4 Datos personales
           %p
+            %span Primer Nombre:
             = h @person.first_name
           %p
             %span Segundo nombre:
@@ -32,6 +33,24 @@
       %p
         = h @person.bio
     .bottom
+  #awards.widget
+    .top
+    .middle
+      %h3 Premios
+      %table
+        %th Institución
+        %th Película
+        %th Año
+        %th Categoría
+        %th Estado
+      - @person.awards.each do |award|
+        %tr= award.institution.name
+        %tr= award.movie.title
+        %tr= award.year_received
+        %tr= award.category.name
+        %tr= award.status
+    .bottom
+
 #sidebar
   #cast.widget
     .top
@@ -62,24 +81,6 @@
         %tr= link_to crew_member.movie.title, crew_member.movie
         %tr= crew_member.movie.released_at.strftime("%Y")
         %tr= 'Guionista'
-    .bottom
-  #awards.widget
-    .top
-    .middle
-      %h3 Premios
-      %table
-        %th Institución
-        %th Película
-        %th Año
-        %th Categoría
-        %th Estado
-      - @person.awards.each do |award|
-        %tr= award.institution.name
-        %tr= award.movie.title
-        %tr= award.year_received
-        %tr= award.category.name
-        %tr= award.status
-
     .bottom
 
 

@@ -1,28 +1,22 @@
 
-%h1 Listing award_institutions
+%h1 Listando instituciones que otorgan premios
 %table
   %tr
-    %th Name
-    %th Description
+    %th Nombre
+    %th Descripción
     %th Bio
     %th Url
-    %th Logo file name
-    %th Logo content type
-    %th Logo file size
-    %th Logo updated at
+    %th Logo
   - @award_institutions.each do |award_institution|
     %tr
       %td= h award_institution.name
       %td= h award_institution.description
       %td= h award_institution.bio
       %td= h award_institution.url
-      %td= h award_institution.logo_file_name
-      %td= h award_institution.logo_content_type
-      %td= h award_institution.logo_file_size
-      %td= h award_institution.logo_updated_at
-      %td= link_to 'Show', award_institution
-      %td= link_to 'Edit', edit_award_institution_path(award_institution)
-      %td= link_to 'Destroy', award_institution, :confirm => 'Are you sure?', :method => :delete
+      %td= image_tag award_institution.logo.url(:thumb)
+      %td= link_to 'Ver', [:admin, award_institution]
+      %td= link_to 'Editar', edit_admin_award_institution_path(award_institution)
+      %td= link_to 'Eliminar', [:admin, award_institution], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New award_institution', new_award_institution_path
+= link_to 'Nueva institución', new_admin_award_institution_path
 

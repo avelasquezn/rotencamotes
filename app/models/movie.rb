@@ -132,7 +132,7 @@ class Movie < ActiveRecord::Base
 
   def name_with_year
     name = "#{self.title}"
-    name << "(#{self.released_at.year})" if self.released_at
+    name << " (#{self.released_at.year})" if self.released_at
   end
 
   def cast_names

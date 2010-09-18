@@ -1,14 +1,6 @@
 
-%h1 New Award Institution
-- semantic_form_for @award_institution, :html => { :multipart => true } do |f|
-  = f.error_messages
-  - f.inputs do
-    = f.input :name
-    = f.input :description
-    = f.input :bio,   :as => :text
-    = f.input :url
-    = f.input :logo,  :as => :file
-  - f.buttons do
-    = f.commit_button 'Create'
-= link_to 'Back', award_institutions_path
+%h1 Nueva institución
+- semantic_form_for [:admin, @award_institution], :html => { :multipart => true } do |f|
+  = render 'form', {:f => f, :commit_label => 'Crear'}
+= link_to 'Regresar', admin_award_institutions_path
 
