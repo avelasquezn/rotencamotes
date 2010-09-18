@@ -1,0 +1,10 @@
+%h1 Cines
+%table
+  %tr
+    %th Nombre
+    %th Dirección
+  - @theatres.each do |theatre|
+    %tr
+      %td= h link_to theatre.name, theatre
+      %td= h theatre.address
+

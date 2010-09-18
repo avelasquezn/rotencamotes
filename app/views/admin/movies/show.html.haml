@@ -23,11 +23,11 @@
   = h @movie.mpaa_rate
 %p
   %b Acerca de:
-  = h @movie.summary
+  = h simple_format @movie.summary
 
 %p
   %b Sinopsis:
-  = h @movie.synopsis
+  = h simple_format @movie.synopsis
 
 = link_to 'Editar', edit_admin_movie_path(@movie)
 |

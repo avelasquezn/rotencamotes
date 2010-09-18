@@ -1,0 +1,21 @@
+%p
+  = image_tag @theatre.movie_chain.logo(:medium)
+%p
+  %b Nombre
+  = h @theatre.name
+%p
+  %b Dirección:
+  = h @theatre.address
+%table
+  %tr
+    %th Película
+    %th Descripción
+    %th Horarios
+  - @theatre.schedules.active.each do |schedule|
+    %tr
+      %td= h link_to schedule.movie.title, schedule.movie
+      %td= h schedule.description
+      %td= h schedule.current_showtimes
+
+\#{link_to 'Regresar', theatres_path}
+

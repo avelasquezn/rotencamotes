@@ -20,10 +20,17 @@
           #tags= render_cast_links
           %p
             %span Acerca de:
-            = @movie.summary
-          %p
-            %span Sinopsis:
-            = @movie.synopsis
+            = simple_format @movie.summary
+      .clear
+    .bottom
+  #synopsis.widget
+    .top
+    .middle
+      .detail
+        %h3 Sinopsis
+      .spec
+        %p
+          = simple_format @movie.synopsis
       .clear
     .bottom
   #reviews.widget
@@ -88,7 +95,7 @@
         - @scheduled_movie_chains_for_movie.each do |movie_chain|
           %li
             %h4
-              = image_tag movie_chain.logo.url(:thumb)
+              = link_to image_tag(movie_chain.logo.url(:thumb)), movie_chain
             .alcazar.logo-cine
             %table
             - Schedule.active.from_movie_chain(movie_chain.id).from_movie(@movie.id).each do |schedule|

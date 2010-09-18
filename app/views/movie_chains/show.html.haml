@@ -14,9 +14,19 @@
   %table
     %tr
       %th Nombre
-      %th Dirección
+      %th Cartelera
     - @movie_chain.theatres.each do |theatre|
       %tr
-        %td= h theatre.name
-        %td= h theatre.address
+        %td= h link_to theatre.name, theatre
+        %td
+          %table
+            %tr
+              %th Película
+              %th Descripción
+              %th Horarios
+            - theatre.schedules.active.each do |schedule|
+              %tr
+                %td= h link_to schedule.movie.title, schedule.movie
+                %td= h schedule.description
+                %td= h schedule.current_showtimes
 

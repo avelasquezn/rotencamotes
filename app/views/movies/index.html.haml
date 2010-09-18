@@ -1,22 +1,21 @@
-%h1 Listing movies
+%h1 Últimas películas
 %table
   %tr
-    %th Title
-    %th Summary
-    %th Synopsis
-    %th Released at
-    %th Lenght
-    %th Website
+    %th Poster
+    %th Título
+    %th Resumen
+    %th Sinopsis
+    %th Estrenada
+    %th Duración (Minutos)
   - @movies.each do |movie|
     %tr
-      %td= h movie.title
-      %td= h movie.summary
-      %td= h movie.synopsis
-      %td= h movie.released_at
-      %td= h movie.lenght
-      %td= h movie.website
       %td= image_tag movie.banner.url(:thumb)
-      %td= link_to 'Show', movie
+      %td= h link_to movie.title, movie
+      %td= h simple_format truncate(movie.summary,  :lenght => 50)
+      %td= h simple_format truncate(movie.synopsis, :lenght => 50)
+      %td= h movie.released_at.nil? ? '' : movie.released_at.strftime('%d-%b-%Y')
+      %td= h movie.lenght
+
 
 %br/
 
