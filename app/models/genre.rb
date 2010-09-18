@@ -3,6 +3,10 @@ class Genre < ActiveRecord::Base
   has_many :movie_genres
   has_many :movies, :through => :movie_genres
   has_many :fans , :class_name => "Profile", :foreign_key => "favorite_genre_id"
+
+  def movies_count
+    Movie.from_named_genre(self.name).count
+  end
 end
 
 

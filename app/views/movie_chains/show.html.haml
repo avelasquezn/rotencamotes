@@ -1,0 +1,22 @@
+%p
+  =image_tag @movie_chain.logo.url(:medium)
+%p
+  %b Nombre:
+  = h @movie_chain.name
+%p
+  %b Dirección:
+  = h @movie_chain.address
+%p
+  %b Acerca de:
+  = h @movie_chain.bio
+%p
+  %b Cines:
+  %table
+    %tr
+      %th Nombre
+      %th Dirección
+    - @movie_chain.theatres.each do |theatre|
+      %tr
+        %td= h theatre.name
+        %td= h theatre.address
+
