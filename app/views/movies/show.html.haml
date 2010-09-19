@@ -19,6 +19,13 @@
             %span Reparto:
           #tags= render_cast_links
           %p
+            %span Dirección:
+          #tags= render_directors_links
+          %p
+            %span Guión:
+          #tags= render_writers_links
+
+          %p
             %span Acerca de:
             = simple_format @movie.summary
       .clear

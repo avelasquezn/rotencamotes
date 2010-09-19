@@ -1,36 +1,44 @@
-%p
-  %b Nombre:
-  = h @blog.name
-%p
-  %b Permalink:
-  = h @blog.permalink
-= image_tag @blog.banner.url(:medium)
-%p
-  %b Categoría:
-  = h @blog.category_name
-%p
-  %b Activo:
-  = h @blog.active
-%p
-  %b Entradas:
-  = h @blog.posts_counts
-%p
-  %b Visitas:
-  = h @blog.visits_count
-%p
-  Últimas entradas
-%table
-  %tr
-    %th Fecha
-    %th Película
-    %th Título
-    %th Calificación
-  - @blog.posts.published.each do |post|
-    %tr
-      %td= post.published_at.strftime('%d-%b-%Y')
-      %td= 'Pending'
-      %td= link_to post.title, post
-      %td= post.rating
-|
-\#{link_to 'Regresar', blogs_path}
+#content
+  #movie.widget
+    .top
+    .middle
+      .movie
+        = image_tag @blog.banner.url(:medium)
+      .detail
+        %h3= @blog.name
+        %h4= @blog.user.full_name
+        %p
+          = simple_format @blog.description
+
+        %p
+          %b Categoría:
+          = h @blog.category_name
+        %p
+          %b Entradas:
+          = h @blog.posts_counts
+        %p
+          %b Visitas:
+          = h @blog.visits_count
+
+      .clear
+    .bottom
+  #reviews.widget
+    .top
+    .middle
+      .detail
+        %h3 Opiniones
+        %table
+          %tr
+            %th Película
+            %th Título
+            %th Calificación
+            %th Fecha
+          - @blog.posts.published.each do |post|
+            %tr
+              %td= link_to post.movie_title, post.movie
+              %td= link_to post.title, post
+              %td= post.rating
+              %td= post.published_at.strftime('%d-%b-%Y')
+    .bottom
+.clear
 

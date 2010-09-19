@@ -3,6 +3,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   should belong_to :blog
   should belong_to :user
+  should belong_to :movie
   should have_many(:categories).through(:post_categories)
   should have_many :comments
   should validate_presence_of :title
@@ -61,6 +62,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -82,5 +84,6 @@ end
 #  status          :string(255)     default("drafted")
 #  created_at      :datetime
 #  updated_at      :datetime
+#  movie_id        :integer(4)
 #
 

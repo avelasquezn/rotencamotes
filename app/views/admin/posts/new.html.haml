@@ -1,6 +1,6 @@
 
 %h1 New post
-- semantic_form_for(@post) do |f|
+- semantic_form_for([:admin, @post]) do |f|
   = f.error_messages
   - f.inputs do
     = f.input :title
@@ -18,6 +18,6 @@
     = f.input :delta, :as => :radio
     = f.input :status, :as => :select, :collection => Post::STATUSES.values
   - f.buttons do
-    = f.commit_button 'Create'
-= link_to 'Back', posts_path
+    = f.commit_button 'Crear'
+= link_to 'Regresar', admin_posts_path
 

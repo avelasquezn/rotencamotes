@@ -34,6 +34,7 @@ two:
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -55,5 +56,6 @@ two:
 #  status          :string(255)     default("drafted")
 #  created_at      :datetime
 #  updated_at      :datetime
+#  movie_id        :integer(4)
 #
 

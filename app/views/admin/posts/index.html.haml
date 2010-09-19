@@ -1,11 +1,12 @@
 %h1 Listing posts
 %table
   %tr
+    %th Blog
     %th Title
     %th Content
     %th User
+    %th Movie
     %th Permalink
-    %th Blog
     %th Drafted at
     %th Published at
     %th Reviewed at
@@ -17,11 +18,12 @@
     %th Status
   - @posts.each do |post|
     %tr
+      %td= h post.blog_id
       %td= h post.title
       %td= h post.content
       %td= h post.user_id
+      %td= h post.movie_id
       %td= h post.permalink
-      %td= h post.blog_id
       %td= h post.drafted_at
       %td= h post.published_at
       %td= h post.reviewed_at
@@ -31,9 +33,9 @@
       %td= h post.rating
       %td= h post.delta
       %td= h post.status
-      %td= link_to 'Show', [:admin, post]
-      %td= link_to 'Edit', edit_admin_post_path(post)
-      %td= link_to 'Destroy', [:admin, post], :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin, post]
+      %td= link_to 'Editar', edit_admin_post_path(post)
+      %td= link_to 'Eliminar', [:admin, post], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New post', new_admin_post_path
+= link_to 'Nuevo post', new_admin_post_path
 

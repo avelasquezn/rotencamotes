@@ -33,6 +33,7 @@
       = h "#{comment.user.full_name} dice:"
     %p
       = h comment.content
+
 %p
   = link_to 'Agregar comentario', new_comment_path(:post_id => @post.id)
 

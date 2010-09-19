@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   # relationships
   belongs_to              :blog
   belongs_to              :user
+  belongs_to              :movie
   has_many                :post_categories
   has_many                :categories, :through  => :post_categories
   has_many                :comments,   :order    => 'created_at DESC'
@@ -14,7 +15,8 @@ class Post < ActiveRecord::Base
 
   #accesible attributes
   attr_accessible :title, :content, :user_id, :permalink,
-                  :blog_id, :tag_list, :drafted_at, :published_at, :reviewed_at
+                  :blog_id, :tag_list, :drafted_at, :published_at,
+                  :reviewed_at, :movie_id
 
   # permalink config
   has_permalink :title, :update => true,
@@ -134,10 +136,14 @@ class Post < ActiveRecord::Base
 
   # Categories
   def category_names
-    return self.categories.empty? ? '' : self.categories.map(&:name).join(',')
+    self.categories.empty? ? '' : self.categories.map(&:name).join(',')
   end
 
+  def movie_title
+    self.movie.nil? ? '' : self.movie.title
+  end
 end
+
 
 
 
@@ -163,5 +169,6 @@ end
 #  status          :string(255)     default("drafted")
 #  created_at      :datetime
 #  updated_at      :datetime
+#  movie_id        :integer(4)
 #
 

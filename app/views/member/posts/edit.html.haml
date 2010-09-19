@@ -2,11 +2,12 @@
 - semantic_form_for(@post) do |f|
   = f.error_messages
   - f.inputs do
+    = f.input :blog
     = f.input :title
     = f.input :content
     = f.input :user
+    = f.input :movie
     = f.input :permalink
-    = f.input :blog
     = f.input :drafted_at
     = f.input :published_at
     = f.input :reviewed_at

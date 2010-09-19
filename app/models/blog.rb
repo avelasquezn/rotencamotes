@@ -71,6 +71,7 @@ class Blog < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: blogs
@@ -90,5 +91,6 @@ end
 #  created_at          :datetime
 #  updated_at          :datetime
 #  user_id             :integer(4)
+#  description         :text
 #
 
