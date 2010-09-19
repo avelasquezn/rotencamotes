@@ -1,13 +1,8 @@
 
-%h1 Editing category
-- semantic_form_for(@category) do |f|
-  = f.error_messages
-  - f.inputs do
-    = f.input :name
-    = f.input :category_type
-  - f.buttons do
-    = f.commit_button 'Update'
-= link_to 'Show', @category
+%h1 Editando categoría
+- semantic_form_for([:admin, @category]) do |f|
+  = render 'form', {:f => f, :commit_label => 'Actualizar'}
+= link_to 'Ver', [:admin, @category]
 |
-\#{link_to 'Back', categories_path}
+\#{link_to 'Regresar', admin_categories_path}
 

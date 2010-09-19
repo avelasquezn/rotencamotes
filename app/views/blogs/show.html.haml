@@ -3,7 +3,7 @@
     .top
     .middle
       .movie
-        = image_tag @blog.banner.url(:medium)
+        = image_tag @blog.banner.url(:thumbnail)
       .detail
         %h3= @blog.name
         %h4= @blog.user.full_name
@@ -14,11 +14,11 @@
           %b Categoría:
           = h @blog.category_name
         %p
-          %b Entradas:
-          = h @blog.posts_counts
+          %b Opiniones:
+          = h @blog.friendly_posts_count
         %p
           %b Visitas:
-          = h @blog.visits_count
+          = h @blog.friendly_visits_count
 
       .clear
     .bottom

@@ -1,26 +1,24 @@
-
 %p
-  %b Name:
+  %b Nombre:
   = h @blog.name
 %p
   %b Permalink:
   = h @blog.permalink
-= image_tag @blog.banner.url
-= image_tag @blog.banner.url(:medium)
-= image_tag @blog.banner.url(:thumb)
 %p
-  %b Category:
-  = h @blog.category_id
+  = image_tag @blog.banner.url(:large)
 %p
-  %b Active:
+  %b Categoría:
+  = h @blog.category_name
+%p
+  %b Activo:
   = h @blog.active
 %p
-  %b Posts counts:
-  = h @blog.posts_counts
+  %b Número de opiniones:
+  = h @blog.friendly_posts_count
 %p
-  %b Visits count:
-  = h @blog.visits_count
-= link_to 'Edit', edit_blog_path(@blog)
+  %b Número de visitas:
+  = h @blog.friendly_visits_count
+= link_to 'Editar', edit_admin_blog_path(@blog)
 |
-\#{link_to 'Back', blogs_path}
+\#{link_to 'Regresar', admin_blogs_path}
 

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100919053838) do
+ActiveRecord::Schema.define(:version => 20100919132217) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20100919053838) do
     t.string   "banner"
     t.integer  "category_id"
     t.boolean  "active"
-    t.integer  "posts_counts"
+    t.integer  "posts_count"
     t.integer  "visits_count"
     t.datetime "created_at"
     t.datetime "updated_at"

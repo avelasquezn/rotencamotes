@@ -4,7 +4,7 @@ class Admin::CategoriesController < InheritedResources::Base
   actions       :all
 
   def default_path
-    admin_categories_institutions_path
+    admin_categories_path
   end
 
   def create

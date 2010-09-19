@@ -10,7 +10,7 @@ one:
   banner: MyString
   category_id: 1
   active: false
-  posts_counts: 1
+  posts_count: 1
   visits_count: 1
 
 two:
@@ -23,8 +23,9 @@ two:
   banner: MyString
   category_id: 1
   active: false
-  posts_counts: 1
+  posts_count: 1
   visits_count: 1
+
 
 
 
@@ -42,7 +43,7 @@ two:
 #  banner              :string(255)
 #  category_id         :integer(4)
 #  active              :boolean(1)
-#  posts_counts        :integer(4)
+#  posts_count         :integer(4)
 #  visits_count        :integer(4)
 #  created_at          :datetime
 #  updated_at          :datetime

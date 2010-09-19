@@ -44,6 +44,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: blogs
@@ -58,7 +59,7 @@ end
 #  banner              :string(255)
 #  category_id         :integer(4)
 #  active              :boolean(1)
-#  posts_counts        :integer(4)
+#  posts_count         :integer(4)
 #  visits_count        :integer(4)
 #  created_at          :datetime
 #  updated_at          :datetime

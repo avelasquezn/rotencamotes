@@ -1,16 +1,16 @@
 
-%h1 Listing categories
+%h1 Listando categorías
 %table
   %tr
-    %th Name
-    %th Category type
+    %th Nombre
+    %th Tipo de categoría
   - @categories.each do |category|
     %tr
       %td= h category.name
       %td= h category.category_type
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Ver', [:admin, category]
+      %td= link_to 'Editar', edit_admin_category_path(category)
+      %td= link_to 'Eliminar', [:admin, category], :confirm => '¿Estás seguro?', :method => :delete
 %br/
-= link_to 'New category', new_category_path
+= link_to 'Nueva categoría', new_admin_category_path
 

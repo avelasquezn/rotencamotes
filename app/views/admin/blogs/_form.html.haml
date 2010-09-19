@@ -1,0 +1,12 @@
+= f.error_messages
+- f.inputs do
+  = f.input :name, :label => 'Nombre'
+  = f.input :permalink
+  = image_tag @blog.banner.url(:thumbnail)
+  = f.input :banner,  :as => :file
+  = f.input :category, :label => 'Categoría'
+  = f.input :user, :label => 'Autor'
+  = f.input :active, :label => 'Activo'
+- f.buttons do
+  = f.commit_button commit_label
+
