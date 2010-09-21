@@ -3,7 +3,6 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   # Replace this with your real tests.
   should validate_presence_of :email
-  #should validate_presence_of :last_name
   should validate_uniqueness_of :email
   should have_one :profile
   should have_many :posts
@@ -62,6 +61,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -92,5 +92,6 @@ end
 #  avatar_content_type  :string(255)
 #  avatar_file_size     :integer(4)
 #  avatar_updated_at    :datetime
+#  website              :string(255)
 #
 

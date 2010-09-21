@@ -1,0 +1,20 @@
+= f.error_messages
+  - f.inputs do
+    = f.input :blog, :hidden => true, :value => @post.blog
+    = f.input :user, :hidden => true, :value => current_user
+    = f.input :drafted_at, :as => :date, :hidden => true
+    = f.input :published_at, :as => :date, :hidden => true
+    = f.input :reviewed_at, :as => :date, :hidden => true
+  - f.inputs do
+    = f.input :title
+    = f.input :movie
+    = f.input :rating, :as => :numeric
+    = f.input :content, :as => :text
+  - f.inputs do
+    = f.input :permalink
+  - f.inputs do
+    = f.input :cached_tag_list
+  - f.buttons do
+    = f.commit_button commit_label
+    = f.commit_button 'Publicar'
+

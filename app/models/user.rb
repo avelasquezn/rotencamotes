@@ -95,6 +95,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -125,5 +126,6 @@ end
 #  avatar_content_type  :string(255)
 #  avatar_file_size     :integer(4)
 #  avatar_updated_at    :datetime
+#  website              :string(255)
 #
 

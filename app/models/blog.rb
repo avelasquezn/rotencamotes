@@ -68,13 +68,7 @@ class Blog < ActiveRecord::Base
     self.category.nil? ? '' : self.category.name
   end
 
-  def friendly_posts_count
-    self.posts_count.nil? ? 'sin opiniones' : "#{self.posts_count} opiniones"
-  end
 
-  def friendly_visits_count
-    self.visits_count.nil? ? 'sin visitas' : "#{self.visits_count} visitas"
-  end
 
   def update_posts_count
     self.posts_count = self.posts.empty? ? 0 : self.posts.count

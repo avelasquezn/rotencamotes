@@ -142,6 +142,7 @@ class Post < ActiveRecord::Base
   def movie_title
     self.movie.nil? ? '' : self.movie.title
   end
+
 end
 
 

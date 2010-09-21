@@ -5,7 +5,6 @@ class Comment < ActiveRecord::Base
 
   # validations
   validates_presence_of :post
-  validates_presence_of :user
   validates_presence_of :content
 
   STATUSES = {

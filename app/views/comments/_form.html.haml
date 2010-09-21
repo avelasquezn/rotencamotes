@@ -1,13 +1,18 @@
 = f.error_messages
 - f.inputs do
   = f.input :post_id, :as => :hidden, :value => @comment.post.id
-  = f.input :user_id, :as => :hidden, :value => @comment.user.id
-  = f.input :email, :as => :hidden, :value => @comment.user.email
-  = f.input :name, :as => :hidden, :value => @comment.user.full_name
-  = f.input :content, :as => :text, :label => 'Comentario'
-  = f.input :website, :required => false
-  = f.input :status, :as => :hidden, :value => Comment::STATUSES[:active]
-  = f.input :featured, :as => :hidden, :value => false
+  - if current_user
+    = f.input :user_id, :as => :hidden, :value => @comment.user.id
+    = f.input :email,   :as => :hidden, :value => @comment.user.email
+    = f.input :name,    :as => :hidden, :value => @comment.user.full_name
+    = f.input :website, :as => :hidden, :value => @comment.user.website, :required => false
+  - else
+    = f.input :email
+    = f.input :name, :label => 'Nombres y Apellidos'
+    = f.input :website, :required => false
+  = f.input :content,   :as => :text, :label => 'Comentario'
+  = f.input :status,    :as => :hidden, :value => Comment::STATUSES[:active]
+  = f.input :featured,  :as => :hidden, :value => false
 - f.buttons do
   = f.commit_button commit_label
 

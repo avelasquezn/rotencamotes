@@ -15,5 +15,13 @@ module ApplicationHelper
   def summary_of(text, lenght = 400)
     truncate(strip_tags(text), lenght)
   end
+
+  def friendly_pluralize(number, singular, plural = nil)
+    if number == 1
+      "#{number} #{singular}"
+    else
+      number.to_s + (plural.nil? ? singular + 's' : plural)
+    end
+  end
 end
 

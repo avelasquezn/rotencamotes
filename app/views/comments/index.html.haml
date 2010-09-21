@@ -3,12 +3,14 @@
 %table
   %tr
     %th Opinión
-    %th Usuario
+    %th Nombre
+    %th email
     %th Contenido
   - @comments.each do |comment|
     %tr
       %td= h comment.post.title
-      %td= h comment.user.full_name
+      %td= h comment.name
+      %td= h comment.email
       %td= h comment.content
       %td= link_to 'Ver', comment
 

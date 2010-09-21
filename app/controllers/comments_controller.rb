@@ -1,5 +1,4 @@
 class CommentsController < InheritedResources::Base
-  before_filter :authenticate_user!
   respond_to    :html, :xml
   actions       :index, :show, :new, :create
 
@@ -9,7 +8,11 @@ class CommentsController < InheritedResources::Base
 
   def new
     if params[:post_id]
-      @comment = current_user.build_comment_on(params[:post_id])
+      if current_user
+        @comment = current_user.build_comment_on(params[:post_id])
+      else
+        @comment = Comment.new(:post_id => params[:post_id])
+      end
     end
     new!
   end
