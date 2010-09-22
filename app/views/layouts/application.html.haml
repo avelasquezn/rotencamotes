@@ -3,9 +3,27 @@
   %head
     %meta{'http-equiv' => 'Content-Type', :content => "text/html; charset=iso-8859-1"}
     = formtastic_stylesheet_link_tag
-    %title= "rotencamotes: #{controller.controller_name}"
+    %title= "Rotencamotes :: Tu guía de cine en línea :: (#{controller.controller_name})"
     = stylesheet_link_tag 'reset','layout','banner'
-  %body#home
+    /[if IE 6 ]
+      %link{:href => "stylesheets/ie6.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
+    /[if IE]
+      %script{:src=>"http://html5shim.googlecode.com/svn/trunk/html5.js"}
+  /[if lt IE 7 ] 
+    :erb
+      <body class="ie6 ie">
+  /[if IE 7 ]
+    :erb
+      <body class="ie7 ie">
+  /[if IE 8 ]
+    :erb
+      <body class="ie8 ie">
+  /[if IE 9 ] 
+    :erb
+      <body class="ie9 ie">
+  / [if (gt IE 9)|!(IE)]><!
+  %body{:class=>"home"}
+    / <![endif]>          	
     %header
       #header
         .wrapper
@@ -22,7 +40,7 @@
             %input.submit{:type => "submit"}
 
 
-    #banner-cont.wrapper{:role => "banner"}= yield :banner
+    = yield :banner
     #container.wrapper
       = yield
 
@@ -39,4 +57,6 @@
               %a{:href => "acerca"}Acerca de
             %li
               %a{:href => "#"}Contáctenos
-
+    %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
+    %script{:src=>"/javascripts/jcarousellite_1.0.1.min.js"}
+      

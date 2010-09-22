@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>", :avatar => "64x64#" }
   validates_presence_of   :email
   validates_presence_of   :last_name, :on => :update
   validates_uniqueness_of :email

@@ -1,0 +1,119 @@
+
+.movie .top,
+.movie .middle,
+.movie .bottom {
+	background:none;
+}
+
+.movie .top {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/movie-top.png', sizingMethod='crop');
+}
+
+.movie .middle {
+	height:100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/movie-middle.png', sizingMethod='scale');
+}
+
+.movie .bottom {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/movie-bottom.png', sizingMethod='crop');
+}
+
+#content .widget .top,
+#content .widget .middle,
+#content .widget .bottom {
+	background:none;
+}
+
+#content .widget .top {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content-top.png', sizingMethod='crop');
+}
+
+#content .widget .middle {
+	height:100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content-middle.png', sizingMethod='scale');
+}
+
+#content .widget .bottom {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/content-bottom.png', sizingMethod='crop');
+}
+
+#sidebar .widget .top,
+#sidebar .widget .middle,
+#sidebar .widget .bottom {
+	background:none;
+}
+
+#sidebar .widget .top {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/sidebar-top.png', sizingMethod='crop');
+}
+
+#sidebar .widget .middle {
+	height:100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/sidebar-middle.png', sizingMethod='scale');
+}
+
+#sidebar .widget .bottom {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/sidebar-bottom.png', sizingMethod='crop');
+}
+
+#container .talking .top,
+#container .talking .middle,
+#container .talking .bottom {
+	background:none;
+}
+
+#container .talking .top {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/container-top.png', sizingMethod='crop');
+}
+
+#container .talking .middle {
+	height:100%;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/container-middle.png', sizingMethod='scale');
+}
+
+#container .talking .bottom {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/container-bottom.png', sizingMethod='crop');
+}
+
+li.movie .camote {
+	background:url("../images/ie6-camote-small.png") no-repeat left center;
+}
+
+.talking div.avatar {
+	background:url("../images/ie6-response-arrow-left.png") no-repeat right 25px;
+}
+
+div.camote,
+#reviews li.camote,
+.cartelera li .rating {
+	background:url("../images/ie6-camote-medium.png") no-repeat;
+}
+
+div.rotten,
+#reviews li.rotten{
+	background:url("../images/ie6-rotten.png") no-repeat scroll 0 0;
+}
+
+#reviews li.camote {
+	background-position:455px 20px;
+}
+
+#reviews li.rotten {
+background-position:450px 20px;
+}
+
+
+#reply form li.rating label.rotten span,
+#reply form li.rating label.camote span{
+	background:none;
+}
+
+#reply form li.rating label.camote span {
+	margin-top:5px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/camote-medium.png');
+}
+
+#reply form li.rating label.rotten span {
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/rotten.png');
+	
+}

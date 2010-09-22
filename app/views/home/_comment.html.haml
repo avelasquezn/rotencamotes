@@ -1,9 +1,15 @@
 .comment
-  .comment_author
-    %h4
-      = image_tag(comment.user.avatar.url(:thumb))
-      = link_to(comment.user.full_name, comment.user.profile)
-  .comment_content
+  %p
     = summary_of(comment.content)
     = link_to('Más', comment)
-
+    %br
+    = link_to comment.post.title, comment.post
+  .rating
+    = number_to_percentage rand(100), :precision => 0
+  .avatar
+    - if comment.user
+      - link_to comment.user.profile do
+        = image_tag comment.user.avatar.url(:avatar), :title => comment.user.full_name
+    - else
+      %img.avatar{:src=>"../images/missing.jpg", :alt=>"Avatar", :title=>"Avatar"}= comment.name
+  .clear

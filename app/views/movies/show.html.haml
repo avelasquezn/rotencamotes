@@ -14,18 +14,18 @@
           .rating= @movie.final_score
           .camote 121
           .rotten 41
+          .clear
         .spec
           %p
             %span Reparto:
           #tags= render_cast_links
-          %p
+          %p.short
             %span Dirección:
           #tags= render_directors_links
-          %p
+          %p.short
             %span Guión:
           #tags= render_writers_links
-
-          %p
+          %p.short
             %span Acerca de:
             = simple_format @movie.summary
       .clear
@@ -40,7 +40,7 @@
           = simple_format @movie.synopsis
       .clear
     .bottom
-  #reviews.widget
+  #reviews.widget.talking
     .top
     .middle
       %h3 comentarios y valoraciones
@@ -66,21 +66,58 @@
 
     .bottom
     .pager
+      %ul
+        %li.first.hide
+          %a{:href=>"#"}
+            %span |<
+        %li.prev.hide
+          %a{:href=>"#"}
+            %span <<
+        %li.current
+          %span 1
+        %li
+          %a{:href=>"#"} 2
+        %li
+          %a{:href=>"#"} 3
+        %li
+          %a{:href=>"#"} 4
+        %li.next
+          %a{:href=>"#"}
+            %span >>
+        %li.last
+          %a{:href=>"#"}
+            %span >|
+      .clear
   #reply.widget
     .top
     .middle
-      %h3= "Deja Tu comentario y valoración"
-      %h4= "Para #{@movie.title}"
+      %h3 Deja Tu comentario y valoración para
+      %h4= @movie.title
       %form
-        %label{:for=>"comment"} Comentario
-        %textarea{:id=>"comment", :name=>"comment"}
-        %label{:for=>"name"} Nombre
-        %input{:id=>"name", :name=>"name", :type=>"text"}
-        %label{:for=>"email"} Email
-        %textarea{:id=>"email", :name=>"email", :type=>"text"}
-        %label{:for=>"cine"} La vi en
-        %select{:id =>"cine", :name=>"cine"}
-          %option{:value=>1} Cineplanet Alcazar
+        %ul
+          %li.rating                  
+            %p Valoracion
+            %label.camote{:for=>"camote"}
+              %span
+            %input.hide{:id=>"camote", :name=>"rating", :type=>"radio", :value=>"camote"}
+            %label.rotten{:for=>"rotten"}
+              %span
+            %input.hide{:id=>"rotten", :name=>"rating", :type=>"radio", :value=>"rotten"}
+          %li.comment                           
+            %label{:for=>"comment"} Comentario
+            %textarea{:id=>"comment", :name=>"comment"}
+          %li
+            %label{:for=>"name"} Nombre
+            %input{:id=>"name", :name=>"name", :type=>"text"}
+          %li
+            %label{:for=>"email"} Email
+            %input{:id=>"email", :name=>"email", :type=>"text"}
+          %li
+            %label{:for=>"cine"} La vi en
+            %select{:id =>"cine", :name=>"cine"}
+              %option{:value=>1} Cineplanet Alcazar
+          %li
+            %input{:type=>"submit", :value=>"Comentar"}
     .bottom
 #sidebar
 
@@ -101,15 +138,15 @@
       %ul
         - @scheduled_movie_chains_for_movie.each do |movie_chain|
           %li
+            .alcazar.logo-cine 85%
             %h4
               = link_to image_tag(movie_chain.logo.url(:thumb)), movie_chain
-            .alcazar.logo-cine
             %table
-            - Schedule.active.from_movie_chain(movie_chain.id).from_movie(@movie.id).each do |schedule|
-              %tr
-                %td= link_to schedule.theatre.name, schedule.theatre
-                %td= schedule.description
-                %td= schedule.current_showtimes
+              - Schedule.active.from_movie_chain(movie_chain.id).from_movie(@movie.id).each do |schedule|
+                %tr
+                  %td= link_to schedule.theatre.name, schedule.theatre
+                  %td.lang= schedule.description
+                  %td= schedule.current_showtimes                  
     .bottom
   #related.widget
     .top

@@ -1,17 +1,19 @@
 - content_for :banner do 
-  .banner
-    %ul= render :partial => "movie", :collection => @movies
+  #banner-cont.wrapper{:role => "banner"}
+    .banner
+      %ul= render :partial => "movie", :collection => @movies
 
-  .nav
-    %ul
-      %li
-        %a{:href=>"#"}Ahora mismo
-      %li
-        %a{:href=>"#"}Ahora mismo
-      %li
-        %a{:href=>"#"}Ahora mismo
-    .prev.arrow
-    .next.arrow
+    .nav
+      %ul
+        %li
+          %a{:href=>"#"}Ahora mismo
+        %li
+          %a{:href=>"#"}Estrenos
+        %li
+          %a{:href=>"#"}Recomendados
+      .prev.arrow
+      .next.arrow
+    
 #content
   #opiniones.widget
     .top
@@ -23,55 +25,8 @@
           %option{:value=>1} Todos los temas
         %label{:for => "order"} Ordenar por
         %select{:id => "order"}
-          %option{:value=>1} Todos los temas              
-      .comment
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          %a{:href=>"#"}Mas
-          %br
-          %a{:href=>"#"}Iron Man 2 (2010)
-        .rating
-          100%
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .clear
-      .comment
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          %a{:href=>"#"}Mas
-          %br
-          %a{:href=>"#"}Iron Man 2 (2010)
-        .rating
-          100%
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .clear
-      .comment
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          %a{:href=>"#"}Mas
-          %br
-          %a{:href=>"#"}Iron Man 2 (2010)
-        .rating
-          100%
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .clear
-      .comment.last
-        %p
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-          %a{:href=>"#"}Mas
-          %br
-          %a{:href=>"#"}Iron Man 2 (2010)
-        .rating
-          100%
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .clear                                          
+          %option{:value=>1} Todos los temas
+      = render :partial => "post", :collection => @posts, :locals => {:last => @posts.size - 1 }
     .bottom
 #sidebar
   .widget

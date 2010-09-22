@@ -57,6 +57,12 @@ a:hover {
 
 .clear {
 	clear:both;
+	float:none !important;
+}
+
+.hide {
+	display:none;
+	visibility:hidden;
 }
 
 strong {

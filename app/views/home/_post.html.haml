@@ -1,11 +1,12 @@
-.post
-  .post_content
-    %h4
-      = link_to(post.title, post)
-    = summary_of(post.content)
+.comment{:class => (post_counter == last ? "last" : "")}
+  %p
+    = summary_of(post.content,150)
     = link_to('Más', post)
-  .post_author
-    %h4
-      = link_to(post.user.full_name, post.user.profile)
-      = image_tag(post.user.avatar.url(:thumb))
-
+    %br
+    = link_to post.title, post
+  .rating
+    = number_to_percentage rand(100), :precision => 0
+  .avatar
+    - link_to post.user.profile do
+      = image_tag post.user.avatar.url(:avatar), :title => post.user.full_name
+  .clear

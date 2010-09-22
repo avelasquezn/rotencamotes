@@ -19,8 +19,8 @@
 	height:33px;
 	width:100%;
 	/* css gradients */
-	/*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDE3CB', endColorstr='#F3B178');*/ /* for IE */
-	background: -webkit-gradient(linear, left top, left bottom, from(#D6B08E), to(#FBDABD)); /* for webkit browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBDABD', endColorstr='#D6B08E'); /* for IE */
+	background: -webkit-gradient(linear, left bottom, left top, from(#D6B08E), to(#FBDABD)); /* for webkit browsers */
 	background: -moz-linear-gradient(bottom,  #D6B08E,  #FBDABD); /* for firefox 3.6+ */	
 }
 
