@@ -1,6 +1,6 @@
 .schedule
   .schedule_movie
-    = link_to(image_tag(schedule.banner.url(:thumb)), schedule)
+    = link_to(image_tag(schedule.banner.url(:small)), schedule)
     = "#{schedule.title}(#{schedule.released_at.year})" if schedule.released_at
     = schedule.genres_names
   .movie_score

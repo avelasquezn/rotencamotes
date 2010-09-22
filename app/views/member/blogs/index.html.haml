@@ -3,10 +3,6 @@
   %tr
     %th Name
     %th Permalink
-    %th Banner file name
-    %th Banner content type
-    %th Banner file size
-    %th Banner updated at
     %th Banner
     %th Category
     %th Active
@@ -16,18 +12,10 @@
     %tr
       %td= h blog.name
       %td= h blog.permalink
-      %td= h blog.banner_file_name
-      %td= h blog.banner_content_type
-      %td= h blog.banner_file_size
-      %td= h blog.banner_updated_at
-      %td= h blog.banner
-      %td= h blog.category_id
+      %td= image_tag blog.banner.url(:thumb)
+      %td= h blog.category_name
       %td= h blog.active
-      %td= h blog.posts_counts
-      %td= h blog.visits_count
-      %td= link_to 'Show', blog
-      %td= link_to 'Edit', edit_blog_path(blog)
-      %td= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete
-%br/
-= link_to 'New blog', new_blog_path
+      %td= h blog_posts_count blog
+      %td= h blog_visits_count blog
+      %td= link_to 'Show', [:member, blog]
 

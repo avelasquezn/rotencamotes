@@ -10,7 +10,7 @@
       %th
     - scheduled_movie.schedules.each do |schedule|
       %tr
-        %td= image_tag schedule.theatre.movie_chain.logo.url(:thumb)
+        %td= image_tag schedule.theatre.movie_chain.logo.url(:small)
         %td= h schedule.theatre.name
         %td= h schedule.description
         %td= h schedule.current_showtimes

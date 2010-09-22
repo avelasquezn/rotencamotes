@@ -95,7 +95,7 @@
       %h4= @movie.title
       %form
         %ul
-          %li.rating                  
+          %li.rating
             %p Valoracion
             %label.camote{:for=>"camote"}
               %span
@@ -103,7 +103,7 @@
             %label.rotten{:for=>"rotten"}
               %span
             %input.hide{:id=>"rotten", :name=>"rating", :type=>"radio", :value=>"rotten"}
-          %li.comment                           
+          %li.comment
             %label{:for=>"comment"} Comentario
             %textarea{:id=>"comment", :name=>"comment"}
           %li
@@ -139,14 +139,13 @@
         - @scheduled_movie_chains_for_movie.each do |movie_chain|
           %li
             .alcazar.logo-cine 85%
-            %h4
-              = link_to image_tag(movie_chain.logo.url(:thumb)), movie_chain
+            = link_to image_tag(movie_chain.logo.url(:small)), movie_chain
             %table
               - Schedule.active.from_movie_chain(movie_chain.id).from_movie(@movie.id).each do |schedule|
                 %tr
                   %td= link_to schedule.theatre.name, schedule.theatre
                   %td.lang= schedule.description
-                  %td= schedule.current_showtimes                  
+                  %td= schedule.current_showtimes
     .bottom
   #related.widget
     .top

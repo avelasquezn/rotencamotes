@@ -4,9 +4,7 @@
 %p
   %b Permalink:
   = h @blog.permalink
-= image_tag @blog.banner.url
-= image_tag @blog.banner.url(:medium)
-= image_tag @blog.banner.url(:thumb)
+  = image_tag @blog.banner.url(:thumbnail)
 %p
   %b Category:
   = h @blog.category_id
@@ -15,11 +13,10 @@
   = h @blog.active
 %p
   %b Posts counts:
-  = h @blog.posts_counts
+  = h @blog.posts_count
 %p
   %b Visits count:
   = h @blog.visits_count
-= link_to 'Edit', edit_blog_path(@blog)
 |
-\#{link_to 'Back', blogs_path}
+\#{link_to 'Back', member_blogs_path}
 

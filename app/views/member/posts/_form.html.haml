@@ -1,20 +1,59 @@
-= f.error_messages
-  - f.inputs do
-    = f.input :blog, :hidden => true, :value => @post.blog
-    = f.input :user, :hidden => true, :value => current_user
-    = f.input :drafted_at, :as => :date, :hidden => true
-    = f.input :published_at, :as => :date, :hidden => true
-    = f.input :reviewed_at, :as => :date, :hidden => true
-  - f.inputs do
-    = f.input :title
-    = f.input :movie
-    = f.input :rating, :as => :numeric
-    = f.input :content, :as => :text
-  - f.inputs do
-    = f.input :permalink
-  - f.inputs do
-    = f.input :cached_tag_list
-  - f.buttons do
-    = f.commit_button commit_label
-    = f.commit_button 'Publicar'
+#content
+  = f.error_messages
+  #movie.widget
+    .top
+    .middle
+      %h3 El Blog
+      .movie
+        =image_tag @post.blog.banner.url(:thumbnail)
+      .detail
+        %p
+          = @post.blog.name
+        %p
+          = @post.blog.user.full_name
+        %p
+          = @post.blog.description
+        %p
+          - f.inputs do
+            = f.input :blog,          :as => :hidden, :value => @post.blog
+            = f.input :user,          :as => :hidden, :value => current_user
+            = f.input :drafted_at,    :as => :hidden
+            = f.input :published_at,  :as => :hidden
+            = f.input :reviewed_at,   :as => :hidden
+      .clear
+    .bottom
+  #synopsis.widget
+    .top
+    .middle
+      %h3 La opinión
+      - f.inputs do
+        = f.input :title,   :label => 'Título'
+        = f.input :movie,   :label => 'Película'
+        = f.input :rating,  :label => 'Calificación', :as => :numeric
+        = f.input :content, :label => 'Contenido',    :as => :text
+    .bottom
+  #reviews.widget
+    .top
+    .middle
+      %h3 Referencia
+      - f.inputs do
+        = f.input :permalink
+      - f.inputs do
+        = f.input :cached_tag_list
+    .bottom
+#sidebar
+  #share.widget
+    .top
+    .middle
+      %h3 Acciones
+      - f.buttons do
+        = f.commit_button commit_label
+        = f.commit_button 'Publicar'
+    .bottom
+  #reviews.widget
+    .top
+    .middle
+      %h3 Opiniones relacionadas
+    .bottom
+.clear
 
