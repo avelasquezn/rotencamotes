@@ -16,7 +16,8 @@ class Post < ActiveRecord::Base
   #accesible attributes
   attr_accessible :title, :content, :user_id, :permalink,
                   :blog_id, :tag_list, :drafted_at, :published_at,
-                  :reviewed_at, :movie_id
+                  :reviewed_at, :movie_id, :rating, :category_ids,
+                  :cached_tag_list
 
   # permalink config
   has_permalink :title, :update => true,
@@ -103,21 +104,36 @@ class Post < ActiveRecord::Base
   end
 
   # Status update
-  def mark_as_drafted
+  def setup_to_mark_as_drafted
     self.status = STATUSES[:drafted]
     self.drafted_at = Time.zone.now
+    self.permalink ||= self.title.parameterize
+  end
+
+  def mark_as_drafted
+    self.setup_to_mark_as_drafted
     self.save
+  end
+
+  def setup_to_mark_as_reviewed
+    self.status = STATUSES[:reviewed]
+    self.reviewed_at = Time.zone.now
   end
 
   def mark_as_reviewed
-    self.status = STATUSES[:reviewed]
-    self.reviewed_at = Time.zone.now
+    self.setup_to_mark_as_reviewed
     self.save
   end
 
-  def mark_as_published
+  def setup_to_mark_as_published
+    self.setup_to_mark_as_drafted
     self.status = STATUSES[:published]
-    self.published_at = Time.zone.now
+    self.published_at ||= Time.zone.now
+    self.permalink ||= self.title.parameterize
+  end
+
+  def mark_as_published
+    self.setup_to_mark_as_published
     self.save
   end
 

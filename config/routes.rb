@@ -127,12 +127,17 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :member do |member|
     member.resources :assets
     member.resources :blog_images
-    member.resources :blogs
+    member.resources :blogs, :shallow => true do |blog|
+      blog.resources :posts do |post|
+        post.resources :comments
+        post.resources :post_categories
+      end
+    end
+    member.resources :posts
     member.resources :categories
     member.resources :post_categories
-    member.resources :posts
-    member.resources :comments
   end
+
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"

@@ -1,31 +1,14 @@
 #content
   = f.error_messages
-  #movie.widget
-    .top
-    .middle
-      %h3 El Blog
-      .movie
-        =image_tag @post.blog.banner.url(:thumbnail)
-      .detail
-        %p
-          = @post.blog.name
-        %p
-          = @post.blog.user.full_name
-        %p
-          = @post.blog.description
-        %p
-          - f.inputs do
-            = f.input :blog,          :as => :hidden, :value => @post.blog
-            = f.input :user,          :as => :hidden, :value => current_user
-            = f.input :drafted_at,    :as => :hidden
-            = f.input :published_at,  :as => :hidden
-            = f.input :reviewed_at,   :as => :hidden
-      .clear
-    .bottom
   #synopsis.widget
     .top
     .middle
       %h3 La opinión
+      - f.inputs do
+        = f.input :blog_id,          :as => :hidden, :value => @post.blog.id
+        = f.input :user_id,          :as => :hidden, :value => current_user.id
+        = f.input :drafted_at,    :as => :hidden
+        = f.input :reviewed_at,   :as => :hidden
       - f.inputs do
         = f.input :title,   :label => 'Título'
         = f.input :movie,   :label => 'Película'
@@ -38,22 +21,35 @@
       %h3 Referencia
       - f.inputs do
         = f.input :permalink
-      - f.inputs do
-        = f.input :cached_tag_list
     .bottom
 #sidebar
   #share.widget
     .top
     .middle
       %h3 Acciones
+      - commit_label = commit_label == 'Actualizar' && @post.status == Post::STATUSES[:published] ? 'A borrador' : commit_label
       - f.buttons do
-        = f.commit_button commit_label
         = f.commit_button 'Publicar'
+        = f.commit_button commit_label
     .bottom
   #reviews.widget
     .top
     .middle
       %h3 Opiniones relacionadas
+      %h4 Categorías
+      - f.inputs do
+        = f.input :categories, :as => :check_boxes, :label => ''
+        %h4= link_to 'Agregar categoría', new_member_category_path
+      - f.inputs do
+        = f.input :cached_tag_list, :label => 'Etiquetas'
     .bottom
+  #publishing.widget
+    .top
+    .middle
+      %h3 Publicación
+      - f.inputs do
+        = f.input :published_at,  :as => :date, :label => 'Fecha de publicación'
+    .bottom
+  .bottom
 .clear
 

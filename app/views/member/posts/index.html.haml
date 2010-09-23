@@ -35,5 +35,5 @@
       %td= link_to 'Edit', edit_member_post_path(post)
       %td= link_to 'Destroy', [:member, post], :confirm => 'Are you sure?', :method => :delete
 %br/
-= link_to 'New post', new_post_path
+= link_to 'New post', new_member_blog_post_path (current_user.blog)
 

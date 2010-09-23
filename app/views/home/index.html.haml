@@ -1,4 +1,4 @@
-- content_for :banner do 
+- content_for :banner do
   #banner-cont.wrapper{:role => "banner"}
     .banner
       %ul= render :partial => "movie", :collection => @movies
@@ -13,7 +13,7 @@
           %a{:href=>"#"}Recomendados
       .prev.arrow
       .next.arrow
-    
+
 #content
   #opiniones.widget
     .top
@@ -73,8 +73,8 @@
               %a.title{:href=>"#", :title=>"Action"} Action
             %a.reviews{:href=>"#", :title=>""} Reseñas
           %p.rating 80%
-          .clear                                
-    .bottom        
+          .clear
+    .bottom
 .clear
 .talking
   .top
@@ -116,6 +116,7 @@
           %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
         %p.posted
           Respuesta a Lorem en Lorem
-        .clear                                                
+        .clear
       .clear
   .bottom
+

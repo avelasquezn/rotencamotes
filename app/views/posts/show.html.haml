@@ -1,41 +1,70 @@
-%p
-  = image_tag @post.blog.banner.url(:medium)
-  = h @post.blog.name
-%p
-  %b Autor:
-  = h @post.user.full_name
+#content
+  #blog.widget
+    .top
+    .middle
+      %p
+        = image_tag @post.blog.banner.url(:medium)
+        = h @post.blog.name
+      %p
+        = link_to h(@post.user.full_name), @post.user.profile
+    .bottom
+  #post.widget
+    .top
+    .middle
+      %h3= h @post.title
+      - if current_user == @post.user && current_admin
+        = link_to "editar",edit_member_post_path(@post)
+      = h @post.content
+      %p
+        = h @post.published_at.strftime('%d-%b-%Y') if @post.published?
+      %p
+        %b Etiquetas:
+        = h @post.cached_tag_list
+      %p
+        %b Rating:
+        = h @post.rating
+    .bottom
+  #comments.widget
+    .top
+    .middle
+      %h3
+        = post_comments_count @post
+      - @post.comments.each do |comment|
+        %p
+          = h "#{comment.name} dice:"
+        %p
+          = h comment.content
+      %p
+        = link_to 'Agregar comentario', new_comment_path(:post_id => @post.id)
+    .bottom
+  .clear
+#sidebar
+  #about.widget
+    .top
+    .middle
+      %h3 Acerca de
+      %p
+        = summary_of h @post.blog.description
+    .bottom
+  #share.widget
+    .top
+    .middle
+      %h3 Compartir
+    .bottom
+  #reference.widget
+    .top
+    .middle
+      %h3 Referencia
+      %h4 Etiquetas
+      %p
+        = h @post.cached_tag_list
+      %h4 Categorías
+      - @post.post_categories.each do |post_category|
+        %p
+          = link_to post_category.category.name, post_category.category
 
-%p
-  %b Título:
-  = h @post.title
-%p
-  %b Publicado:
-  = h @post.published_at.strftime('%d-%b-%Y')
-%p
-  %b Contenido:
-  = h @post.content
-%p
-  %b Etiquetas:
-  = h @post.cached_tag_list
-%p
-  %b Número de comentarios:
-  = h @post.comments_count
-%p
-  %b Número de Visitas:
-  = h post_visits_count @post
-%p
-  %b Rating:
-  = h @post.rating
-%p
-  %b Comentarios:
-  - @post.comments.each do |comment|
-    %p
-      = h "#{comment.name} dice:"
-    %p
-      = h comment.content
-
-%p
-  = link_to 'Agregar comentario', new_comment_path(:post_id => @post.id)
-
+    .bottom
+  .clear
+.clear
 \#{link_to 'Regresar', posts_path}
 

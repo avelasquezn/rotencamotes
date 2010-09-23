@@ -20,7 +20,7 @@ module ApplicationHelper
     if number == 1
       "#{number} #{singular}"
     else
-      number.to_s + (plural.nil? ? singular + 's' : plural)
+      number.to_s + " "+ (plural.nil? ? singular + 's' : plural)
     end
   end
 end
