@@ -25,16 +25,22 @@
       .clear
     .bottom
   - if @post.comments.count > 0
-    #comments.widget
+    #comments.widget.talking
       .top
       .middle
         %h3
           = post_comments_count @post
+        %ul
         - @post.comments.each do |comment|
-          %p
-            = h "#{comment.name} dice:"
-          %p
-            = h comment.content
+          - if not comment.content.nil?
+            %li.camote
+              .avatar
+                - if comment.user
+                  = image_tag comment.user.avatar.url(:avatar)
+                %p= h comment.name
+              .talk
+                %p= h comment.content
+              .clear
         .clear
       .bottom
   #comment.widget
