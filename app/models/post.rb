@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :content, :user_id, :permalink,
                   :blog_id, :tag_list, :drafted_at, :published_at,
                   :reviewed_at, :movie_id, :rating, :category_ids,
-                  :cached_tag_list
+                  :cached_tag_list, :comments_count, :visits_count
 
   # permalink config
   has_permalink :title, :update => true,

@@ -18,7 +18,7 @@ class CommentsController < InheritedResources::Base
   end
 
   def create
-    create!   { default_path }
+    create!  { default_path }
   end
 
 end

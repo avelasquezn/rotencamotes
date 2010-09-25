@@ -12,5 +12,16 @@ class PostsController < InheritedResources::Base
     @posts = Post.published
     index!
   end
+
+  def show
+    @post = Post.find_by_id(params[:id])
+    @comment = @post.comments.build
+    if current_user
+      @comment.user_id = current_user.id
+      @comment.email = current_user.email
+      @comment.name = current_user.full_name
+    end
+    show! {default_path}
+  end
 end
 

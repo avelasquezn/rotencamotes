@@ -6,5 +6,8 @@ module PostsHelper
     post.comments.empty? ? 'sin comentarios' : friendly_pluralize(post.comments.count, 'comentario')
   end
 
+  def allowed_to_act_on post
+    current_user == post.user || current_admin
+  end
 end
 

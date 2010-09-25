@@ -12,30 +12,47 @@
     .top
     .middle
       %h3= h @post.title
-      - if current_user == @post.user && current_admin
+      - if allowed_to_act_on @post
         = link_to "editar",edit_member_post_path(@post)
-      = h @post.content
       %p
-        = h @post.published_at.strftime('%d-%b-%Y') if @post.published?
-      %p
-        %b Etiquetas:
-        = h @post.cached_tag_list
+        %b Película:
+        = h @post.movie_title
       %p
         %b Rating:
         = h @post.rating
+      %p
+        %b Publicado el:
+        = h @post.published_at.strftime('%d-%b-%Y') if @post.published?
+      %p
+        = h @post.content
+      .clear
     .bottom
-  #comments.widget
+  - if @post.comments.count > 0
+    #comments.widget
+      .top
+      .middle
+        %h3
+          = post_comments_count @post
+        - @post.comments.each do |comment|
+          %p
+            = h "#{comment.name} dice:"
+          %p
+            = h comment.content
+        .clear
+      .bottom
+  #comment.widget
     .top
     .middle
-      %h3
-        = post_comments_count @post
-      - @post.comments.each do |comment|
-        %p
-          = h "#{comment.name} dice:"
-        %p
-          = h comment.content
-      %p
-        = link_to 'Agregar comentario', new_comment_path(:post_id => @post.id)
+      %h3 Deja tu comentario
+      - semantic_form_for @comment do |f|
+        = f.error_messages
+        - f.inputs do
+          = f.input :content, :as => :text, :label => 'Comentario'
+          = f.input :name, :label => 'Nombre'
+          = f.input :email, :label => 'e-mail'
+        - f.buttons do
+          = f.commit_button 'Comentar'
+      .clear
     .bottom
   .clear
 #sidebar
