@@ -9,7 +9,7 @@
       %link{:href => "stylesheets/ie6.css", :media => "screen", :rel => "stylesheet", :type => "text/css"}
     /[if IE]
       %script{:src=>"http://html5shim.googlecode.com/svn/trunk/html5.js"}
-  /[if lt IE 7 ] 
+  /[if lt IE 7 ]
     :erb
       <body class="ie6 ie">
   /[if IE 7 ]
@@ -18,12 +18,12 @@
   /[if IE 8 ]
     :erb
       <body class="ie8 ie">
-  /[if IE 9 ] 
+  /[if IE 9 ]
     :erb
       <body class="ie9 ie">
   / [if (gt IE 9)|!(IE)]><!
   %body{:class=>"home"}
-    / <![endif]>          	
+    / <![endif]>
     %header
       #header
         .wrapper
@@ -35,6 +35,16 @@
               %li= link_to "Cines", movie_chains_path
               %li
                 %a{:href => "#"}Contáctenos
+          - if current_user
+            %p.short
+              = 'Conectado como '
+              = link_to(current_user.full_name, current_user.profile)
+              = ' '
+              = link_to('Finalizar sesión', destroy_user_session_path)
+          - else
+            %p.short
+              = link_to('Iniciar sesión', new_user_session_path)
+
           %form.search{:role => "search", :enctype => "text/plain", :method => "post", :action => "#"}
             %input{:type => "text", :value => "Busca tus películas, géneros, años o lo que quieras"}
             %input.submit{:type => "submit"}
@@ -59,4 +69,4 @@
               %a{:href => "#"}Contáctenos
     %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
     %script{:src=>"/javascripts/jcarousellite_1.0.1.min.js"}
-      
+

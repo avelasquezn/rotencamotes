@@ -7,7 +7,7 @@ module PostsHelper
   end
 
   def allowed_to_act_on post
-    current_user == post.user || current_admin
+    (current_user && current_user.id == post.user_id) # || (current_user && current_user.admin?)
   end
 end
 

@@ -4,16 +4,13 @@
     .middle
       %p
         = image_tag @post.blog.banner.url(:medium)
-        = h @post.blog.name
-      %p
-        = link_to h(@post.user.full_name), @post.user.profile
     .bottom
   #post.widget
     .top
     .middle
       %h3= h @post.title
       - if allowed_to_act_on @post
-        = link_to "editar",edit_member_post_path(@post)
+        = link_to "Editar",edit_member_post_path(@post)
       %p
         %b Película:
         = h @post.movie_title
@@ -56,12 +53,22 @@
     .bottom
   .clear
 #sidebar
-  #about.widget
+  #movie.widget
     .top
     .middle
-      %h3 Acerca de
-      %p
-        = summary_of h @post.blog.description
+      .movie
+        = image_tag @post.user.avatar.url(:thumb)
+        .clear
+      .detail
+        .spec
+          %p.short
+            = link_to h(@post.blog.name), @post.blog
+          %p.short
+            = 'Por '
+            = link_to h(@post.user.full_name), @post.user.profile
+          %p.short
+            = summary_of h @post.blog.description
+      .clear
     .bottom
   #share.widget
     .top
