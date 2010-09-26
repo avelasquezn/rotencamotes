@@ -13,8 +13,8 @@ class CommentsController < InheritedResources::Base
       else
         @comment = Comment.new(:post_id => params[:post_id])
       end
+      new!
     end
-    new!
   end
 
   def create
