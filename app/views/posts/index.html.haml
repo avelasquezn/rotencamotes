@@ -1,27 +1,73 @@
 #content
-  #post.widget
-  .top
-  .middle
-    %h3 Últimas publicaciones
-    .detail
-      - @posts.last_published.each do |post|
+  %h3 Últimas publicaciones
+  - @posts.last_published.each do |post|
+    #post.widget
+      .top
+      .middle
+        %h3= link_to post.title, post
+        .detail
+          %p
+            = "En "
+            = link_to post.blog.name, post.blog
+            = h "por "
+            = link_to(post.user.full_name, post.user.profile)
+          %p
+            = h "Publicado el #{post.published_at.to_date.strftime('%d-%b-%Y')}"
+          %br
+          %p
+            = h summary_of(post.content, 140)
+            = link_to 'Ver más', post
+        .clear
+      .bottom
+#sidebar
+  #most_read.widget
+    .top
+    .middle
+      %h3 Los Top
+      .detail
+      - Blog.most_visited(5).each do |blog|
         %p
-          = link_to post.blog.name, post.blog
-        %p
-          = link_to post.title, post
-        %p
-          = h summary_of(post.content, 140)
-          = link_to 'Ver más', post
-        %p
-          = h post.user.full_name
-        %p
-          = h post.published_at.to_date
+          = image_tag blog.user.avatar.url(:avatar)
+          = link_to blog.user.full_name, blog.user.profile
       .clear
     .bottom
-#sidebar
-  .top
-  .middle
-    %h3 Los más leídos
-  .bottom
+  #most_visited.widget
+    .top
+    .middle
+      %h3 Opiniones más visitadas
+      .detail
+      - Post.most_visited(5).each do |post|
+        %p
+          = link_to post.title, post
+      .clear
+    .bottom
+  #most_commented.widget
+    .top
+    .middle
+      %h3 Opiniones más comentadas
+      .detail
+      - Post.most_commented(5).each do |post|
+        %p
+          = link_to post.title, post
+      .clear
+    .bottom
+  #last_comments.widget
+    .top
+    .middle
+      %h3 Últimos comentarios
+      .detail
+      - Comment.last_published(5).each do |comment|
+        %p
+          = comment.name
+          = ' dijo en '
+          = link_to comment.post.blog.name, comment.post.blog
+          = ' sobre '
+          = link_to comment.post.title, comment.post
+          = ': '
+          = summary_of(comment.content, 140)
+        %br
+      .clear
+    .bottom
+
 .clear
 

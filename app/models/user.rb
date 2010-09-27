@@ -87,6 +87,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def has_comments?
+    not self.comments.empty?
+  end
+
+  def has_published_posts?
+    not self.posts.published.empty?
+  end
   def setup_profile
     self.create_profile
   end
