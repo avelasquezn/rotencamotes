@@ -1,16 +1,27 @@
-%h1 Opiniones
-%table
-  %tr
-    %th Blog
-    %th Título
-    %th Contenido
-    %th Autor
-    %th Publicado
-  - @posts.each do |post|
-    %tr
-      %td= link_to post.blog.name, post.blog
-      %td= link_to post.title, post
-      %td= h summary_of(post.content, 30)
-      %td= h post.user.full_name
-      %td= h post.published_at.to_date
+#content
+  #post.widget
+  .top
+  .middle
+    %h3 Últimas publicaciones
+    .detail
+      - @posts.last_published.each do |post|
+        %p
+          = link_to post.blog.name, post.blog
+        %p
+          = link_to post.title, post
+        %p
+          = h summary_of(post.content, 140)
+          = link_to 'Ver más', post
+        %p
+          = h post.user.full_name
+        %p
+          = h post.published_at.to_date
+      .clear
+    .bottom
+#sidebar
+  .top
+  .middle
+    %h3 Los más leídos
+  .bottom
+.clear
 
