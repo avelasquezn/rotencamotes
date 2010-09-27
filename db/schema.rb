@@ -148,6 +148,14 @@ ActiveRecord::Schema.define(:version => 20100921163155) do
     t.datetime "updated_at"
   end
 
+  create_table "favorites", :force => true do |t|
+    t.integer  "favoritable_id"
+    t.string   "favoritable_type"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "genres", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
