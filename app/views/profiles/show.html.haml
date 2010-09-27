@@ -1,12 +1,78 @@
-%p
-  %b Current location:
-  = h @profile.current_location
-%p
-  %b Favorite movie character:
-  = h @profile.favorite_movie_character
-%p
-  %b Favorite movie line:
-  = h @profile.favorite_movie_line
-= link_to 'Edit', edit_profile_path(@profile)
-|
-\#{link_to 'Back', profiles_path}
+#content
+  #movie.widget
+    .top
+    .middle
+      .movie
+        %p
+          = image_tag @profile.user.avatar.url(:avatar)
+      .detail
+        - if current_user == @profile.user
+          %p
+            = link_to 'Editar usuario', edit_user_path(@profile.user)
+        %p
+          %b Nombre:
+          = h @profile.user.full_name
+        %p
+          %b e-mail:
+          = h @profile.user.email
+      .clear
+    .bottom
+  #profile.widget
+    .top
+    .middle
+      - if current_user == @profile.user
+        %p
+          = link_to 'Editar perfil', edit_profile_path(@profile)
+      %p
+        %b Ubicado en:
+        = h @profile.current_location
+      %p
+        %b Personaje de película favorito:
+        = h @profile.favorite_movie_character
+      %p
+        %b Línea de película favorita:
+        = h @profile.favorite_movie_line
+      %p
+        %b Actor favorito:
+        = h @profile.favorite_actor_name
+      %p
+        %b Director favorito:
+        = h @profile.favorite_director_name
+      %p
+        %b Guionista favorito:
+        = h @profile.favorite_writer_name
+
+      .clear
+    .bottom
+  -if @profile.user.expert?
+    #posts.widget
+      .top
+      .middle
+        %h3 Últimas opiniones
+        - @profile.user.posts.last_published.each do |post|
+          %p
+            = 'En'
+            = link_to post.blog.name, post.blog
+            = ':'
+            = link_to post.title, post
+            = 'el'
+            = post.published_at.strftime('%d-%b-%Y')
+          %br
+      .bottom
+  - if not @profile.user.comments.empty?
+    #comments.widget
+      .top
+      .middle
+        %h3 Últimos comentarios
+        - @profile.user.comments.last_published.each do |comment|
+          %p
+            = 'En'
+            = link_to comment.post.blog.name, comment.post.blog
+            = 'sobre'
+            = link_to comment.post.title, comment.post
+            = summary_of(comment.content, 140)
+            = link_to 'Ver más', comment.post
+          %br
+      .bottom
+.clear
+
