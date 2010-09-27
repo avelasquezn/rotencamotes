@@ -43,21 +43,27 @@
               .clear
         .clear
       .bottom
-  #comment.widget
+  #reply.widget
     .top
     .middle
-      %h3 Deja tu comentario
+      %h3 Deja Tu comentario
       - semantic_form_for @comment do |f|
         = f.error_messages
         - f.inputs do
-          = f.input :content, :as => :text, :label => 'Comentario'
-          = f.input :name, :label => 'Nombre'
-          = f.input :email, :label => 'e-mail'
+          = f.input :content, :as => :text, :label => "Comentario", :wrapper_html => {:class=> "comment"}
+          - unless current_user
+            = f.input :name, :label => "Nombre"
+            = f.input :email
+          - else
+            = f.input :name, :as => :hidden, :value => current_user.full_name
+            = f.input :email, :as => :hidden, :value => current_user.email
+          
+          = f.input :post_id, :as => :hidden, :value => @post.id
         - f.buttons do
-          = f.commit_button 'Comentar'
-      .clear
-    .bottom
+          = f.commit_button "Comentar"
+    .bottom    
   .clear
+
 #sidebar
   #movie.widget
     .top
