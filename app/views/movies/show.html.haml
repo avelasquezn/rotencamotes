@@ -30,16 +30,16 @@
             = simple_format @movie.summary
       .clear
     .bottom
-  #synopsis.widget
-    .top
-    .middle
+    
+  #synopsis
+    - widget_tag do 
       .detail
         %h3 Sinopsis
       .spec
         %p
           = simple_format @movie.synopsis
       .clear
-    .bottom
+
   #reviews.widget.talking
     .top
     .middle
@@ -119,18 +119,17 @@
           %li
             %input{:type=>"submit", :value=>"Comentar"}
     .bottom
-#sidebar
+    
+#sidebar    
 
-  #share.widget
-    .top
-    .middle
-      %h3 Comparte esta pagina
+  #share
+    - widget_tag "Comparte esta página" do
       .links
         %a.facebook{:href=>"#"}
         %a.twitter{:href=>"#"}
         %a.email{:href=>"#"}
-      %p.share
-    .bottom
+      %p.share    
+    
   #watch.widget
     .top
     .middle

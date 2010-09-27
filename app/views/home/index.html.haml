@@ -15,10 +15,8 @@
       .next.arrow
 
 #content
-  #opiniones.widget
-    .top
-    .middle
-      %h3 Opiniones Camoteras
+  #opiniones
+    - widget_tag "Opiniones Camoteras" do
       %form
         %label{:for => "temas"} Leer de
         %select{:id => "temas"}
@@ -27,7 +25,9 @@
         %select{:id => "order"}
           %option{:value=>1} Todos los temas
       = render :partial => "post", :collection => @posts, :locals => {:last => @posts.size - 1 }
-    .bottom
+    
+
+
 #sidebar
   .widget
     .top

@@ -23,5 +23,18 @@ module ApplicationHelper
       number.to_s + " "+ (plural.nil? ? singular + 's' : plural)
     end
   end
+  
+
+  def widget_tag (name = nil, &block)
+    haml_tag ".widget" do
+      haml_tag ".top"
+      haml_tag ".middle" do
+        haml_tag :h3, name if name
+        haml_concat capture(&block)
+      end
+      haml_tag ".bottom"
+    end
+  end
+  
 end
 
