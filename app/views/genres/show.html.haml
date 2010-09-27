@@ -1,19 +1,35 @@
-%p
-  %b Género:
-  = h @genre.name
-%p
-  %table
-    %tr
-      %th Película
-      %th Título
-      %th Año
-      %th Calificación
-  - Movie.on_theatres.from_named_genre(@genre.name).each do |movie|
-    %tr
-      %td= image_tag movie.banner.url(:thumb)
-      %td= link_to movie.title, movie
-      %td= movie.released_at.strftime("%Y")
-      %td= movie.final_score
-|
-\#{link_to 'Regresar', genres_path}
+#content
+  - widget_tag "Películas de #{@genre.name}" do
+    - Movie.from_named_genre(@genre.name).each do |movie|
+      .movie
+        = image_tag movie.banner.url(:banner)
+      .detail
+        %b= link_to movie.title, movie
+        %br
+        %b Año:
+        = movie.released_at.strftime("%Y")
+        %br
+        %b Calificación:
+        = movie.final_score
+      %br
+      .clear
+
+#sidebar
+  - widget_tag "En cartelera" do
+    .detail
+    - Movie.on_theatres.from_named_genre(@genre.name).each do |movie|
+      %b= link_to movie.name_with_year, movie
+      .clear
+  - widget_tag "Más visitadas" do
+    .detail
+      %p Place here
+
+  - widget_tag "Más comentadas" do
+    .detail
+      %p Place here
+  - widget_tag "Recomendadas" do
+    .detail
+      %p Place here
+
+.clear
 

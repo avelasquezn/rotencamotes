@@ -44,7 +44,8 @@ class Movie < ActiveRecord::Base
   named_scope :from_named_genre,
               lambda{|genre_name|
                 { :conditions => {:movie_genres=>{:genres=>{:name => genre_name}}},
-                  :joins      => {:movie_genres=>:genre}
+                  :joins      => {:movie_genres=>:genre},
+                  :order      => 'released_at DESC'
                 }
               }
 
