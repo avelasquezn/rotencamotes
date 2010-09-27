@@ -8,7 +8,7 @@
       .detail
         - if current_user == @profile.user
           %p
-            = link_to 'Editar usuario', edit_user_path(@profile.user)
+            = link_to 'editar', edit_user_path(@profile.user)
         %p
           %b Nombre:
           = h @profile.user.full_name
@@ -17,33 +17,47 @@
           = h @profile.user.email
       .clear
     .bottom
-  #profile.widget
+  #location.widget
     .top
     .middle
+      %h3 Ubicación
       - if current_user == @profile.user
         %p
-          = link_to 'Editar perfil', edit_profile_path(@profile)
+          = link_to 'editar', edit_profile_path(@profile)
       %p
-        %b Ubicado en:
-        = h @profile.current_location
+        %b Actualmente en:
+        = h @profile.friendly_current_location
+    .bottom
+  #preferences.widget
+    .top
+    .middle
+      %h3 Preferencias
+      - if current_user == @profile.user
+        %p
+          = link_to 'editar', edit_profile_path(@profile)
       %p
         %b Personaje de película favorito:
-        = h @profile.favorite_movie_character
+        = h @profile.friendly_favorite_movie_character
+      %br
       %p
         %b Línea de película favorita:
-        = h @profile.favorite_movie_line
+        = h @profile.friendly_favorite_movie_line
+      %br
       %p
         %b Actor favorito:
         = h @profile.favorite_actor_name
+      %br
       %p
         %b Director favorito:
         = h @profile.favorite_director_name
+      %br
       %p
         %b Guionista favorito:
         = h @profile.favorite_writer_name
-
+      %br
       .clear
     .bottom
+#sidebar
   -if @profile.user.expert?
     #posts.widget
       .top

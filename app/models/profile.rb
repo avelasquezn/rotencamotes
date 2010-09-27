@@ -17,6 +17,19 @@ class Profile < ActiveRecord::Base
   def favorite_actor_name
     self.favorite_actor.nil? ? 'No especificado' : self.favorite_actor.name
   end
+
+  def friendly_current_location
+    self.current_location.nil? ? 'No especificada' : self.current_location
+  end
+
+  def friendly_favorite_movie_character
+    self.favorite_movie_character.nil? || self.favorite_movie_character== '' ? 'No especificado' : self.favorite_movie_character
+  end
+
+  def friendly_favorite_movie_line
+    self.favorite_movie_line.nil? || self.favorite_movie_line=='' ? 'No especificada' : self.favorite_movie_line
+  end
+
 end
 
 
