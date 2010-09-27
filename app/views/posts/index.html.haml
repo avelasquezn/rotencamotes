@@ -9,16 +9,16 @@
           %p
             = "En "
             = link_to post.blog.name, post.blog
-          %p
-            = h "Por "
+            = h "por "
             = link_to(post.user.full_name, post.user.profile)
           %p
             = h "Publicado el #{post.published_at.to_date.strftime('%d-%b-%Y')}"
+          %br
           %p
             = h summary_of(post.content, 140)
             = link_to 'Ver más', post
         .clear
-    .bottom
+      .bottom
 #sidebar
   #most_read.widget
     .top
