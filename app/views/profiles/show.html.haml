@@ -58,7 +58,7 @@
       .clear
     .bottom
 #sidebar
-  -if @profile.user.expert?
+  -if @profile.user.expert? && @profile.user.has_published_posts?
     #posts.widget
       .top
       .middle
@@ -73,11 +73,11 @@
             = post.published_at.strftime('%d-%b-%Y')
           %br
       .bottom
-  - if not @profile.user.comments.empty?
+  - if @profile.user.has_comments?
     #comments.widget
       .top
       .middle
-        %h3 Últimos comentarios
+        %h3 Comentarios
         - @profile.user.comments.last_published.each do |comment|
           %p
             = 'En'
@@ -88,5 +88,22 @@
             = link_to 'Ver más', comment.post
           %br
       .bottom
+  - else
+    - if current_user == @profile.user
+      #last_posts.widget
+        .top
+        .middle
+          %h3 Comentarios
+          %p
+            Anímate a comentar, estas opiniones estan a la espera de tus comentarios:
+          %br
+          - Post.last_published(5).each do |post|
+            %p
+              = link_to post.title, post
+              = 'en'
+              = link_to post.blog.name, post.blog
+            %br
+        .bottom
+
 .clear
 
