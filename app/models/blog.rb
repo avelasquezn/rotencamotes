@@ -21,6 +21,12 @@ class Blog < ActiveRecord::Base
                   :joins => :category
                   }
                 }
+  named_scope :most_visited,
+              lambda {|limit| limit = 5 if limit.nil?
+                      {:order =>  'visits_count DESC',
+                       :limit => limit
+                     }
+               }
 
   # methods
   def owned?

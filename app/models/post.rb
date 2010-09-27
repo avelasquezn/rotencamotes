@@ -50,6 +50,20 @@ class Post < ActiveRecord::Base
                        :limit => limit
                      }
                }
+  named_scope :most_commented,
+              lambda {|limit| limit = 20 if limit.nil?
+                      {:order =>  'comments_count DESC',
+                       :conditions => { :status => STATUSES[:published] },
+                       :limit => limit
+                     }
+               }
+  named_scope :most_visited,
+              lambda {|limit| limit = 20 if limit.nil?
+                      {:order =>  'visits_count DESC',
+                       :conditions => { :status => STATUSES[:published] },
+                       :limit => limit
+                     }
+               }
   named_scope :next_from,
               lambda { |limit,offset|
                       { :order => 'published_at DESC',
