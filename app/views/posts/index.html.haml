@@ -51,5 +51,23 @@
           = link_to post.title, post
       .clear
     .bottom
+  #last_comments.widget
+    .top
+    .middle
+      %h3 Últimos comentarios
+      .detail
+      - Comment.last_published(5).each do |comment|
+        %p
+          = comment.name
+          = ' dijo en '
+          = link_to comment.post.blog.name, comment.post.blog
+          = ' sobre '
+          = link_to comment.post.title, comment.post
+          = ': '
+          = summary_of(comment.content, 140)
+        %br
+      .clear
+    .bottom
+
 .clear
 
