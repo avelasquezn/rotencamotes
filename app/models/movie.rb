@@ -88,9 +88,18 @@ class Movie < ActiveRecord::Base
               :select     => 'distinct movies.*',
               :conditions => { :schedules => {:status => Schedule::STATUSES[:active]}},
               :joins      => :schedules
+              
+  named_scope :recommended, 
+              lambda {|limit|
+                limit ||= 5
+                { :limit=>limit, 
+                  :order=>"final_score DESC"
+                }
+              }
+              
   # methods
   def list
-    Self.all
+    self.all
   end
 
   %w(genres directors writers).each do |method|

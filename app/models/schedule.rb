@@ -66,6 +66,10 @@ class Schedule < ActiveRecord::Base
       'select * from movies where id in (select movie_id from schedules where status like "active" group by movie_id) order by created_at DESC')
   end
 
+  def self.scheduled_movies_from_now
+    Movie.find_by_sql("select * from movies where id in (select movie_id from schedules s join showtimes st on s.id = st.schedule_id where s.status like 'active' and shown_at > now() group by s.movie_id)")  
+  end
+
   def self.scheduled_movie_chains_for_movie movie_id
     MovieChain.find_by_sql([
       'select * from movie_chains where id in (select movie_chain_id from theatres where id in (select theatre_id from schedules where status like "active" and movie_id = ?))', movie_id])

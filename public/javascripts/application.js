@@ -7,14 +7,13 @@ $(document).ready(function(){
 		ie6 = true;
 	}
 	
-	$('#banner-cont .banner').jCarouselLite({
-		btnNext: '.next',
-		btnPrev: '.prev',
-		speed: 800,
-		visible:5,
-		circular: true,
-		auto: 5000
-	});
+  $('#banner-cont .banner').jCarouselLite({
+    btnNext: '.next',
+    btnPrev: '.prev',
+    speed: 900,
+    visible:5,
+    circular: true
+  });
 
 	if (ie6 == true) {
 		$('#banner-cont .arrows div').mouseover(function(){

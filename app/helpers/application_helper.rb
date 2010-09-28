@@ -36,5 +36,19 @@ module ApplicationHelper
     end
   end
   
+  def active_if_now
+    "current" if params[:filter].nil? or params[:filter]=="ahora"
+  end
+  
+  def active_if_showtime
+    "current" if params[:filter]=="estrenos"
+  end
+  
+  def active_if_recommended
+   "current" if params[:filter]=="recomendadas"
+  end  
+  
+  
+  
 end
 
