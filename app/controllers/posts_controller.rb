@@ -9,7 +9,11 @@ class PostsController < InheritedResources::Base
   end
 
   def index
-    @posts = Post.published
+    if params[:movie_id]
+      @posts = Movie.find(params[:movie_id]).posts
+    else
+      @posts = Post.published
+    end
     index!
   end
 

@@ -56,7 +56,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :people, :as => "personas"
 
-  map.resources :movies, :collection => {:latest => :get}, :as => "peliculas"
+  map.resources :movies, :collection => {:latest => :get}, :as => "peliculas", :has_many => :posts
 
 
 

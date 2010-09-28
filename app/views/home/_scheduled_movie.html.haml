@@ -1,0 +1,11 @@
+%li{:class => (scheduled_movie_counter == last ? "last" : "")}
+  - link_to scheduled_movie, :class => "movie", :title => scheduled_movie.title do
+    = image_tag scheduled_movie.banner.url(:scheduled)
+  .desc
+    = link_to scheduled_movie.title, scheduled_movie, :class => "title", :title => scheduled_movie.title
+    %p.tags
+      - scheduled_movie.genres.each do |genre|
+        = link_to genre.name, genre, :title => genre.name, :class => "title"
+    = link_to "Opiniones (#{scheduled_movie.posts.size})", movie_posts_path(scheduled_movie)
+  %p.rating= scheduled_movie.final_score
+  .clear

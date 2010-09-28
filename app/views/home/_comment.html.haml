@@ -1,15 +1,16 @@
-.comment
-  %p
-    = summary_of(comment.content)
-    = link_to('Más', comment)
-    %br
-    = link_to comment.post.title, comment.post
-  .rating
-    = number_to_percentage rand(100), :precision => 0
+%li{:class => (comment_counter % 2 == 0 ? "odd" : "even" )}
   .avatar
     - if comment.user
       - link_to comment.user.profile do
-        = image_tag comment.user.avatar.url(:avatar), :title => comment.user.full_name
+        = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.name
+        = comment.user.name
     - else
-      %img.avatar{:src=>"../images/missing.jpg", :alt=>"Avatar", :title=>"Avatar"}= comment.name
+      = image_tag "unknown.png", :class => "avatar", :title => comment.name, :size => "64x64"
+      = comment.name
+  .talk
+    %p
+      = summary_of(comment.content)
+  %p.posted
+    Respuesta a 
+    = link_to truncate(comment.post.title, 40), post_path(comment.post, :anchor => "comment_#{comment.id}")
   .clear

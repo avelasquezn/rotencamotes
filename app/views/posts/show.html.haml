@@ -33,7 +33,7 @@
         %ul
         - @post.comments.each do |comment|
           - if not comment.content.nil?
-            %li.camote
+            %li{:id => "comment_#{comment.id}", :class => "camote"}
               .avatar
                 - if comment.user
                   = image_tag comment.user.avatar.url(:avatar)

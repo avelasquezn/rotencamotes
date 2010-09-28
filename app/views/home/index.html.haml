@@ -35,89 +35,17 @@
     .middle
       %h3 Cartelera en Lima
       %ul.cartelera
-        %li
-          %a.movie{:href=>"#", :title=>"Robin Hood"}
-            %img{:width => "65", :height => "97", :title => "Robin Hood", :alt => "Robin Hood", :src => "images/prince-of-persia.jpg"}
-          .desc
-            %a.title{:href=>"#", :title=>"Robin Hood"} Robin Hood
-            %p.tags
-              %a.title{:href=>"#", :title=>"Action"} Action
-            %a.reviews{:href=>"#", :title=>""} Reseñas
-          %p.rating 80%
-          .clear
-        %li
-          %a.movie{:href=>"#", :title=>"Robin Hood"}
-            %img{:width => "65", :height => "97", :title => "Robin Hood", :alt => "Robin Hood", :src => "images/prince-of-persia.jpg"}
-          .desc
-            %a.title{:href=>"#", :title=>"Robin Hood"} Robin Hood
-            %p.tags
-              %a.title{:href=>"#", :title=>"Action"} Action
-            %a.reviews{:href=>"#", :title=>""} Reseñas
-          %p.rating 80%
-          .clear
-        %li
-          %a.movie{:href=>"#", :title=>"Robin Hood"}
-            %img{:width => "65", :height => "97", :title => "Robin Hood", :alt => "Robin Hood", :src => "images/prince-of-persia.jpg"}
-          .desc
-            %a.title{:href=>"#", :title=>"Robin Hood"} Robin Hood
-            %p.tags
-              %a.title{:href=>"#", :title=>"Action"} Action
-            %a.reviews{:href=>"#", :title=>""} Reseñas
-          %p.rating 80%
-          .clear
-        %li.last
-          %a.movie{:href=>"#", :title=>"Robin Hood"}
-            %img{:width => "65", :height => "97", :title => "Robin Hood", :alt => "Robin Hood", :src => "images/prince-of-persia.jpg"}
-          .desc
-            %a.title{:href=>"#", :title=>"Robin Hood"} Robin Hood
-            %p.tags
-              %a.title{:href=>"#", :title=>"Action"} Action
-            %a.reviews{:href=>"#", :title=>""} Reseñas
-          %p.rating 80%
-          .clear
+        = render :partial => "scheduled_movie", :collection => @schedules, :locals => { :last => @schedules.size - 1}
     .bottom
 .clear
+
+
 .talking
   .top
   .middle
     %h3 Conversando
     %ul
-      %li.odd
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .talk
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
-        %p.posted
-          Respuesta a Lorem en Lorem
-        .clear
-      %li.even
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .talk
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
-        %p.posted
-          Respuesta a Lorem en Lorem
-        .clear
-      %li.odd
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .talk
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
-        %p.posted
-          Respuesta a Lorem en Lorem
-        .clear
-      %li.even
-        .avatar
-          %a{:href=>"#"}
-            %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-        .talk
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
-        %p.posted
-          Respuesta a Lorem en Lorem
-        .clear
+      = render :partial => "comment", :collection => @comments
       .clear
   .bottom
 

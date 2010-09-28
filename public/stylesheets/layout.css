@@ -1,4 +1,8 @@
-/* @override http://localhost:3001/stylesheets/layout.css?1285265957 */
+/* @override 
+	http://localhost:3001/stylesheets/layout.css?1285265957
+	http://localhost:3001/stylesheets/layout.css?1285645251
+	http://localhost:3001/stylesheets/layout.css?1285647385
+*/
 
 @font-face {
 	font-family: 'DaxCompactMedium';
@@ -138,6 +142,11 @@ nav ul li {
 	color: #553210;
 	font-weight: bold;
 	text-transform: lowercase;
+}
+
+#sidebar div.widget div.middle ul.cartelera li div.desc a.title {
+	font-weight: bold;
+	font-size: 13px;
 }
 nav ul li {
 	
@@ -377,7 +386,7 @@ li.movie .camote {
 }
 
 .talking {
-	margin-top:57px;
+	margin-top:35px;
 }
 
 .talking h3 {
@@ -429,7 +438,13 @@ li.movie .camote {
 .talking .posted {
 	margin-right:35px;
 	float:right;
+	width: 290px;
 }
+
+.talking .even .posted {
+	margin-right: 0px;	
+}
+
 
 /* movie */
 
