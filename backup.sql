@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.42, for mandriva-linux-gnu (i586)
+-- MySQL dump 10.13  Distrib 5.1.46, for apple-darwin10.2.0 (i386)
 --
 -- Host: localhost    Database: rotencamotes_development
 -- ------------------------------------------------------
--- Server version	5.1.42
+-- Server version	5.1.46
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -388,6 +388,33 @@ CREATE TABLE `external_links` (
 LOCK TABLES `external_links` WRITE;
 /*!40000 ALTER TABLE `external_links` DISABLE KEYS */;
 /*!40000 ALTER TABLE `external_links` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `favorites`
+--
+
+DROP TABLE IF EXISTS `favorites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favorites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `favoritable_id` int(11) DEFAULT NULL,
+  `favoritable_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `profile_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favorites`
+--
+
+LOCK TABLES `favorites` WRITE;
+/*!40000 ALTER TABLE `favorites` DISABLE KEYS */;
+/*!40000 ALTER TABLE `favorites` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1072,4 +1099,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-09-28 11:05:33
+-- Dump completed on 2010-09-28 11:24:43
