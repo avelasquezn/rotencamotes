@@ -2,6 +2,7 @@
 	http://localhost:3001/stylesheets/layout.css?1285265957
 	http://localhost:3001/stylesheets/layout.css?1285645251
 	http://localhost:3001/stylesheets/layout.css?1285647385
+	http://localhost:3001/stylesheets/layout.css?1285650603
 */
 
 @font-face {
@@ -18,7 +19,13 @@ body {
 	font-size:.75em; /* = 12px */
 }
 a{
-	color:#577D37;
+	color: #577d37;
+	text-decoration: none;
+}
+
+#opiniones div.widget div.middle div.comment p a {
+	text-decoration: underline;
+	color: #a03a3c;
 }
 
 h3 {
@@ -315,11 +322,18 @@ li.movie .camote {
 }
 
 .comment p {
-	width:285px;
+	width:300px;
 	float:left;
 	margin-top:5px;
-	line-height:1.35em;
-	margin-right:25px;
+	margin-right:10px;
+	font: 12px/1.8em Arial, Helvetica, Geneva, sans-serif;
+	color: #424242;
+}
+
+#opiniones div.widget div.middle div.comment p a.post_title {
+	text-decoration: none;
+	color: #909576;
+	font-weight: bold;
 }
 
 .rating {
@@ -475,7 +489,9 @@ li.movie .camote {
 	font-size:1.5em;
 }
 
-#movie .movie a.saw{
+#movie .movie a.saw,
+input.create,
+input.update{
 	border-color:#64AE11;
 	padding:0;
 	margin-bottom:10px;
@@ -685,6 +701,20 @@ div.rotten {
 	float:left;
 	height:19px;
 	width:245px;
+}
+
+input.create,
+input.update {
+	width: auto !important;
+	padding: 10px 20px !important;
+	height: auto !important;
+	color: #373737;
+	border-style: outset !important;
+	border-width: 1px !important;
+}
+
+#new_comment fieldset.buttons {
+	padding: 0px;
 }
 
 #reply form li.rating {

@@ -31,16 +31,20 @@
         %h3
           = post_comments_count @post
         %ul
-        - @post.comments.each do |comment|
-          - if not comment.content.nil?
-            %li{:id => "comment_#{comment.id}", :class => "camote"}
-              .avatar
-                - if comment.user
-                  = image_tag comment.user.avatar.url(:avatar)
-                %p= h comment.name
-              .talk
-                %p= h comment.content
-              .clear
+          - @post.comments.each do |comment|
+            - if comment.content
+              %li{:id => "comment_#{comment.id}", :class => "camote"}
+                .avatar
+                  - if comment.user
+                    - link_to comment.user.profile do
+                      = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.name
+                      %p= comment.user.name
+                  - else
+                    = image_tag "unknown.png", :class => "avatar", :title => comment.name, :size => "64x64"
+                    %p= comment.name
+                .talk
+                  %p= h comment.content
+                .clear
         .clear
       .bottom
   #reply.widget

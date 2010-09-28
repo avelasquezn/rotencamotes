@@ -3,7 +3,8 @@
     = summary_of(post.content,150)
     = link_to('Más', post)
     %br
-    = link_to post.title, post
+      - movie_title = post.movie.title if post.movie
+    = link_to "#{movie_title}: #{truncate(post.title,30)}", post, :class => "post_title"
   .rating
     = number_to_percentage rand(100), :precision => 0
   .avatar
