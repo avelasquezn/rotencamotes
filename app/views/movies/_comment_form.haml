@@ -1,0 +1,33 @@
+- semantic_form_for @comment do |f|
+  - f.inputs do
+    - if current_user
+      %li.rating
+        %p Valoración
+        %label.camote{:for=>"camote"}
+          %span
+        %input.hide{:id=>"camote", :name=>"score_value", :type=>"radio", :value=>"5"}
+        %label.rotten{:for=>"rotten"}
+          %span
+        %input.hide{:id=>"rotten", :name=>"score_value", :type=>"radio", :value=>"1"}
+      %li
+        %label{:for=>"cine"} La vi en
+        = select_tag 'theatre_id', options_for_select(Theatre.all.map{|t| [t.name, t.id]})
+
+    - else
+      %p
+        = 'Valoración: Los usuarios registrados pueden dejar su valoración para las películas.'
+        = link_to 'Regístrate', new_user_registration_path
+        = " ó "
+        = link_to 'inicia sesión', new_user_session_path
+        = "para dejar tu valoración."
+    = f.input :content, :label => 'Comentario', :as => :text
+    = f.input :movie_id, :as => :hidden, :value => @movie.id
+    - if current_user
+      = f.input :name,  :as => :hidden, :value => current_user.full_name
+      = f.input :email, :as => :hidden, :value => current_user.email
+    - else
+      = f.input :name,  :label => 'Nombre'
+      = f.input :email, :label => 'Email'
+  - f.buttons do
+    = f.commit_button 'Comentar'
+

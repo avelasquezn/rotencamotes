@@ -1,6 +1,7 @@
 class Theatre < ActiveRecord::Base
   belongs_to            :movie_chain
   has_many              :schedules
+  has_many              :scores
   validates_presence_of :name
 end
 

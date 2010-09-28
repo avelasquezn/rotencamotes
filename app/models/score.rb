@@ -2,6 +2,7 @@ class Score < ActiveRecord::Base
   # relationships
   belongs_to              :movie
   belongs_to              :user
+  belongs_to              :theatre
 
   # validations
   validates_presence_of   :movie
@@ -51,14 +52,15 @@ class Score < ActiveRecord::Base
     user.scores.from_movie(movie_id).find_all_by_scored_at(Date.today).empty?
   end
 
-  def self.rate(user, movie_id, value)
+  def self.rate(user, movie_id, theatre_id, value)
     if able_to_rate_movie(user, movie_id)
-      score           = Score.new
-      score.user_id   = user.id
-      score.movie_id  = movie_id
-      score.value     = value
-      score.scored_at = Date.today
-      score.source    = user.member_of
+      score             = Score.new
+      score.user_id     = user.id
+      score.movie_id    = movie_id
+      score.theatre_id  = theatre_id
+      score.value       = value
+      score.scored_at   = Date.today
+      score.source      = user.member_of
       score.save
     else
       false
@@ -82,6 +84,7 @@ class Score < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: scores
@@ -94,5 +97,6 @@ end
 #  value      :integer(4)
 #  created_at :datetime
 #  updated_at :datetime
+#  theatre_id :integer(4)
 #
 
