@@ -2,7 +2,8 @@ class Comment < ActiveRecord::Base
   # relationships
   belongs_to :post
   belongs_to :user
-
+  belongs_to :movie
+  
   # validations
   validates_presence_of :post
   validates_presence_of :content

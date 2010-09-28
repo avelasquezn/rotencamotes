@@ -18,6 +18,7 @@ class Movie < ActiveRecord::Base
   has_many :schedules
   has_many :theatres, :through => :schedules
   has_many :posts
+  has_many :comments
 
   MPAA_RATES = {
     :NR     => 'NR- This Film is Not Yet Rated',

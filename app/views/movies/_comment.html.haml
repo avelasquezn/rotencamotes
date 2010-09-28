@@ -1,0 +1,16 @@
+%li{:class => rand(2) == 1 ? "camote" : "rotten"}
+  .avatar
+    - if comment.user
+      - link_to comment.user.profile do
+        = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.name
+        = comment.user.name
+    - else
+      = image_tag "unknown.png", :class => "avatar", :title => comment.name, :size => "64x64"
+      = comment.name
+  .talk
+    %p
+      = summary_of(comment.content)
+  %p.posted
+    Respuesta a 
+    = link_to truncate(comment.post.title, 40), post_path(comment.post, :anchor => "comment_#{comment.id}")
+  .clear

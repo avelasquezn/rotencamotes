@@ -44,25 +44,7 @@
     .top
     .middle
       %h3 comentarios y valoraciones
-      %ul
-        %li.camote
-          .avatar
-            %a{:href=>"#"}
-              %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-          .talk
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
-          %p.posted
-            Respuesta a Lorem en Lorem
-          .clear
-        %li.rotten
-          .avatar
-            %a{:href=>"#"}
-              %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-          .talk
-            %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit
-          %p.posted
-            Respuesta a Lorem en Lorem
-          .clear
+      %ul= render :partial => "comment", :collection => @movie.comments
 
     .bottom
     .pager
@@ -137,8 +119,10 @@
       %ul
         - @scheduled_movie_chains_for_movie.each do |movie_chain|
           %li
-            .alcazar.logo-cine 85%
-            = link_to image_tag(movie_chain.logo.url(:small)), movie_chain
+            .logo-cine
+              - link_to movie_chain do
+                = image_tag(movie_chain.logo.url(:small))
+                85%
             %table
               - Schedule.active.from_movie_chain(movie_chain.id).from_movie(@movie.id).each do |schedule|
                 %tr
@@ -150,19 +134,7 @@
     .top
     .middle
       %h3 Opiniones Relacionadas
-      %ul
-        %li
-          %p
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt, Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-            %a{:href=>"#"}Mas
-            %br
-            %a{:href=>"#"}Iron Man 2 (2010)
-          .rating
-            100%
-          .avatar
-            %a{:href=>"#"}
-              %img.avatar{:src=>"../images/avatar.jpg", :alt=>"Avatar", :title=>"Avatar"} DraRock
-          .clear
+      %ul= render :partial => "post", :collection => @movie.posts
     .bottom
 .clear
 

@@ -439,6 +439,7 @@ li.movie .camote {
 	margin-right:35px;
 	float:right;
 	width: 290px;
+	text-align: right;
 }
 
 .talking .even .posted {
@@ -830,5 +831,6 @@ div.rotten {
 }
 
 #sidebar #related div.avatar img.avatar {
-	width:30px;
+	width:32px;
+	height:32px;	
 }
