@@ -38,7 +38,7 @@ namespace :xenda do
   end
 
   task :release => ['db:dump', :deploy]
-  task :synchronize => [:update, "db:update"]
+  task :sync => [:update, "db:update"]
   
 end
 
