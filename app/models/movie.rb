@@ -139,6 +139,11 @@ class Movie < ActiveRecord::Base
   def cast_names
     self.movie_characters.empty? ? '' : self.movie_characters.map(&:cast_member).join(', ')
   end
+  
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+  
 end
 
 

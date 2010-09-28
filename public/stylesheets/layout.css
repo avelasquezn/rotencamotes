@@ -1,3 +1,5 @@
+/* @override http://localhost:3001/stylesheets/layout.css?1285265957 */
+
 @font-face {
 	font-family: 'DaxCompactMedium';
 	src: url('../fonts/daxcompact-medium-webfont.eot');
@@ -94,11 +96,11 @@ header form.search input.submit,
 
 #logo {
 	position:absolute;
-	background:#999;
-	width:450px;
-	height:65px;
+	width:430px;
+	height:90px;
 	left:0;
-	top:10px;
+
+	background-image: url(../images/logo.png);
 }
 
 #logo a{
@@ -127,6 +129,16 @@ nav ul li {
 	border-bottom-right-radius:8px;
 }
 
+#header div.wrapper nav p.short {
+	margin-top: 8px;
+	text-align: right;
+	
+}
+#header div.wrapper nav p.short a {
+	color: #553210;
+	font-weight: bold;
+	text-transform: lowercase;
+}
 nav ul li {
 	
 }
