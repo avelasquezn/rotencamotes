@@ -27,6 +27,8 @@
     %header
       #header
         .wrapper
+          %a#logo{:href=> "#"}
+            %span.hide Rotten Camote        
           %nav{:role => "navigation"}
             %ul
               %li= link_to "Inicio", root_path
@@ -35,15 +37,18 @@
               %li= link_to "Cines", movie_chains_path
               %li
                 %a{:href => "#"}Contáctenos
-          - if current_user
-            %p.short
-              = 'Conectado como '
-              = link_to(current_user.full_name, current_user.profile)
-              = ' '
-              = link_to('Finalizar sesión', destroy_user_session_path)
-          - else
-            %p.short
-              = link_to('Iniciar sesión', new_user_session_path)
+            .clear
+            - if current_user
+              %p.short
+                = 'Conectado como '
+                = link_to(current_user.full_name, current_user.profile)
+                = ' '
+                = link_to('Finalizar sesión', destroy_user_session_path)
+            - else
+              %p.short
+                = link_to "Regístrate", new_user_registration_path
+                o
+                = link_to('Iniciar sesión', new_user_session_path)
 
           %form.search{:role => "search", :enctype => "text/plain", :method => "post", :action => "#"}
             %input{:type => "text", :value => "Busca tus películas, géneros, años o lo que quieras"}
@@ -69,4 +74,4 @@
               %a{:href => "#"}Contáctenos
     %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
     %script{:src=>"/javascripts/jcarousellite_1.0.1.min.js"}
-
+    %script{:src=>"/javascripts/application.js"}

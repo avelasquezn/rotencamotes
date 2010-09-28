@@ -10,7 +10,8 @@
 
 #banner-cont .banner {
 	overflow:hidden;
-	padding:0 20px 0 30px;	
+	margin:0 20px 0 30px;
+	height:288px;
 }
 
 #banner-cont .nav {
@@ -18,31 +19,11 @@
 	bottom:0;
 	height:33px;
 	width:100%;
+	overflow:visible;
 	/* css gradients */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FBDABD', endColorstr='#D6B08E'); /* for IE */
 	background: -webkit-gradient(linear, left bottom, left top, from(#D6B08E), to(#FBDABD)); /* for webkit browsers */
 	background: -moz-linear-gradient(bottom,  #D6B08E,  #FBDABD); /* for firefox 3.6+ */	
-}
-
-#banner-cont .arrow {
-	position:absolute;
-	top:138px;
-	width:63px;
-	height:63px;
-	z-index:50;
-}
-
-#banner-cont .arrow:hover {
-	cursor:pointer;
-}
-
-#banner-cont .prev {
-	left:-22px;
-}
-
-#banner-cont .next {
-	background-position: left -63px;
-	right:-22px;
 }
 
 #banner-cont .banner li {
@@ -50,43 +31,81 @@
 	margin-right:9px;
 }
 
-#banner-cont li.img a {
+.nav .arrows {
+	position:absolute;
+	top:9px;
+	right:25px;
+	height:16px;
+	width:70px;
+}
+
+.nav .arrows div{
+	height:16px;
+	width:23px;
+	position:absolute;
+	top:0;
+}
+
+.nav .arrows div.prev{
+	left:0;
+	background:url(../images/arrow-left.png) no-repeat;
+}
+
+.nav .arrows div.next{
+	right:0;
+	background:url(../images/arrow-right.png) no-repeat;
+}
+
+.nav .arrows div.hover,
+.nav .arrows div:hover {
+	cursor:pointer;
+}
+
+.nav ul,
+.nav li {
+	height:33px;
+	overflow:visible;
+}
+
+.nav li {
+	float:left;
+	padding:0 40px;
+	border-right:#C7A891 solid 1px;
+}
+
+.nav li a {
+	color:#745239;
+	font-weight:bold;
+	line-height:33px;
+	text-transform:uppercase;
+}
+
+.nav li.current {
+	border:none;
+	/* css gradients */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8FA75E', endColorstr='#326617'); /* for IE */
+	background: -webkit-gradient(linear, left bottom, left top, from(#326617), to(#8FA75E)); /* for webkit browsers */
+	background: -moz-linear-gradient(bottom,  #326617,  #8FA75E); /* for firefox 3.6+ */	
+}
+
+.nav li.current a {
+	color:#fff;
+	background:url(../images/arrow-top.png) no-repeat center -3px;
 	display:block;
-	width:100%;
-	height:100%;
-	background:#12ff56;
-	}
-
-.banner li.img {
-	height:271px;
-	padding-top:52px;
+	overflow:visible;
 }
 
-#ie6 #banner-cont {
-	text-align:left;
+.ie6 .nav li.current a,
+.ie6 .nav .arrows div {
+	background:none
 }
 
+.ie6 .nav li.current a{}
 
-#ie6 #banner-cont {
-	height:341px;
-	width:841px !important;
+.ie6 .nav .arrows div.prev{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/arrow-left.png', sizingMethod='crop');
 }
 
-#ie6 .banner {
-	
-}
-
-#ie6 #banner-cont .banner {
-	left:13px;
-	bottom:-6px;
-	padding:0;
-}
-
-#ie6 #banner-cont .arrow {
-	visibility:hidden;
-	display:none;
-}
-
-#ie6 #banner-cont .arrow {
-	height:62px;
+.ie6 .nav .arrows div.next{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/arrow-right.png', sizingMethod='crop');
 }

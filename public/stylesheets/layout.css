@@ -92,6 +92,21 @@ header form.search input.submit,
 	text-indent:-9000em;	
 }
 
+#logo {
+	position:absolute;
+	background:#999;
+	width:450px;
+	height:65px;
+	left:0;
+	top:10px;
+}
+
+#logo a{
+	display:block;
+	height:100%;
+	width:100;
+}
+
 nav {
 	position:absolute;
 	top:0;
@@ -733,14 +748,9 @@ div.rotten {
 	line-height:35px;
 }
 
-#sidebar #watch .alcazar {
-	background:url(../images/cine-2.png) left center no-repeat;	
+#sidebar #watch .logo-cine img{
+	float:left;
 }
-
-#sidebar #watch .gana {
-	background:url(../images/cine-1.png) left center no-repeat;
-}
-
 
 #sidebar #watch table {
 	background:#F4F4D9;
