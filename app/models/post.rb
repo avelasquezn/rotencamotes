@@ -172,6 +172,14 @@ class Post < ActiveRecord::Base
   def movie_title
     self.movie.nil? ? '' : self.movie.title
   end
+  
+  def to_param
+    if self.movie
+      "#{id}-#{self.movie.title.parameterize}-#{title.parameterize}"
+    else
+      "#{id}-#{title.parameterize}"
+    end
+  end
 
 end
 
