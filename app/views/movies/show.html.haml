@@ -30,9 +30,9 @@
             = simple_format @movie.summary
       .clear
     .bottom
-    
+
   #synopsis
-    - widget_tag do 
+    - widget_tag do
       .detail
         %h3 Sinopsis
       .spec
@@ -100,9 +100,16 @@
               %option{:value=>1} Cineplanet Alcazar
           %li
             %input{:type=>"submit", :value=>"Comentar"}
+
     .bottom
-    
-#sidebar    
+  #semantic_reply.widget
+    .top
+    .middle
+      %h3 Deja Tu comentario y valoración para
+      %h4= @movie.title
+      = render :partial => 'comment_form'
+
+#sidebar
 
   #share
     - widget_tag "Comparte esta página" do
@@ -110,8 +117,8 @@
         %a.facebook{:href=>"#"}
         %a.twitter{:href=>"#"}
         %a.email{:href=>"#"}
-      %p.share    
-    
+      %p.share
+
   #watch.widget
     .top
     .middle
