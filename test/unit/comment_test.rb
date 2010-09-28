@@ -7,6 +7,7 @@ class CommentTest < ActiveSupport::TestCase
   should validate_presence_of :content
 end
 
+
 # == Schema Information
 #
 # Table name: comments
@@ -23,5 +24,6 @@ end
 #  featured   :boolean(1)
 #  created_at :datetime
 #  updated_at :datetime
+#  movie_id   :integer(4)
 #
 

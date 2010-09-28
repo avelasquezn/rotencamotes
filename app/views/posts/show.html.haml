@@ -37,8 +37,8 @@
                 .avatar
                   - if comment.user
                     - link_to comment.user.profile do
-                      = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.name
-                      %p= comment.user.name
+                      = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.full_name
+                      %p= comment.user.full_name
                   - else
                     = image_tag "unknown.png", :class => "avatar", :title => comment.name, :size => "64x64"
                     %p= comment.name
@@ -61,11 +61,11 @@
           - else
             = f.input :name, :as => :hidden, :value => current_user.full_name
             = f.input :email, :as => :hidden, :value => current_user.email
-          
+
           = f.input :post_id, :as => :hidden, :value => @post.id
         - f.buttons do
           = f.commit_button "Comentar"
-    .bottom    
+    .bottom
   .clear
 
 #sidebar

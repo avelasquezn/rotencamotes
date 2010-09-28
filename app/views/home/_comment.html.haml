@@ -2,8 +2,8 @@
   .avatar
     - if comment.user
       - link_to comment.user.profile do
-        = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.name
-        = comment.user.name
+        = image_tag comment.user.avatar.url(:avatar), :class => "avatar", :title => comment.user.full_name
+        = comment.user.full_name
     - else
       = image_tag "unknown.png", :class => "avatar", :title => comment.name, :size => "64x64"
       = comment.name
@@ -11,6 +11,7 @@
     %p
       = summary_of(comment.content)
   %p.posted
-    Respuesta a 
+    Respuesta a
     = link_to truncate(comment.post.title, 40), post_path(comment.post, :anchor => "comment_#{comment.id}")
   .clear
+

@@ -22,6 +22,7 @@ two:
   status: MyString
   featured: false
 
+
 # == Schema Information
 #
 # Table name: comments
@@ -38,5 +39,6 @@ two:
 #  featured   :boolean(1)
 #  created_at :datetime
 #  updated_at :datetime
+#  movie_id   :integer(4)
 #
 

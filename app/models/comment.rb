@@ -38,6 +38,7 @@ class Comment < ActiveRecord::Base
               }
 end
 
+
 # == Schema Information
 #
 # Table name: comments
@@ -54,5 +55,6 @@ end
 #  featured   :boolean(1)
 #  created_at :datetime
 #  updated_at :datetime
+#  movie_id   :integer(4)
 #
 
