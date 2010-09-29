@@ -13,6 +13,7 @@
 	http://localhost:3000/stylesheets/layout.css?1285737582
 	http://localhost:3000/stylesheets/layout.css?1285765823
 	http://localhost:3000/stylesheets/layout.css?1285767944
+	http://localhost:3000/stylesheets/layout.css?1285768674
 */
 
 @font-face {
@@ -64,6 +65,7 @@ h3,#content div.widget div.middle h2 {
 
 h4 {
 	margin:0 10px 10px 10px;
+	font-family:DaxCompactMedium, arial;
 }
 
 div.middle p {
@@ -603,13 +605,12 @@ input.update{
 
 #movie h3 {
 	text-transform:none;
-	font-size:1.55em;
+	font-size:3em;
 	line-height:1.25em;
 	border:none;
 	margin:0;
 	padding:0;
 	color:#000;
-	font-family:Arial;
 }
 
 #movie #tags {
@@ -632,7 +633,6 @@ input.update{
 	text-transform:capitalize;
 	font-size:1.35em;
 	color:#6A3C05;
-	font-weight:bold;
 	margin-bottom:10px;
 	margin-left: 0px;
 }
@@ -682,6 +682,8 @@ div.rotten {
 
 #movie.widget .detail .spec p {
 		margin-left: 0px;
+		margin-bottom: 0px;
+		margin-top: 10px;
 }
 
 
