@@ -1,16 +1,16 @@
 - content_for :banner do
   #banner-cont.wrapper{:role => "banner"}
     .banner
-      %ul#movies_top= render :partial => "movie", :collection => @movies
+      = render :partial => "banner"
 
     .nav
       %ul
-        %li{:class=>active_if_now}
-          = link_to "Ahora mismo", {:action => "index", :filter => "ahora"}
-        %li{:class=>active_if_showtime}
-          = link_to "Estrenos", {:action => "index", :filter => "estrenos"}
-        %li{:class=>active_if_recommended}
-          = link_to "Recomendadas", {:action => "index", :filter => "recomendadas"}
+        %li{:class=>[active_if_now," now"].join}
+          = link_to_remote "Ahora mismo", :url => {:action => "index", :filter => "ahora"}, :complete => "updateNav(this)"
+        %li{:class=>[active_if_showtime," showtime"]}
+          = link_to_remote "Estrenos", :url => {:action => "index", :filter => "estrenos"}, :complete =>"updateNav(this)"
+        %li{:class=>[active_if_recommended," recommended"]}
+          = link_to_remote "Recomendadas", :url => {:action => "index", :filter => "recomendadas"}, :complete => "updateNav(this)"
       .arrows
         .prev
         .next

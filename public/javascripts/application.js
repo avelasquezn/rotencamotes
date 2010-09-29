@@ -7,13 +7,7 @@ $(document).ready(function(){
 		ie6 = true;
 	}
 	
-  $('#banner-cont .banner').jCarouselLite({
-    btnNext: '.next',
-    btnPrev: '.prev',
-    speed: 900,
-    visible:5,
-    circular: true
-  });
+  startBanner();
 
 	if (ie6 == true) {
 		$('#banner-cont .arrows div').mouseover(function(){
@@ -22,5 +16,30 @@ $(document).ready(function(){
 			$(this).removeClass('hover');
 		});		
 	}	
+	
+	$(".nav ul li a").click(function(){
+	    $('.nav li').removeClass('current');
+	    $(this).parent().addClass("current");
+	    $("ul#movies_top").hide("slow");
+	    return false
+	}) 
 	 
 });
+
+
+function startBanner(){
+  
+  $('#banner-cont .banner').jCarouselLite({
+    btnNext: '.next',
+    btnPrev: '.prev',
+    speed: 900,
+    visible:5,
+    circular: true
+  });
+  
+}
+
+function updateNav(this_li){
+  $("ul#movies_top").show("slow");
+  startBanner();  
+}

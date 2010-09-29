@@ -10,7 +10,7 @@ class HomeController < ApplicationController
         @movies = Movie.recommended(20)
       end
     else
-      @movies = Schedule.scheduled_movies_from_now #Schedule.scheduled_movies * 3
+      @movies = Schedule.scheduled_movies_from_now * 6#Schedule.scheduled_movies * 3
     end
     logger.info "Mandando #{@movies.size} películas"    
     @posts = Post.last_published(5)
@@ -20,7 +20,7 @@ class HomeController < ApplicationController
       wants.html # =>   
       wants.js do 
           render :update do |page|
-            page.replace_html "movies_top", :partial => "movie", :collection => @movies
+            page.replace "movies_top", :partial => "banner" #, :collection => @movies
           end
       end
     end
