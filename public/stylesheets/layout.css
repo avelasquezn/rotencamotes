@@ -9,6 +9,7 @@
 	http://localhost:3000/stylesheets/layout.css?1285735682
 	http://localhost:3000/stylesheets/layout.css?1285735840
 	http://localhost:3000/stylesheets/layout.css?1285735979
+	http://localhost:3000/stylesheets/layout.css?1285736557
 */
 
 @font-face {
@@ -513,7 +514,7 @@ li.movie .camote {
 	width: 290px;
 	text-align: right;
 	margin-bottom: 0px;
-	margin-left: 0pxg;
+	margin-left: 0px;
 }
 
 .talking .even .posted {
