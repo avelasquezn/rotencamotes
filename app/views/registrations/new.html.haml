@@ -1,0 +1,12 @@
+#content
+  %h2 Registra tu cuenta
+  - form_for resource_name, resource, :url => registration_path(resource_name) do |f|
+    = f.error_messages
+    %p= f.label :email
+    %p= f.text_field :email
+    %p= f.label :password
+    %p= f.password_field :password
+    %p= f.label :password_confirmation
+    %p= f.password_field :password_confirmation
+    %p= f.submit "Registrarse"
+  = render :partial => "shared/devise_links"

@@ -2,7 +2,7 @@
 # four configuration values can also be set straight in your models.
 Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  config.mailer_sender = "contacto@rotencamotes.com"
   
   # Configure the content type of DeviseMailer mails (defaults to text/html")
   # config.mailer_content_type = "text/plain"
@@ -20,7 +20,7 @@ Devise.setup do |config|
   # authentication tools as :clearance_sha1, :authlogic_sha512 (then you should set
   # stretches above to 20 for default behavior) and :restful_authentication_sha1
   # (then you should set stretches to 10, and copy REST_AUTH_SITE_KEY to pepper)
-  # config.encryptor = :sha1
+  config.encryptor = :bcrypt
 
   # Configure which keys are used when authenticating an user. By default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -48,7 +48,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :lockable
   # Number of authentication tries before locking an account.
-  # config.maximum_attempts = 20
+  config.maximum_attempts = 5
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -57,7 +57,7 @@ Devise.setup do |config|
   # config.unlock_strategy = :both
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
-  # config.unlock_in = 1.hour
+  config.unlock_in = 1.hour
 
   # ==> Configuration for :token_authenticatable
   # Defines name of the authentication token params key
@@ -78,11 +78,11 @@ Devise.setup do |config|
   # accessing "/users/sign_in", it knows you are accessing an User. This makes
   # routes as "/sign_in" not possible, unless you tell Devise to use the default
   # scope, setting true below.
-  # config.use_default_scope = true
+  config.use_default_scope = true
 
   # Configure the default scope used by Devise. By default it's the first devise
   # role declared in your routes.
-  # config.default_scope = :user
+  config.default_scope = :user
 
   # If you want to use other strategies, that are not (yet) supported by Devise,
   # you can configure them inside the config.warden block. The example below

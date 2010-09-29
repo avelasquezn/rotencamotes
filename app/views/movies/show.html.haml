@@ -11,7 +11,7 @@
         #tags= render_genres_links
         #rating
           %h4 Puntaje General
-          .rating= @movie.final_score
+          .rating= number_to_percentage(@movie.final_score, :precision => 0)
           .camote 121
           .rotten 41
           .clear
@@ -44,31 +44,32 @@
     .top
     .middle
       %h3 comentarios y valoraciones
-      %ul= render :partial => "comment", :collection => @movie.comments
+      %ul= render :partial => "comment", :collection => @movie.comments.paginate(:page => params[:page])
 
     .bottom
     .pager
-      %ul
-        %li.first.hide
-          %a{:href=>"#"}
-            %span |<
-        %li.prev.hide
-          %a{:href=>"#"}
-            %span <<
-        %li.current
-          %span 1
-        %li
-          %a{:href=>"#"} 2
-        %li
-          %a{:href=>"#"} 3
-        %li
-          %a{:href=>"#"} 4
-        %li.next
-          %a{:href=>"#"}
-            %span >>
-        %li.last
-          %a{:href=>"#"}
-            %span >|
+      = will_paginate @movie.comments.paginate(:page => params[:page])
+      / %ul
+      /   %li.first.hide
+      /     %a{:href=>"#"}
+      /       %span |<
+      /   %li.prev.hide
+      /     %a{:href=>"#"}
+      /       %span <<
+      /   %li.current
+      /     %span 1
+      /   %li
+      /     %a{:href=>"#"} 2
+      /   %li
+      /     %a{:href=>"#"} 3
+      /   %li
+      /     %a{:href=>"#"} 4
+      /   %li.next
+      /     %a{:href=>"#"}
+      /       %span >>
+      /   %li.last
+      /     %a{:href=>"#"}
+      /       %span >|
       .clear
   #reply.widget
     .top
@@ -102,7 +103,7 @@
             %input{:type=>"submit", :value=>"Comentar"}
 
     .bottom
-  #semantic_reply.widget
+  #reply.widget
     .top
     .middle
       %h3 Deja Tu comentario y valoración para

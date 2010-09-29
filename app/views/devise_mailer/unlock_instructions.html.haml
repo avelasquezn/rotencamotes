@@ -1,0 +1,5 @@
+%p
+  ¡Hola #{@resource.email}!
+%p ¡Tu cuenta está bloqueada! Al parecer hubo muchos intentos erróneos de tratar de entrar a tu cuenta.
+%p Con el siguiente link podrás desbloquearla
+%p= link_to 'Desbloquear mi cuenta', unlock_url(@resource, :unlock_token => @resource.unlock_token)

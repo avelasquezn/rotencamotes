@@ -10,6 +10,9 @@
 	http://localhost:3000/stylesheets/layout.css?1285735840
 	http://localhost:3000/stylesheets/layout.css?1285735979
 	http://localhost:3000/stylesheets/layout.css?1285736557
+	http://localhost:3000/stylesheets/layout.css?1285737582
+	http://localhost:3000/stylesheets/layout.css?1285765823
+	http://localhost:3000/stylesheets/layout.css?1285767944
 */
 
 @font-face {
@@ -35,7 +38,7 @@ a{
 	color: #a03a3c;
 }
 
-h3 {
+h3,#content div.widget div.middle h2 {
 	text-transform:uppercase;
 	color:#577D37;
 	font-size:1.5em;
@@ -43,6 +46,20 @@ h3 {
 	border-bottom:solid 1px #ccc;
 	margin:0 10px 10px 10px;
 	font-family:DaxCompactMedium, arial;
+}
+
+#content div.widget div.middle h2 {
+	font-size: 30px;
+}
+
+#content div.widget div.middle div.session_actions {
+	margin-left: 5px;
+}
+
+#content div.widget div.middle div.session_actions a {
+	margin-bottom: 0px;
+	display: block;
+	color: #aa6831;
 }
 
 h4 {
@@ -211,6 +228,7 @@ nav ul li a{
 	background:#F1E9E3;
 	width:908px;
 	padding:10px 16px 30px 16px;
+	overflow: auto;
 }
 
 #content {
@@ -380,6 +398,10 @@ li.movie .camote {
 	font-size:2.8em;
 	font-weight:bold;
 	text-align:center;	
+}
+
+fieldset.inputs ol li.invitation {
+
 }
 
 .comment .rating {
@@ -612,6 +634,7 @@ input.update{
 	color:#6A3C05;
 	font-weight:bold;
 	margin-bottom:10px;
+	margin-left: 0px;
 }
 
 #movie #rating div{
@@ -656,6 +679,11 @@ div.rotten {
 	margin-bottom:15px;
 	line-height:1.3em;
 }
+
+#movie.widget .detail .spec p {
+		margin-left: 0px;
+}
+
 
 #movie .spec p.short{
 	margin-bottom:5px;
@@ -728,14 +756,14 @@ div.rotten {
 #reply h4{
 	color:#010101;
 	font-weight:bold;
-	padding-left:5px;
+
 	font-size:1.35em;
 	text-transform:capitalize;
 }
 
 #reply form {
 	margin-top:15px;
-	padding:0 10px 0 5px;
+	padding:0 10px 0 10px;
 }
 
 #reply form li {

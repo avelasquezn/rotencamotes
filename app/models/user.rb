@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   after_create  :setup_profile
 
-  devise  :registerable, :database_authenticatable,
+  devise  :registerable, :database_authenticatable, :lockable,
           :recoverable,:rememberable, :trackable, :validatable
 
 
