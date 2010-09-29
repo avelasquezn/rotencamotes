@@ -11,6 +11,8 @@
           = link_to_remote "Estrenos", :url => {:action => "index", :filter => "estrenos"}, :complete =>"updateNav(this)"
         %li{:class=>[active_if_recommended," recommended"]}
           = link_to_remote "Recomendadas", :url => {:action => "index", :filter => "recomendadas"}, :complete => "updateNav(this)"
+      .loader
+        = image_tag "ajax_loader.gif"
       .arrows
         .prev
         .next

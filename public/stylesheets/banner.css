@@ -1,3 +1,8 @@
+/* @override 
+	http://localhost:3000/stylesheets/banner.css?1285257483
+	http://localhost:3000/stylesheets/banner.css?1285736636
+*/
+
 #banner-cont {
 	height:330px;
 	margin:0 auto;
@@ -31,14 +36,18 @@
 	margin-right:9px;
 }
 
-.nav .arrows {
+.nav .arrows,
+.nav .loader {
 	position:absolute;
 	top:9px;
 	right:25px;
 	height:16px;
 	width:70px;
 }
-
+.nav .loader {
+	right: 300px;
+	top: 7px;
+}
 .nav .arrows div{
 	height:16px;
 	width:23px;

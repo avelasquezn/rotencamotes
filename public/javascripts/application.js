@@ -7,6 +7,7 @@ $(document).ready(function(){
 		ie6 = true;
 	}
 	
+  $(".loader").hide();	    
   startBanner();
 
 	if (ie6 == true) {
@@ -20,7 +21,8 @@ $(document).ready(function(){
 	$(".nav ul li a").click(function(){
 	    $('.nav li').removeClass('current');
 	    $(this).parent().addClass("current");
-	    $("ul#movies_top").hide("slow");
+	    $("ul#movies_top").fadeOut("slow");
+	    $(".loader").fadeIn("slow");	    
 	    return false
 	}) 
 	 
@@ -40,6 +42,7 @@ function startBanner(){
 }
 
 function updateNav(this_li){
-  $("ul#movies_top").show("slow");
+  $("ul#movies_top").fadeIn("slow");
+  $(".loader").fadeOut("slow");  
   startBanner();  
 }
