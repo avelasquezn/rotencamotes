@@ -7,5 +7,5 @@
       - scheduled_movie.genres.each do |genre|
         = link_to genre.name, genre, :title => genre.name, :class => "title"
     = link_to "Opiniones (#{scheduled_movie.posts.size})", movie_posts_path(scheduled_movie)
-  %p.rating= scheduled_movie.final_score
+  %p.rating= number_to_percentage(scheduled_movie.final_score, :precision=>0)
   .clear

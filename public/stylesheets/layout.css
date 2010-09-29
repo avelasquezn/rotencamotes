@@ -3,6 +3,12 @@
 	http://localhost:3001/stylesheets/layout.css?1285645251
 	http://localhost:3001/stylesheets/layout.css?1285647385
 	http://localhost:3001/stylesheets/layout.css?1285650603
+	http://localhost:3000/stylesheets/layout.css?1285651481
+	http://localhost:3000/stylesheets/layout.css?1285734257
+	http://localhost:3000/stylesheets/layout.css?1285735438
+	http://localhost:3000/stylesheets/layout.css?1285735682
+	http://localhost:3000/stylesheets/layout.css?1285735840
+	http://localhost:3000/stylesheets/layout.css?1285735979
 */
 
 @font-face {
@@ -38,6 +44,37 @@ h3 {
 	font-family:DaxCompactMedium, arial;
 }
 
+h4 {
+	margin:0 10px 10px 10px;
+}
+
+div.middle p {
+	margin:0 10px 10px 10px;
+	line-height: 1.6em;
+	color: #4c4c4c;
+}
+
+#sidebar #movie div.middle div.movie {
+	width: 70px;
+	float: left;
+}
+
+#sidebar #movie div.middle div.detail div.spec,
+#sidebar #movie div.middle div.detail{
+	margin-top: 0px;
+	padding-top: 0px;	
+}
+
+#sidebar #movie div.middle div.detail {
+	float: left;
+	width: 220px;
+}
+
+#sidebar #movie div.middle div.movie img {
+	width: 70px;
+
+}
+
 .ie6 h3,
 .ie7 h3 {
 	font-weight:normal;
@@ -45,7 +82,7 @@ h3 {
 
 header,
 #header{
-	height:94px;
+	height:105px;
 	border-bottom:solid 10px #BF7839;
 	/* css gradients */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDE3CB', endColorstr='#F3B178'); /* for IE */
@@ -141,7 +178,7 @@ nav ul li {
 }
 
 #header div.wrapper nav p.short {
-	margin-top: 8px;
+	margin-top: 14px;
 	text-align: right;
 	
 }
@@ -241,7 +278,7 @@ img.avatar {
 
 img.avatar {
 	margin-bottom:3px;
-display:block;	
+	display:block;	 
 }
 
 footer,
@@ -325,6 +362,7 @@ li.movie .camote {
 	width:300px;
 	float:left;
 	margin-top:5px;
+	margin-left: 0px !important;
 	margin-right:10px;
 	font: 12px/1.8em Arial, Helvetica, Geneva, sans-serif;
 	color: #424242;
@@ -385,6 +423,7 @@ li.movie .camote {
 .cartelera li .desc{
 	float:left;
 	margin-top:5px;
+	width: 100px;
 }
 
 .cartelera li .rating{
@@ -393,10 +432,29 @@ li.movie .camote {
 	padding-left:35px;
 	width:65px;
 	background:url(../images/camote-medium.png) left top no-repeat;
+	color: #dea775;
+	font-size: 27px;
 }
 	
 .cartelera li p.tags {
 	margin:10px 0 5px 0;
+}
+
+.cartelera li .desc p.tags a.title {
+	font-size: 10px !important;
+	color: #a77d58;
+	line-height: 1.6em;
+	font-weight: bold;
+}
+#most_read div.middle p {
+	margin-bottom: 10px;
+	vertical-align: top;
+	display: block;
+}
+#most_read div.middle p img {
+	width: 64px;
+	padding: 3px;
+	border: 1px solid #c0c0c0;
 }
 
 .talking {
@@ -454,6 +512,8 @@ li.movie .camote {
 	float:right;
 	width: 290px;
 	text-align: right;
+	margin-bottom: 0px;
+	margin-left: 0px;
 }
 
 .talking .even .posted {
