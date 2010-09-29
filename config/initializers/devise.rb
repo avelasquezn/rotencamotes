@@ -48,7 +48,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :lockable
   # Number of authentication tries before locking an account.
-  config.maximum_attempts = 5
+  # config.maximum_attempts = 5
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
