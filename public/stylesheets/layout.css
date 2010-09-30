@@ -811,11 +811,13 @@ input.update {
 #reply form li.rating {
 	height:49px;
 	margin-bottom:10px;
+	width: 100%;
 }
 
 #reply form li.rating p {
 	float:left;
 	margin:5px 10px 0 0;
+	width: auto;
 }
 
 #reply form li.rating label {

@@ -42,7 +42,7 @@
               %p.short
                 = 'Conectado como '
                 = link_to(smart_connected_as, current_user.profile)
-                = ' '
+                |
                 = link_to('Finalizar sesión', destroy_user_session_path)
             - else
               %p.short

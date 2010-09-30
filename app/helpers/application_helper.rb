@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def smart_connected_as
-    current_user.full_name == '' ? current_user.email : current_user.full_name
+    current_user.full_name.blank? ? current_user.email : current_user.full_name
   end
 
   def widget_tag (name = nil, &block)

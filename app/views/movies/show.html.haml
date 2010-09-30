@@ -71,44 +71,14 @@
       /     %a{:href=>"#"}
       /       %span >|
       .clear
-  #reply.widget
-    .top
-    .middle
-      %h3 Deja Tu comentario y valoración para
-      %h4= @movie.title
-      %form
-        %ul
-          %li.rating
-            %p Valoracion
-            %label.camote{:for=>"camote"}
-              %span
-            %input.hide{:id=>"camote", :name=>"rating", :type=>"radio", :value=>"camote"}
-            %label.rotten{:for=>"rotten"}
-              %span
-            %input.hide{:id=>"rotten", :name=>"rating", :type=>"radio", :value=>"rotten"}
-          %li.comment
-            %label{:for=>"comment"} Comentario
-            %textarea{:id=>"comment", :name=>"comment"}
-          %li
-            %label{:for=>"name"} Nombre
-            %input{:id=>"name", :name=>"name", :type=>"text"}
-          %li
-            %label{:for=>"email"} Email
-            %input{:id=>"email", :name=>"email", :type=>"text"}
-          %li
-            %label{:for=>"cine"} La vi en
-            %select{:id =>"cine", :name=>"cine"}
-              %option{:value=>1} Cineplanet Alcazar
-          %li
-            %input{:type=>"submit", :value=>"Comentar"}
 
-    .bottom
   #reply.widget
     .top
     .middle
       %h3 Deja Tu comentario y valoración para
       %h4= @movie.title
       = render :partial => 'comment_form'
+    .bottom
 
 #sidebar
 

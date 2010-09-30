@@ -9,10 +9,6 @@
         %label.rotten{:for=>"rotten"}
           %span
         %input.hide{:id=>"rotten", :name=>"score_value", :type=>"radio", :value=>"1"}
-      %li
-        %label{:for=>"cine"} La vi en
-        = select_tag 'theatre_id', options_for_select(Theatre.all.map{|t| [t.name, t.id]})
-
     - else
       %li.invitation
         = 'Valoración: Los usuarios registrados pueden dejar su valoración para las películas.'
@@ -25,10 +21,12 @@
     - if current_user
       = f.input :name,  :as => :hidden, :value => current_user.full_name
       = f.input :email, :as => :hidden, :value => current_user.email
+      %li
+        %label{:for=>"theathre_id"} La vi en
+        = select_tag 'theatre_id', options_for_select(Theatre.all.map{|t| [t.name, t.id]}), :id => "cine"
+      
     - else
       = f.input :name,  :label => 'Nombre'
-      = f.input :email, :label => 'Email'
+      = f.input :email, :label => 'Email'      
   - f.buttons do
     = f.commit_button 'Comentar'
-
-
