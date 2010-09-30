@@ -12,8 +12,8 @@
         #rating
           %h4 Puntaje General
           .rating= number_to_percentage(@movie.final_score, :precision => 0)
-          .camote 121
-          .rotten 41
+          .camote= Score.count_for_community_approving_movie(@movie.id)
+          .rotten= Score.count_for_community_disliking_movie(@movie.id)
           .clear
         .spec
           %p

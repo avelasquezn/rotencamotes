@@ -7,3 +7,7 @@ Factory.define :user, :default_strategy => :create do |u|
   u.born_at Date.new(1980, 01, 01)
 end
 
+Factory.define :expert, :parent => :user do |e|
+  e.member_of User::ROLES[:experts]
+end
+

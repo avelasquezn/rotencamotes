@@ -24,6 +24,14 @@ class Score < ActiveRecord::Base
                 }
               }
 
+  named_scope :with_value,
+              lambda { |value| {
+                  :conditions => {:value => value},
+                  :order      => 'scored_at DESC'
+                }
+              }
+
+
   named_scope :from_user,
               lambda { |user_id| {
                   :conditions =>  { :user_id => user_id },
@@ -40,11 +48,20 @@ class Score < ActiveRecord::Base
               :order      =>  'movie_id, user_id, scored_at DESC'
 
   # methods
-  def community_score_for_movie(movie_id)
+
+  def self.count_for_community_approving_movie(movie_id)
+    self.from_community.from_movie(movie_id).with_value(5).count
+  end
+
+  def self.count_for_community_disliking_movie(movie_id)
+    self.from_community.from_movie(movie_id).with_value(1).count
+  end
+
+  def self.from_community_for_movie(movie_id)
     return self.from_community.from_movie(movie_id).average('value')
   end
 
-  def experts_score_for_movie(movie_id)
+  def self.from_experts_for_movie(movie_id)
     return self.from_experts.from_movie(movie_id).average('value')
   end
 
