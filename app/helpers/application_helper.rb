@@ -23,7 +23,10 @@ module ApplicationHelper
       number.to_s + " "+ (plural.nil? ? singular + 's' : plural)
     end
   end
-  
+
+  def smart_connected_as
+    current_user.full_name == '' ? current_user.email : current_user.full_name
+  end
 
   def widget_tag (name = nil, &block)
     haml_tag ".widget" do
@@ -35,20 +38,20 @@ module ApplicationHelper
       haml_tag ".bottom"
     end
   end
-  
+
   def active_if_now
     "current" if params[:filter].nil? or params[:filter]=="ahora"
   end
-  
+
   def active_if_showtime
     "current" if params[:filter]=="estrenos"
   end
-  
+
   def active_if_recommended
    "current" if params[:filter]=="recomendadas"
-  end  
-  
-  
-  
+  end
+
+
+
 end
 
