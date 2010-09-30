@@ -30,6 +30,41 @@ class ScoreTest < ActiveSupport::TestCase
         assert_equal false, Score.rate(@user, @movie.id, @theatre.id, 20)
       end
     end
+    context 'with two rates from community, 1 approving and 1 disliking' do
+      setup do
+        @user = Factory(:user)
+        Score.rate(@user, @movie.id, @theatre.id, 5)
+        @user = Factory(:user)
+        Score.rate(@user, @movie.id, @theatre.id, 1)
+      end
+
+      should 'have an approving community score count of 1' do
+        assert_equal 1, Score.count_for_community_approving_movie(@movie.id)
+      end
+
+      should 'have a disliking community score count of 1' do
+        assert_equal 1, Score.count_for_community_disliking_movie(@movie.id)
+      end
+
+      should 'have a community score' do
+        assert_equal 3, Score.from_community_for_movie(@movie.id)
+      end
+
+    end
+
+    context 'with two rates from experts' do
+      setup do
+        @user = Factory(:expert)
+        Score.rate(@user, @movie.id, @theatre.id, 30)
+        @user = Factory(:expert)
+        Score.rate(@user, @movie.id, @theatre.id, 20)
+      end
+
+      should 'have an experts score' do
+        assert_equal 25, Score.from_experts_for_movie(@movie.id)
+      end
+
+    end
   end
 
 end
