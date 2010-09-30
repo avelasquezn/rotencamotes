@@ -24,6 +24,12 @@ class Person < ActiveRecord::Base
   def full_name
     "#{self.first_name} #{self.middle_name} #{self.last_name}"
   end
+  
+  # THIS IS REALLY.. REALLY UGLY. GOTTA THING OF A BETTER WAY TO DO IT 
+  def to_param
+ "#{id}-#{try(:first_name).try(:parameterize)}-#{try(:middle_name).try(:parameterize)}-#{try(:last_name).try(:parameterize)}"
+  end
+  
 end
 
 
