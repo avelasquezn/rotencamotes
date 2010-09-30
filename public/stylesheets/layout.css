@@ -14,6 +14,8 @@
 	http://localhost:3000/stylesheets/layout.css?1285765823
 	http://localhost:3000/stylesheets/layout.css?1285767944
 	http://localhost:3000/stylesheets/layout.css?1285768674
+	http://localhost:3000/stylesheets/layout.css?1285822043
+	http://localhost:3000/stylesheets/layout.css?1285889651
 */
 
 @font-face {
@@ -629,6 +631,27 @@ input.update{
 	padding-left:5px;
 }
 
+#movie section.movie_summary {
+	color: #5b5b5b;
+	line-height: 1.5em;
+	font-family: Arial, Helvetica, Geneva, sans-serif;
+}
+
+a.truncate_more_link {
+	font-weight: bold;
+	color: #577d37;
+	text-decoration: none;
+	margin-bottom: 15px;
+	display: block;
+}
+
+#movie div.middle div.detail div.spec section.movie_summary span.truncate_more {
+	font-weight: normal;
+	font-style: normal;
+	color: #2b2b2b;
+}
+
+
 #movie #rating h4{
 	text-transform:capitalize;
 	font-size:1.35em;
@@ -894,9 +917,9 @@ input.update {
 	text-align:right;
 	color:#8399A4;
 	font-weight:bold;
-	height:35px;
+	height:auto;
 	padding:0px 5px 0 0;
-	line-height:35px;
+	line-height:a;
 }
 
 #sidebar #watch .logo-cine img{
@@ -909,6 +932,7 @@ input.update {
 	font-size:.95em;
 	color:#663300;
 	text-transform:uppercase;
+	clear: both;
 }
 
 #sidebar #watch table td {

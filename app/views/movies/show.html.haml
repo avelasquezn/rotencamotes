@@ -27,7 +27,8 @@
           #tags= render_writers_links
           %p.short
             %span Acerca de:
-            = simple_format @movie.summary
+            %section.movie_summary
+              = strip_tags @movie.summary
       .clear
     .bottom
 
@@ -37,7 +38,8 @@
         %h3 Sinopsis
       .spec
         %p
-          = simple_format @movie.synopsis
+          .movie_synopsis
+            = strip_tags @movie.synopsis
       .clear
 
   #reviews.widget.talking

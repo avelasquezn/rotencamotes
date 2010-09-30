@@ -7,7 +7,8 @@ $(document).ready(function(){
 		ie6 = true;
 	}
 	
-  $(".loader").hide();	    
+  $(".loader").hide();	
+      
   startBanner();
 
 	if (ie6 == true) {
@@ -25,6 +26,28 @@ $(document).ready(function(){
 	    $(".loader").fadeIn("slow");	    
 	    return false
 	}) 
+	 
+	 
+	 
+	 $('.movie_summary').jTruncate({
+  	        length: 200,
+  	        minTrail: 0,
+  	        moreText: "leer más",
+            lessText: "leer menos" ,
+            moreAni: "fast",  
+            lessAni: "fast",              
+            ellipsisText: " (...)"  ,
+            }); 
+
+ 	 $('.movie_synopsis').jTruncate({
+   	        length: 1200,
+   	        minTrail: 0,
+   	        moreText: "leer más",
+             lessText: "leer menos" ,
+             moreAni: "fast",  
+             lessAni: "fast",              
+             ellipsisText: " (...)"  ,
+             });	 
 	 
 });
 
