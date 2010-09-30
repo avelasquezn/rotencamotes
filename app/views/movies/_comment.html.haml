@@ -1,4 +1,4 @@
-%li{:class => rand(2) == 1 ? "camote" : "rotten"}
+%li{:class => rand(2) == 1 ? "camote" : "rotten", :id =>"comment_#{comment.id}"}
   .avatar
     - if comment.user
       - link_to comment.user.profile do
@@ -11,6 +11,11 @@
     %p
       = summary_of(comment.content)
   %p.posted
-    Respuesta a 
-    = link_to truncate(comment.post.title, 40), post_path(comment.post, :anchor => "comment_#{comment.id}")
+    - if comment.post
+      Respuesta a 
+      = link_to truncate(comment.post.title, 40), post_path(comment.post, :anchor => "comment_#{comment.id}")
+    - else
+      Sobre 
+      = link_to truncate(comment.movie.title, 40), movie_path(comment.movie, :anchor => "comment_#{comment.id}")
+    
   .clear

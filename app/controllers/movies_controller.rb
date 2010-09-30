@@ -10,6 +10,7 @@ class MoviesController < InheritedResources::Base
   def show
     @movie = Movie.find_by_id(params[:id])
     @scheduled_movie_chains_for_movie = Schedule.scheduled_movie_chains_for_movie(@movie.id)
+    @comments = Comment.for_movie(@movie.id).paginate :page => params[:page]
     if current_user then
       @comment = current_user.comments.build
     else

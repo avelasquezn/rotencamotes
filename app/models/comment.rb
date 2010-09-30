@@ -3,9 +3,9 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :user
   belongs_to :movie
+  has_one :score
   
   # validations
-  validates_presence_of :post
   validates_presence_of :content
 
   STATUSES = {
@@ -36,6 +36,16 @@ class Comment < ActiveRecord::Base
                 }
 
               }
+              
+    def parent
+      self.movie if self.movie_id
+      self.post if self.post_id
+    end
+    
+    def self.for_movie(movie_id)
+      Comment.find(:all, :conditions => ["movie_id like ? or id in (select comments.id from comments join posts on comments.post_id = posts.id where posts.movie_id like ?)",movie_id,movie_id])
+    end
+              
 end
 
 

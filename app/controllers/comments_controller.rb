@@ -3,7 +3,11 @@ class CommentsController < InheritedResources::Base
   actions       :index, :show, :new, :create
 
   def default_path
-    post_path(@comment.post, :anchor => "comments")
+    if @comment.post
+      post_path(@comment.post, :anchor => "comments")
+    else
+      movie_path(@comment.movie, :anchor => "comments")
+    end
   end
 
   def new
