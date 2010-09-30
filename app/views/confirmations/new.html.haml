@@ -1,5 +1,7 @@
 #content
-  = widget_tag do
+  #opiniones
+  
+  - widget_tag do
     %h2 Reenviar instrucciones de confirmación
     - form_for resource_name, resource, :url => confirmation_path(resource_name) do |f|
       = f.error_messages

@@ -7,6 +7,11 @@ class Genre < ActiveRecord::Base
   def movies_count
     Movie.from_named_genre(self.name).count
   end
+  
+  def to_param
+    "#{id}-#{self.name.parameterize}"
+  end
+  
 end
 
 
