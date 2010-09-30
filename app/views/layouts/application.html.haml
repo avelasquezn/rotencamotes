@@ -28,7 +28,7 @@
       #header
         .wrapper
           %a#logo{:href=> root_path}
-            %span.hide Rotten Camote        
+            %span.hide Rotten Camote
           %nav{:role => "navigation"}
             %ul
               %li= link_to "Inicio", root_path
@@ -41,7 +41,7 @@
             - if current_user
               %p.short
                 = 'Conectado como '
-                = link_to(current_user.full_name, current_user.profile)
+                = link_to(smart_connected_as, current_user.profile)
                 = ' '
                 = link_to('Finalizar sesión', destroy_user_session_path)
             - else
@@ -75,3 +75,4 @@
     %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"}
     %script{:src=>"/javascripts/jcarousellite_1.0.1.min.js"}
     %script{:src=>"/javascripts/application.js"}
+
