@@ -78,10 +78,12 @@
       .detail
         .spec
           %p.short
-            = link_to h(@post.blog.name), @post.blog
+            %h3
+              = link_to h(@post.blog.name), @post.blog
           %p.short
-            = 'Por '
-            = link_to h(@post.user.full_name), @post.user.profile
+            %h4
+              = 'Por '
+              = link_to h(@post.user.full_name), @post.user.profile
           %p.short
             = summary_of h @post.blog.description
       .clear

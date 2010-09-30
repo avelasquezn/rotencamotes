@@ -11,14 +11,14 @@ namespace :xenda do
       `mysqldump -u root -p #{database_name} > backup.sql`
       puts 'dump finished.'
     end
-    
+
     desc "Updates database with mysql dump"
     task :update => :environment do
       puts "Uploading backup.sql to #{database_name}"
       `mysql -u root -p #{database_name} < backup.sql`
       puts "Update finished"
     end
-    
+
   end
 
   desc "Pushes code to GitHub"
@@ -29,8 +29,8 @@ namespace :xenda do
     `git push xenda master`
     puts 'deploy finished.'
   end
-  
-  desc "Updates code rom GitHub"
+
+  desc "Updates code from GitHub"
   task :update => :environment do
     puts "Pulling new code from GitHub"
     `git pull xenda master`
@@ -39,6 +39,6 @@ namespace :xenda do
 
   task :release => ['db:dump', :deploy]
   task :sync => [:update, "db:update"]
-  
+
 end
 
