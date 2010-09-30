@@ -19,7 +19,7 @@ class CommentsController < InheritedResources::Base
 
   def create
     if current_user
-      Score.rate(current_user, params[:comment][:movie_id],[:comment][:theatre_id],[:comment][:value])
+      Score.rate(current_user, params[:comment][:movie_id],params[:theatre_id],params[:score_value])
     end
     create!  { default_path }
   end
