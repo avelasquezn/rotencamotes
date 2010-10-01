@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   after_create  :setup_profile
 
+  accepts_nested_attributes_for :profile
+
   devise  :registerable, :database_authenticatable,:recoverable,:rememberable, :trackable, :validatable
 
 

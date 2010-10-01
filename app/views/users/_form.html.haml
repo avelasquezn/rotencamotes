@@ -1,11 +1,22 @@
 = f.error_messages
 - f.inputs do
-  = f.input :first_name
-  = f.input :last_name
+  = f.input :first_name, :label => "Nombre"
+  = f.input :last_name, :label => "Apellido"
   = f.input :email
-  = f.input :password, :as => :password
-  = f.input :born_at, :as => :date
+  = f.input :password, :as => :password, :label => "Contraseña", :hint => "Sólo si quieres cambiarla"
+  = f.input :password_confirmation, :as => :password, :label => "Confirmación de Contraseña"
+  = f.input :born_at, :as => :date, :label => "Fecha de nacimiento"
   = f.input :avatar, :as => :file
+  - f.semantic_fields_for :profile do |profile|
+    = profile.input :current_location, :as => :country, :label => "País"
+    = profile.input :favorite_genre, :label => "Género favorito"
+    = profile.input :favorite_actor, :label => "Actor favorito"
+    = profile.input :favorite_director, :label => "Director favorito"
+    = profile.input :favorite_writer, :label => "Escritor favorito"
+    = profile.input :favorite_movie, :label => "Película favorito"
+    = profile.input :favorite_movie_character, :label => "Personaje favorito"
+    = profile.input :favorite_movie_line, :label => "Cita favorita"
+  
 - f.buttons do
-  = f.commit_button comit_label
+  = f.commit_button commit_label
 
