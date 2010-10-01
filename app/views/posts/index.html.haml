@@ -56,7 +56,7 @@
     .middle
       %h3 Últimos comentarios
       .detail
-      - Comment.last_published(5).each do |comment|
+      - Comment.last_published(5).from_posts.each do |comment|
         %p
           = comment.name
           = ' dijo en '

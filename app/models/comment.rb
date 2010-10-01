@@ -27,6 +27,9 @@ class Comment < ActiveRecord::Base
                   :order      => 'created_at DESC'
                 }
               }
+              
+  named_scope :from_posts, :conditions=>"post_id is not null", :order=>"created_at DESC"
+  named_scope :from_movies, :conditions=>"movie_id is not null", :order=>"created_at DESC"  
 
   named_scope :last_published,
               lambda { |limit| limit = 20 if limit.nil?

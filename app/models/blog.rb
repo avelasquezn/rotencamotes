@@ -79,6 +79,10 @@ class Blog < ActiveRecord::Base
   def update_posts_count
     self.posts_count = self.posts.empty? ? 0 : self.posts.count
   end
+  
+  def to_param
+    "#{id}-#{try(:name).try(:parameterize)}"
+  end
 end
 
 
