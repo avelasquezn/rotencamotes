@@ -187,6 +187,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -209,5 +210,6 @@ end
 #  created_at      :datetime
 #  updated_at      :datetime
 #  movie_id        :integer(4)
+#  headlines       :text
 #
 

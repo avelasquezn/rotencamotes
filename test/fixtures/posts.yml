@@ -35,6 +35,7 @@ two:
 
 
 
+
 # == Schema Information
 #
 # Table name: posts
@@ -57,5 +58,6 @@ two:
 #  created_at      :datetime
 #  updated_at      :datetime
 #  movie_id        :integer(4)
+#  headlines       :text
 #
 
