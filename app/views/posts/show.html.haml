@@ -1,27 +1,26 @@
-#content
-  #blog.widget
-    .top
-    .middle
-      %p
-        = image_tag @post.blog.banner.url(:medium)
-    .bottom
+#content.blog_post
+  / #blog.widget
+  /   .top
+  /   .middle
+  /     %p
+  /       = image_tag @post.blog.banner.url(:medium)
+  /   .bottom
   #post.widget
     .top
     .middle
       %h3= h @post.title
       - if allowed_to_act_on @post
         = link_to "Editar",edit_member_post_path(@post)
-      %p
-        %b Película:
-        = h @post.movie_title
-      %p
-        %b Rating:
-        = h @post.rating
-      %p
-        %b Publicado el:
-        = h @post.published_at.strftime('%d-%b-%Y') if @post.published?
-      %p
-        = h @post.content
+        
+      .post
+
+        %h4.date= @post.published_at.strftime('%d-%b-%Y') if @post.published? 
+        %p.headlines= @post.headlines
+        .content= h @post.content
+        - if @post.movie
+          .movie= render :partial => "movie_widget", :locals => {:movie => @post.movie}
+
+        .rating= number_to_percentage @post.rating, :precision => 0
       .clear
     .bottom
   - if @post.comments.count > 0
@@ -69,11 +68,11 @@
   .clear
 
 #sidebar
-  #movie.widget
+  #movie.widget.blogger
     .top
     .middle
       .movie
-        = image_tag @post.user.avatar.url(:thumb)
+        = avatar_tag(@post.user)
         .clear
       .detail
         .spec
@@ -81,11 +80,12 @@
             %h3
               = link_to h(@post.blog.name), @post.blog
           %p.short
-            %h4
+            %h4.author
               = 'Por '
               = link_to h(@post.user.full_name), @post.user.profile
           %p.short
-            = summary_of h @post.blog.description
+            .author_bio
+              = summary_of h @post.blog.description
       .clear
     .bottom
   #share.widget
@@ -108,5 +108,4 @@
     .bottom
   .clear
 .clear
-\#{link_to 'Regresar', posts_path}
 

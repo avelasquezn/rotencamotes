@@ -48,6 +48,17 @@ $(document).ready(function(){
              lessAni: "fast",              
              ellipsisText: " (...)"  ,
              });	 
+
+ 	 $('.author_bio').jTruncate({
+   	        length: 150,
+   	        minTrail: 0,
+   	        moreText: "leer más",
+             lessText: "leer menos" ,
+             moreAni: "fast",  
+             lessAni: "fast",              
+             ellipsisText: " (...)"  ,
+             });             
+             
 	 
 });
 

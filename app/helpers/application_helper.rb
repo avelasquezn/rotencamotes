@@ -51,6 +51,17 @@ module ApplicationHelper
    "current" if params[:filter]=="recomendadas"
   end
 
+  def avatar_tag(user)
+    
+    if user
+      avatar = link_to image_tag(user.avatar.url(:avatar), :class => "avatar",:title => user.full_name),user.profile
+    else
+      avatar = image_tag "unknown.png", :class => "avatar", :title => "Desconocido", :size => "64x64"
+    end
+    
+    content_tag(:div, avatar, :class => "avatar")
+    
+  end
 
 
 end
