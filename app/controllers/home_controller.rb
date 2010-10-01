@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     logger.info "Mandando #{@movies.size} películas"    
     @posts = Post.last_published(5)
     @schedules =Schedule.scheduled_movies
-    @comments = Comment.last_published(4)
+    @comments = Comment.last_published(6)
     respond_to do |wants|
       wants.html # =>   
       wants.js do 
