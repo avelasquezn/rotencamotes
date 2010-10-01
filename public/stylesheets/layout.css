@@ -16,6 +16,8 @@
 	http://localhost:3000/stylesheets/layout.css?1285768674
 	http://localhost:3000/stylesheets/layout.css?1285822043
 	http://localhost:3000/stylesheets/layout.css?1285889651
+	http://localhost:3000/stylesheets/layout.css?1285890912
+	http://localhost:3000/stylesheets/layout.css?1285891443
 */
 
 @font-face {
@@ -49,6 +51,10 @@ h3,#content div.widget div.middle h2 {
 	border-bottom:solid 1px #ccc;
 	margin:0 10px 10px 10px;
 	font-family:DaxCompactMedium, arial;
+}
+
+h3 {
+	border: none;
 }
 
 #content div.widget div.middle h2 {
@@ -377,6 +383,10 @@ li.movie .camote {
 	border-bottom:solid 1px #ccc;
 }
 
+form#new_comment.formtastic.comment {
+	border-bottom: none;	
+}
+
 #opiniones .last {
 	border:none;
 }
@@ -405,7 +415,20 @@ li.movie .camote {
 }
 
 fieldset.inputs ol li.invitation {
+	padding: 10px 10px;
+	background-color: #fcff88;
+	border-top: 1px solid #cbc88d;
+	border-bottom: 1px solid #cbc88d;
+	height: auto;
+	line-height: 1.4em;
+	padding-bottom: 20px;
+	overflow: hidden;
+	color: #323131;
+}
 
+fieldset.inputs ol li.invitation a {
+	color: #ec7500;
+	font-weight: bold;
 }
 
 .comment .rating {
@@ -589,6 +612,19 @@ input.update{
 	background: -moz-linear-gradient(bottom,  #B0D41B,  #DEFA24); /* for firefox 3.6+ */	
 }
 
+.sessions input {
+	padding: 5px 15px;
+	width: 250px;
+	color: #707272;
+	font-size: 12px;
+}
+.sessions input.create {
+	font-size: 10px ;
+}
+input#user_remember_me {
+	width: auto;
+}
+
 #movie .movie a.comment{
 	border-color:#AE6D11;
 	color:#612D0E;
@@ -631,10 +667,18 @@ input.update{
 	padding-left:5px;
 }
 
-#movie section.movie_summary {
+#movie section.movie_summary,
+.movie_synopsis {
 	color: #5b5b5b;
 	line-height: 1.5em;
 	font-family: Arial, Helvetica, Geneva, sans-serif;
+	margin-left: 5px;
+	margin-right: 10px;
+}
+
+#movie div.middle div.detail div.spec section.movie_summary {
+	margin-left: 0px;
+	margin-right: 0px;
 }
 
 a.truncate_more_link {

@@ -1,4 +1,4 @@
-#content
+#content.sessions
   #opiniones
   
   - widget_tag do
@@ -7,9 +7,9 @@
       = f.error_messages
       %p= f.label :email
       %p= f.text_field :email
-      %p= f.label :password
+      %p= f.label :password, "Contraseña"
       %p= f.password_field :password
-      %p= f.label :password_confirmation
+      %p= f.label :password_confirmation, "Confirma tu contraseña"
       %p= f.password_field :password_confirmation
-      %p= f.submit "Registrarse"
+      %p= f.submit "Registrarse", :class => "create"
     = render :partial => "shared/devise_links"

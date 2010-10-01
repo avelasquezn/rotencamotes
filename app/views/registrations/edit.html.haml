@@ -1,4 +1,4 @@
-#content
+#content.sessions
   #opiniones
   
   - widget_tag do
@@ -9,16 +9,16 @@
       %p= f.label :email
       %p= f.text_field :email
       %p
-        = f.label :password
+        = f.label :password, "Contraseña"
         %i (en blanco si no quieres cambiarlo)
       %p= f.password_field :password
-      %p= f.label :password_confirmation
+      %p= f.label :password_confirmation, "Confirma tu contraseña"
       %p= f.password_field :password_confirmation
       %p
         = f.label :current_password
         %i (necesitamos tu contraseña para cambiar tus datos)
       %p= f.password_field :current_password
-      %p= f.submit "Actualizazr"
+      %p= f.submit "Actualizar", :class => "create"
     %h3 Cancelar mi cuenta
     %p
       = "¿No estás satisfecho? #{link_to "Cancela tu cuenta", registration_path(resource_name), :confirm => "¿Seguro? Te vamos a extrañar :(", :method => :delete}."
