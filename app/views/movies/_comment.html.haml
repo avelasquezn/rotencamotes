@@ -1,4 +1,4 @@
-%li{:class => rand(2) == 1 ? "camote" : "rotten", :id =>"comment_#{comment.id}"}
+%li{:class => score_icon(comment.score), :id =>"comment_#{comment.id}"}
   .avatar
     - if comment.user
       - link_to comment.user.profile do

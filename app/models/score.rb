@@ -3,13 +3,14 @@ class Score < ActiveRecord::Base
   belongs_to              :movie
   belongs_to              :user
   belongs_to              :theatre
+  belongs_to              :comment
 
   # validations
   validates_presence_of   :movie
   validates_presence_of   :user
   validates_presence_of   :value
   validates_presence_of   :scored_at
-  validates_uniqueness_of :movie_id, :case_sensitive => true, :scope => [:user_id, :scored_at]
+  # validates_uniqueness_of :movie_id, :case_sensitive => true, :scope => [:user_id, :scored_at]
 
   SOURCES = {
     :community  =>  'community',
@@ -69,17 +70,21 @@ class Score < ActiveRecord::Base
     user.scores.from_movie(movie_id).find_all_by_scored_at(Date.today).empty?
   end
 
-  def self.rate(user, movie_id, theatre_id, value)
+  def self.rate(user, movie_id, theatre_id, value, comment_id = nil)
     if able_to_rate_movie(user, movie_id)
       score             = Score.new
       score.user_id     = user.id
+      score.comment_id  = comment_id
       score.movie_id    = movie_id
       score.theatre_id  = theatre_id
       score.value       = value
       score.scored_at   = Date.today
       score.source      = user.member_of
       score.save
+      logger.info score.errors.full_messages
+      logger.info "Se puede crear"
     else
+      logger.info "No se puede crear"
       false
     end
   end
@@ -102,6 +107,7 @@ class Score < ActiveRecord::Base
 end
 
 
+
 # == Schema Information
 #
 # Table name: scores
@@ -115,5 +121,6 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #  theatre_id :integer(4)
+#  comment_id :integer(4)
 #
 

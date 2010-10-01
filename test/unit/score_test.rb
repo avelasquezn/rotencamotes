@@ -70,6 +70,7 @@ class ScoreTest < ActiveSupport::TestCase
 end
 
 
+
 # == Schema Information
 #
 # Table name: scores
@@ -83,5 +84,6 @@ end
 #  created_at :datetime
 #  updated_at :datetime
 #  theatre_id :integer(4)
+#  comment_id :integer(4)
 #
 

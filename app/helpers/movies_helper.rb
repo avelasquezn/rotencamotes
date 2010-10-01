@@ -15,5 +15,11 @@ module MoviesHelper
     @movie.movie_writers.map {|w| link_to w.writer.name, w.writer}.join(', ')
   end
 
+  def score_icon(score)
+    if score
+      score.value == 5 ? "camote" : "rotten"
+    end
+  end
+
 end
 

@@ -1143,3 +1143,7 @@ input.update {
 	width:32px;
 	height:32px;	
 }
+
+#new_comment fieldset.inputs ol {
+	margin-bottom: 10px;
+}

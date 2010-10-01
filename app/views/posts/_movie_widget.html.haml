@@ -1,0 +1,10 @@
+%ul.cartelera
+  %li
+    - link_to movie, :class => "movie", :title => movie.title do
+      = image_tag movie.banner.url(:scheduled)
+    .desc
+      = link_to movie.title, movie, :class => "title", :title => movie.title
+      %p.tags
+        - movie.genres.each do |genre|
+          = link_to genre.name, genre, :title => genre.name, :class => "title"
+      = link_to "Opiniones (#{movie.posts.size})", movie_posts_path(movie)
