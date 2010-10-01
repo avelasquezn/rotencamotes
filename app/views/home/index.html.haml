@@ -27,7 +27,7 @@
         %label{:for => "order"} Ordenar por
         %select{:id => "order"}
           %option{:value=>1} Todos los temas
-      = render :partial => "post", :collection => @posts, :locals => {:last => @posts.size - 1 }
+      = render :partial => "post", :collection => @posts
     
 
 

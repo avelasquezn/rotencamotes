@@ -1,4 +1,4 @@
-.comment{:class => (post_counter == last ? "last" : "")}
+.comment{:class => (post_counter == 4 ? "last" : "")}
   %p
     = summary_of(post.content,150)
     = link_to('Más', post)
@@ -6,7 +6,7 @@
       - movie_title = post.movie.title if post.movie
     = link_to "#{movie_title}: #{truncate(post.title,30)}", post, :class => "post_title"
   .rating
-    = number_to_percentage rand(100), :precision => 0
+    = number_to_percentage post.rating, :precision => 0
   .avatar
     - link_to post.user.profile do
       = image_tag post.user.avatar.url(:avatar), :title => post.user.full_name, :size => "64x64", :class => "avatar"
