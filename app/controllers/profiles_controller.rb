@@ -4,7 +4,7 @@ class ProfilesController < InheritedResources::Base
   actions       :edit, :update, :show
 
   def default_path
-    profiles_path
+    profile_path(@profile)
   end
 
   def update
