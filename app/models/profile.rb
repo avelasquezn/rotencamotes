@@ -30,6 +30,10 @@ class Profile < ActiveRecord::Base
     self.favorite_movie_line.nil? || self.favorite_movie_line=='' ? 'No especificada' : self.favorite_movie_line
   end
 
+  def to_param
+    "#{id}-#{user.try(:full_name).try(:parameterize)}"
+  end
+
 end
 
 

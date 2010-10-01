@@ -6,12 +6,15 @@
         %p
           = image_tag @profile.user.avatar.url(:avatar)
       .detail
-        - if current_user == @profile.user
+        - if your_own?
           %p
             = link_to 'editar', edit_user_path(@profile.user)
         %p
           %b Nombre:
           = h @profile.user.full_name
+          - if @profile.user.full_name.blank? && your_own?
+            No has ingresado tu nombre aún
+            = link_to "¿Qué esperas?", edit_user_path(@profile.user)
         %p
           %b e-mail:
           = h @profile.user.email
@@ -21,7 +24,7 @@
     .top
     .middle
       %h3 Ubicación
-      - if current_user == @profile.user
+      - if your_own?
         %p
           = link_to 'editar', edit_profile_path(@profile)
       %p
@@ -32,7 +35,7 @@
     .top
     .middle
       %h3 Preferencias
-      - if current_user == @profile.user
+      - if your_own?
         %p
           = link_to 'editar', edit_profile_path(@profile)
       %p
@@ -89,7 +92,7 @@
           %br
       .bottom
   - else
-    - if current_user == @profile.user
+    - if your_own?
       #last_posts.widget
         .top
         .middle
