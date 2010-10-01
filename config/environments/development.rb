@@ -19,3 +19,4 @@ config.action_mailer.raise_delivery_errors = false
 # Required by devise
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+ENV["RAILS_ASSET_ID"] = '' 
